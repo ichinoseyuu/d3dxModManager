@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Tips</class>
- <widget class="QWidget" name="Tips">
+ <class>tip</class>
+ <widget class="QWidget" name="tip">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -26,13 +26,13 @@
    <string/>
   </property>
   <property name="styleSheet">
-   <string notr="true">#TipBoard {
-    border: 1px solid lightgray;
-    background-color: rgb(250, 245, 245);
+   <string notr="true">#tipBoard {
+    border: 1px solid rgb(235, 235, 235);
+    background-color: rgb(240, 240, 240);
     border-radius: 4px;
 }
 
-#TipLabel {
+#tipLabel {
 	font-family: &quot;微软雅黑&quot;;
     font: 10pt;
     border: none;
@@ -54,10 +54,10 @@
     <number>9</number>
    </property>
    <item>
-    <widget class="QWidget" name="TipBoard" native="true">
+    <widget class="QWidget" name="tipBoard" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="TipLabel">
+       <widget class="QLabel" name="tipLabel">
         <property name="text">
          <string>提示</string>
         </property>

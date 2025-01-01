@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Message</class>
- <widget class="QDialog" name="Message">
+ <class>message</class>
+ <widget class="QDialog" name="message">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,12 +23,12 @@
    </size>
   </property>
   <property name="styleSheet">
-   <string notr="true">#TitleWidget {
+   <string notr="true">#titleWidget {
     border-bottom: 1px solid rgb(235, 235, 235);
     background-color: rgb(250, 245, 245);
 }
 
-#Title {
+#title {
 	font-family: &quot;微软雅黑&quot;;
     font: 11pt;
     border: none;
@@ -36,27 +36,27 @@
     color: rgb(60, 60, 60);
 }
 
-#TitleWidget QPushButton {
+#titleWidget QPushButton {
     background-color: transparent;
 }
 
-#TitleWidget QPushButton:hover {
+#titleWidget QPushButton:hover {
     background-color: gainsboro;
     border-radius: 2px;
 }
 
-#TitleWidget QPushButton:pressed {
+#titleWidget QPushButton:pressed {
     background-color: lightgray;
     border-radius: 2px;
 }
 
 /*=========================*/
 
-#MessageWidget {
-    background-color: rgb(255, 246, 248);
+#messageWidget {
+    background-color: rgb(240, 240, 240);
 }
 
-#MessageLabel {
+#messageLabel {
 	font-family: &quot;微软雅黑&quot;;
     font: 10pt;
     border: none;
@@ -65,11 +65,10 @@
 }
 
 /*=========================*/
-#DefaultWidget {
-    border-bottom: 1px solid rgb(235, 235, 235);
+#bottomWidget {
     background-color: rgb(250, 245, 245);
 }
-#ButtonCancel{
+#btnCancel{
     background-color: rgb(235, 235, 235);
 	font-family: &quot;微软雅黑&quot;;
 	font-size: 10pt;
@@ -77,30 +76,30 @@
     border-radius: 2px;
 }
 
-#ButtonCancel:hover {
+#btnCancel:hover {
     background-color: gainsboro;
     border-radius: 2px;
 }
 
-#ButtonCancel:pressed {
+#btnCancel:pressed {
     background-color: lightgray;
     border-radius: 2px;
 }
 
-#ButtonOk {
-    background-color: rgb(208, 178, 224);
+#btnOk {
+    background-color: rgb(108, 195, 238);
 	font-family: &quot;微软雅黑&quot;;
 	font-size: 10pt;
 	color: rgb(255, 255, 255);
     border-radius: 2px;
 }
 
-#ButtonOk:hover {
+#btnOk:hover {
     background-color: rgb(197, 172, 227);
     border-radius: 2px;
 }
 
-#ButtonOk:pressed {
+#btnOk:pressed {
     background-color: rgb(181, 164, 232);
     border-radius: 2px;
 }
@@ -117,7 +116,7 @@ QToolTip {
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="TitleWidget" native="true">
+    <widget class="QWidget" name="titleWidget" native="true">
      <property name="minimumSize">
       <size>
        <width>300</width>
@@ -132,7 +131,7 @@ QToolTip {
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLabel" name="Title">
+       <widget class="QLabel" name="title">
         <property name="text">
          <string>标题</string>
         </property>
@@ -155,7 +154,7 @@ QToolTip {
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="ButtonExit">
+       <widget class="QPushButton" name="btnExit">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -173,7 +172,7 @@ QToolTip {
         </property>
         <property name="icon">
          <iconset resource="../../resource/resources.qrc">
-          <normaloff>:/btn/title_bar/shutdown.png</normaloff>:/btn/title_bar/shutdown.png</iconset>
+          <normaloff>:/iamge_pack/title_bar/shutdown.png</normaloff>:/iamge_pack/title_bar/shutdown.png</iconset>
         </property>
        </widget>
       </item>
@@ -181,7 +180,7 @@ QToolTip {
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="MessageWidget" native="true">
+    <widget class="QWidget" name="messageWidget" native="true">
      <property name="minimumSize">
       <size>
        <width>300</width>
@@ -193,7 +192,7 @@ QToolTip {
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="MessageLabel">
+       <widget class="QLabel" name="messageLabel">
         <property name="text">
          <string>消息</string>
         </property>
@@ -206,7 +205,7 @@ QToolTip {
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="DefaultWidget" native="true">
+    <widget class="QWidget" name="bottomWidget" native="true">
      <property name="minimumSize">
       <size>
        <width>300</width>
@@ -249,7 +248,7 @@ QToolTip {
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="ButtonOk">
+       <widget class="QPushButton" name="btnOk">
         <property name="minimumSize">
          <size>
           <width>60</width>
@@ -268,7 +267,7 @@ QToolTip {
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="ButtonCancel">
+       <widget class="QPushButton" name="btnCancel">
         <property name="minimumSize">
          <size>
           <width>60</width>
