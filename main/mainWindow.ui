@@ -27,7 +27,6 @@
     <string notr="true">/*=============================================================================*/
 /*=================================标题栏样式===================================*/
 /*=============================================================================*/
-
 #titleWidget {
     border-bottom: 1px solid rgb(235, 235, 235);
     background-color: rgb(250, 245, 245);
@@ -660,9 +659,6 @@ QToolTip {
            <height>24</height>
           </size>
          </property>
-         <property name="toolTip">
-          <string>最小化</string>
-         </property>
          <property name="icon">
           <iconset resource="../resource/resources.qrc">
            <normaloff>:/iamge_pack/title_bar/minimize.png</normaloff>:/iamge_pack/title_bar/minimize.png</iconset>
@@ -682,9 +678,6 @@ QToolTip {
            <width>24</width>
            <height>24</height>
           </size>
-         </property>
-         <property name="toolTip">
-          <string>全屏/窗口化</string>
          </property>
          <property name="icon">
           <iconset resource="../resource/resources.qrc">
@@ -709,9 +702,6 @@ QToolTip {
            <width>24</width>
            <height>24</height>
           </size>
-         </property>
-         <property name="toolTip">
-          <string>关闭</string>
          </property>
          <property name="icon">
           <iconset resource="../resource/resources.qrc">
@@ -784,9 +774,6 @@ QToolTip {
               <height>42</height>
              </size>
             </property>
-            <property name="toolTip">
-             <string>首页</string>
-            </property>
             <property name="icon">
              <iconset resource="../resource/resources.qrc">
               <normaloff>:/iamge_pack/tab/home.png</normaloff>:/iamge_pack/tab/home.png</iconset>
@@ -813,9 +800,6 @@ QToolTip {
               <height>42</height>
              </size>
             </property>
-            <property name="toolTip">
-             <string>模组</string>
-            </property>
             <property name="icon">
              <iconset resource="../resource/resources.qrc">
               <normaloff>:/iamge_pack/tab/module_1.png</normaloff>:/iamge_pack/tab/module_1.png</iconset>
@@ -829,7 +813,7 @@ QToolTip {
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnStart">
+           <widget class="QPushButton" name="btnFolder">
             <property name="minimumSize">
              <size>
               <width>42</width>
@@ -841,9 +825,6 @@ QToolTip {
               <width>42</width>
               <height>42</height>
              </size>
-            </property>
-            <property name="toolTip">
-             <string>常用文件夹</string>
             </property>
             <property name="icon">
              <iconset resource="../resource/resources.qrc">
@@ -871,9 +852,6 @@ QToolTip {
               <height>42</height>
              </size>
             </property>
-            <property name="toolTip">
-             <string>配置</string>
-            </property>
             <property name="icon">
              <iconset resource="../resource/resources.qrc">
               <normaloff>:/iamge_pack/tab/Settings.png</normaloff>:/iamge_pack/tab/Settings.png</iconset>
@@ -899,9 +877,6 @@ QToolTip {
               <width>42</width>
               <height>42</height>
              </size>
-            </property>
-            <property name="toolTip">
-             <string>关于</string>
             </property>
             <property name="icon">
              <iconset resource="../resource/resources.qrc">
@@ -941,9 +916,6 @@ QToolTip {
               <width>42</width>
               <height>42</height>
              </size>
-            </property>
-            <property name="toolTip">
-             <string>切换主题</string>
             </property>
             <property name="icon">
              <iconset resource="../resource/resources.qrc">
@@ -1010,7 +982,7 @@ QToolTip {
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>1</number>
+             <number>4</number>
             </property>
             <widget class="QWidget" name="page_0">
              <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -1115,7 +1087,7 @@ QToolTip {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButton_3">
+                  <widget class="QPushButton" name="btnSearch">
                    <property name="minimumSize">
                     <size>
                      <width>30</width>
@@ -1127,9 +1099,6 @@ QToolTip {
                      <width>30</width>
                      <height>24</height>
                     </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>查找</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1619,9 +1588,6 @@ QToolTip {
                      <height>32</height>
                     </size>
                    </property>
-                   <property name="toolTip">
-                    <string>删除</string>
-                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -1650,9 +1616,6 @@ QToolTip {
                      <width>32</width>
                      <height>32</height>
                     </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>全选/取消全选</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1690,9 +1653,6 @@ QToolTip {
                      <height>32</height>
                     </size>
                    </property>
-                   <property name="toolTip">
-                    <string>添加文件夹</string>
-                   </property>
                    <property name="text">
                     <string/>
                    </property>
@@ -1721,9 +1681,6 @@ QToolTip {
                      <width>32</width>
                      <height>32</height>
                     </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>进入编辑模式</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1902,7 +1859,7 @@ QToolTip {
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="btnRemoveGame">
+                  <widget class="QPushButton" name="btnClearGameData">
                    <property name="minimumSize">
                     <size>
                      <width>28</width>
@@ -1914,9 +1871,6 @@ QToolTip {
                      <width>28</width>
                      <height>28</height>
                     </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>清空当前游戏配置</string>
                    </property>
                    <property name="text">
                     <string/>
@@ -1946,9 +1900,6 @@ QToolTip {
                      <width>28</width>
                      <height>28</height>
                     </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>下一步</string>
                    </property>
                    <property name="icon">
                     <iconset resource="../resource/resources.qrc">
@@ -2274,7 +2225,7 @@ QToolTip {
                       </widget>
                      </item>
                      <item row="2" column="4">
-                      <widget class="QPushButton" name="pushButton">
+                      <widget class="QPushButton" name="btnSelect_1">
                        <property name="minimumSize">
                         <size>
                          <width>22</width>
@@ -2286,9 +2237,6 @@ QToolTip {
                          <width>22</width>
                          <height>22</height>
                         </size>
-                       </property>
-                       <property name="toolTip">
-                        <string>选择游戏路径</string>
                        </property>
                        <property name="text">
                         <string/>
@@ -2300,7 +2248,7 @@ QToolTip {
                       </widget>
                      </item>
                      <item row="3" column="4">
-                      <widget class="QPushButton" name="pushButton_2">
+                      <widget class="QPushButton" name="btnSelect_2">
                        <property name="minimumSize">
                         <size>
                          <width>22</width>
@@ -2312,9 +2260,6 @@ QToolTip {
                          <width>22</width>
                          <height>22</height>
                         </size>
-                       </property>
-                       <property name="toolTip">
-                        <string>选择模组加载器路径</string>
                        </property>
                        <property name="text">
                         <string/>
@@ -2596,9 +2541,6 @@ QToolTip {
                    <height>32</height>
                   </size>
                  </property>
-                 <property name="toolTip">
-                  <string/>
-                 </property>
                  <property name="text">
                   <string> 检查更新</string>
                  </property>
@@ -2736,7 +2678,7 @@ QToolTip {
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_4">
+              <widget class="QPushButton" name="btnStart">
                <property name="enabled">
                 <bool>true</bool>
                </property>

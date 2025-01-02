@@ -1,9 +1,9 @@
 from PySide6.QtWidgets import QDialog
 from PySide6.QtCore import Qt, QPropertyAnimation
-from component.ui import Ui_Message
-from component.tool import GenericFunc
+from SmodernUI import Ui_message
+from SmodernUI import GenericFunc
 
-class CMessage(QDialog, Ui_Message) :
+class CMessage(QDialog, Ui_message) :
     def __init__(self, tip = '', message = '', parent=None):
         super(CMessage, self).__init__()
         self.parent = parent
@@ -13,16 +13,16 @@ class CMessage(QDialog, Ui_Message) :
         self.setModal(True)
         self.setWindowModality(Qt.ApplicationModal)
 
-        self.Title.setText(tip)
-        self.MessageLabel.setText(message)
+        self.title.setText(tip)
+        self.messageLabel.setText(message)
         # 自动调整窗口大小
         self.adjustSize()
 
         self.setGeometry(GenericFunc.calculateGlobalCenterPos(self.geometry(),self.parent.geometry()))
 
-        self.ButtonExit.clicked.connect(self.cancel)
-        self.ButtonCancel.clicked.connect(self.cancel)
-        self.ButtonOk.clicked.connect(self.confirm)
+        self.btnExit.clicked.connect(self.cancel)
+        self.btnCancel.clicked.connect(self.cancel)
+        self.btnOk.clicked.connect(self.confirm)
 
         # 添加淡入效果 (通过调整窗口的透明度)
         self.fadeAnim = QPropertyAnimation(self, b"windowOpacity")

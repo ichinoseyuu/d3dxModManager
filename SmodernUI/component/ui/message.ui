@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>message</class>
+ <widget class="QDialog" name="message">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>318</width>
+    <height>228</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>318</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#titleWidget {
+    border-bottom: 1px solid rgb(235, 235, 235);
+    background-color: rgb(250, 245, 245);
+}
+
+#title {
+	font-family: &quot;微软雅黑&quot;;
+    font: 11pt;
+    border: none;
+    background-color: transparent;
+    color: rgb(60, 60, 60);
+}
+
+#titleWidget QPushButton {
+    background-color: transparent;
+}
+
+#titleWidget QPushButton:hover {
+    background-color: gainsboro;
+    border-radius: 2px;
+}
+
+#titleWidget QPushButton:pressed {
+    background-color: lightgray;
+    border-radius: 2px;
+}
+
+/*=========================*/
+
+#messageWidget {
+    background-color: rgb(240, 240, 240);
+}
+
+#messageLabel {
+	font-family: &quot;微软雅黑&quot;;
+    font: 10pt;
+    border: none;
+    background-color: transparent;
+    color: rgb(80, 80, 80);
+}
+
+/*=========================*/
+#bottomWidget {
+    background-color: rgb(250, 245, 245);
+}
+#btnCancel{
+    background-color: rgb(235, 235, 235);
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 10pt;
+	color: rgb(80, 80, 80);
+    border-radius: 2px;
+}
+
+#btnCancel:hover {
+    background-color: gainsboro;
+    border-radius: 2px;
+}
+
+#btnCancel:pressed {
+    background-color: lightgray;
+    border-radius: 2px;
+}
+
+#btnOk {
+    background-color: rgb(108, 195, 238);
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 10pt;
+	color: rgb(255, 255, 255);
+    border-radius: 2px;
+}
+
+#btnOk:hover {
+    background-color: rgb(197, 172, 227);
+    border-radius: 2px;
+}
+
+#btnOk:pressed {
+    background-color: rgb(181, 164, 232);
+    border-radius: 2px;
+}
+QToolTip {
+    font: 10pt;
+    background-color: whitesmoke;
+    color: dimgray;
+    border-radius: 2px;
+    border: 1px solid lightgray;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="titleWidget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>40</height>
+      </size>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="title">
+        <property name="text">
+         <string>标题</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnExit">
+        <property name="minimumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="icon">
+         <iconset resource="../../../resource/resources.qrc">
+          <normaloff>:/iamge_pack/title_bar/shutdown.png</normaloff>:/iamge_pack/title_bar/shutdown.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="messageWidget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>120</height>
+      </size>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LayoutDirection::RightToLeft</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="messageLabel">
+        <property name="text">
+         <string>消息</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="bottomWidget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>50</height>
+      </size>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>15</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnOk">
+        <property name="minimumSize">
+         <size>
+          <width>60</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>确定</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCancel">
+        <property name="minimumSize">
+         <size>
+          <width>60</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>取消</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../../resource/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

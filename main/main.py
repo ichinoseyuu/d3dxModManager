@@ -1,13 +1,16 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
-from core.ui_Main import Ui_mainWindow
-from component.window import CMessage
-class core(QMainWindow,Ui_mainWindow):
+from SmodernUI import CMessage, CToolTip, ObjRef
+from .Ui_mainWindow import Ui_mainWindow
+
+
+class d3dxModManager(QMainWindow,Ui_mainWindow):
     def __init__(self):
         super().__init__()
+        ObjRef['TOOLTIP'] = CToolTip()
         self.setupUi(self)
-        self.pushButton.clicked.connect(self.closeEvent)
+
 
     def closeEvent(self,event):
         #region 退出程序

@@ -2,9 +2,9 @@ import enum
 from PySide6.QtWidgets import QWidget
 from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve, QPoint,QTimer,QRect,QSize
 from PySide6.QtGui import QMouseEvent,QCursor
-from .Ui_DynamicTip import Ui_DynamicTip
+from SmodernUI import Ui_tip, GenericFunc
 
-class CDynamicTip(QWidget, Ui_DynamicTip):
+class CDynamicTip(QWidget, Ui_tip):
     class PosMode(enum.Enum):
         Center = 0
         Left = 1
@@ -12,13 +12,13 @@ class CDynamicTip(QWidget, Ui_DynamicTip):
     def __init__(self, tip: str, posMode: PosMode = PosMode.Center,parent=None):
         super(CDynamicTip, self).__init__()
         self.parent = parent
-        self.positionMode = posMode
+        self.posMode = posMode
         self.setupUi(self)
         self.setWindowFlags(Qt.FramelessWindowHint|Qt.WindowStaysOnTopHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
 
         #设置提示文字
-        self.TipLabel.setText(tip)
+        self.tipLabel.setText(tip)
 
         # 自动调整窗口大小
         self.adjustSize()
@@ -50,16 +50,16 @@ class CDynamicTip(QWidget, Ui_DynamicTip):
 
 
     def animIn(self):
-        if self.positionMode == CDynamicTip.PosMode.Center:
+        if self.posMode == CDynamicTip.PosMode.Center:
             self.moveAnimIn.setStartValue(QPoint(self.x(), self.y() + 150))# 起始位置
             self.moveAnimIn.setEndValue(self.pos())  # 结束位置，往上移动50像素
             self.moveAnimIn.start()
-        elif self.positionMode == CDynamicTip.PosMode.Right:
+        elif self.posMode == CDynamicTip.PosMode.Right:
             x = self.parent.geometry().right()-self.width()
             self.moveAnimIn.setStartValue(QPoint(x,self.y() + 150))  # 起始位置
             self.moveAnimIn.setEndValue(QPoint(x, self.y()))  # 结束位置，往上移动50像素
             self.moveAnimIn.start()
-        elif self.positionMode == CDynamicTip.PosMode.Left:
+        elif self.posMode == CDynamicTip.PosMode.Left:
             x = self.parent.geometry().left()
             self.moveAnimIn.setStartValue(QPoint(x,self.y() + 150))  # 起始位置
             self.moveAnimIn.setEndValue(QPoint(x, self.y()))  # 结束位置，往上移动50像素
@@ -70,18 +70,18 @@ class CDynamicTip(QWidget, Ui_DynamicTip):
         self.fadeAnim.finished.connect(self.deleteLater)
 
     def fadeOutPress(self):
-        if self.positionMode == CDynamicTip.PosMode.Center:
+        if self.posMode == CDynamicTip.PosMode.Center:
             self.fadeAnim.start()
             self.fadeAnim.finished.connect(self.deleteLater)
 
-        elif self.positionMode == CDynamicTip.PosMode.Right:
+        elif self.posMode == CDynamicTip.PosMode.Right:
             self.moveAnimOut.setStartValue(self.pos())  # 起始位置
             self.moveAnimOut.setEndValue(QPoint(self.x()+50, self.y()))
             self.fadeAnim.finished.connect(self.deleteLater)
             self.fadeAnim.start()
             self.moveAnimOut.start()
 
-        elif self.positionMode == CDynamicTip.PosMode.Left:
+        elif self.posMode == CDynamicTip.PosMode.Left:
             self.moveAnimOut.setDuration(1000)
             self.moveAnimOut.setStartValue(self.pos())  # 起始位置
             self.moveAnimOut.setEndValue(QPoint(self.x()+50, self.y()))
@@ -91,18 +91,18 @@ class CDynamicTip(QWidget, Ui_DynamicTip):
 
 
     def mousePressEvent(self, event):
-        if self.positionMode == CDynamicTip.PosMode.Center:
+        if self.posMode == CDynamicTip.PosMode.Center:
             self.fadeOutPress()
-        elif self.positionMode == CDynamicTip.PosMode.Right:
+        elif self.posMode == CDynamicTip.PosMode.Right:
             self.fadeOutPress()
-        elif self.positionMode == CDynamicTip.PosMode.Left:
+        elif self.posMode == CDynamicTip.PosMode.Left:
             self.fadeOutPress()
         return super().mousePressEvent(event)
 
 
 
 
-class CToolTip(QWidget, Ui_DynamicTip):
+class CToolTip(QWidget, Ui_tip):
     def __init__(self):
         super().__init__()
         self.parent = None
@@ -133,7 +133,7 @@ class CToolTip(QWidget, Ui_DynamicTip):
 
     def setTip(self, parent, tip: str):
         self.parent = parent
-        self.TipLabel.setText(tip)
+        self.tipLabel.setText(tip)
 
 
     def showTip(self):
@@ -171,4 +171,4 @@ class CToolTip(QWidget, Ui_DynamicTip):
     def sizeHint(self):
         """返回推荐的尺寸"""
         # 使用标签的尺寸作为基础
-        return self.TipBoard.sizeHint()
+        return self.tipBoard.sizeHint()

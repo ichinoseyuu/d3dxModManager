@@ -1,9 +1,9 @@
 import sys
 from PySide6.QtWidgets import QApplication
-from core import core
+from main import d3dxModManager
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    core = core()
-    core.show()
+    modManager = d3dxModManager()
+    modManager.show()
     sys.exit(app.exec())
