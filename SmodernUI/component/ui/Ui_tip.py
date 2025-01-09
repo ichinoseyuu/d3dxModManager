@@ -16,19 +16,19 @@ class Ui_tip(object):
     def setupUi(self, tip):
         if not tip.objectName():
             tip.setObjectName(u"tip")
-        tip.resize(94, 46)
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        tip.resize(94, 28)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(tip.sizePolicy().hasHeightForWidth())
         tip.setSizePolicy(sizePolicy)
-        tip.setMinimumSize(QSize(0, 46))
-        tip.setStyleSheet(u"#tipBoard {\n"
-"    border: 1px solid rgb(220, 220, 220);\n"
+        tip.setMinimumSize(QSize(0, 28))
+        tip.setMaximumSize(QSize(16777215, 28))
+        tip.setStyleSheet(u"#tipBoard{\n"
+"    border: 1px solid rgb(230,230,230);\n"
+"    border-radius: 2px;\n"
 "    background-color: rgb(250, 245, 245);\n"
-"    border-radius: 4px;\n"
 "}\n"
-"\n"
 "#tipLabel {\n"
 "	font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font: 10pt;\n"
@@ -37,15 +37,19 @@ class Ui_tip(object):
 "    color: rgb(80, 80, 80);\n"
 "}")
         self.verticalLayout = QVBoxLayout(tip)
+        self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(9, 9, 9, 9)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.tipBoard = QWidget(tip)
         self.tipBoard.setObjectName(u"tipBoard")
         self.verticalLayout_2 = QVBoxLayout(self.tipBoard)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.tipLabel = QLabel(self.tipBoard)
         self.tipLabel.setObjectName(u"tipLabel")
+        sizePolicy.setHeightForWidth(self.tipLabel.sizePolicy().hasHeightForWidth())
+        self.tipLabel.setSizePolicy(sizePolicy)
         self.tipLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.tipLabel)

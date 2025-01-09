@@ -36,22 +36,6 @@
     color: rgb(60, 60, 60);
 }
 
-#titleWidget QPushButton {
-    background-color: transparent;
-}
-
-#titleWidget QPushButton:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#titleWidget QPushButton:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-
-/*=========================*/
-
 #messageWidget {
     background-color: rgb(240, 240, 240);
 }
@@ -64,51 +48,19 @@
     color: rgb(80, 80, 80);
 }
 
-/*=========================*/
 #bottomWidget {
     background-color: rgb(250, 245, 245);
 }
-#btnCancel{
-    background-color: rgb(235, 235, 235);
+
+
+QPushButton {
 	font-family: &quot;微软雅黑&quot;;
 	font-size: 10pt;
-	color: rgb(80, 80, 80);
-    border-radius: 2px;
+	color: rgb(60, 60, 60);
+    border-radius: 4px;
 }
-
-#btnCancel:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#btnCancel:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-
-#btnOk {
-    background-color: rgb(108, 195, 238);
-	font-family: &quot;微软雅黑&quot;;
-	font-size: 10pt;
-	color: rgb(255, 255, 255);
-    border-radius: 2px;
-}
-
-#btnOk:hover {
-    background-color: rgb(197, 172, 227);
-    border-radius: 2px;
-}
-
-#btnOk:pressed {
-    background-color: rgb(181, 164, 232);
-    border-radius: 2px;
-}
-QToolTip {
-    font: 10pt;
-    background-color: whitesmoke;
-    color: dimgray;
-    border-radius: 2px;
-    border: 1px solid lightgray;
+QPushButton::icon {
+    padding-right: 10px;
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">

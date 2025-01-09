@@ -1,1 +1,1 @@
-from .message import CMessage
+from .message import *

@@ -11,8 +11,8 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-from SmodernUI import CButton
 from resource.resources_rc import *
+from SmodernUI import *
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
@@ -23,9 +23,7 @@ class Ui_mainWindow(object):
         self.backBoard = QWidget(mainWindow)
         self.backBoard.setObjectName(u"backBoard")
         self.backBoard.setMinimumSize(QSize(1042, 738))
-        self.backBoard.setStyleSheet(u"/*=============================================================================*/\n"
-"/*=================================\u6807\u9898\u680f\u6837\u5f0f===================================*/\n"
-"/*=============================================================================*/\n"
+        self.backBoard.setStyleSheet(u"/*---------------------------------title------------------------------------*/\n"
 "#titleWidget {\n"
 "    border-bottom: 1px solid rgb(235, 235, 235);\n"
 "    background-color: rgb(250, 245, 245);\n"
@@ -39,65 +37,25 @@ class Ui_mainWindow(object):
 "    background-color: transparent;\n"
 "    color: rgb(60, 60, 60);\n"
 "}\n"
-"\n"
-"#titleWidget CButton {\n"
-"    background-color: transparent;\n"
-"}\n"
-"\n"
-"#titleWidget CButton:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#titleWidget CButton:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"\n"
-"/*=============================================================================*/\n"
-""
-                        "/*=================================\u5de6\u4fa7\u7a97\u53e3\u6837\u5f0f=================================*/\n"
-"/*=============================================================================*/\n"
-"\n"
+"/*-----------------------------------left------------------------------------*/\n"
 "#leftWidget {\n"
 "    border-right: 1px solid rgb(235, 235, 235);\n"
 "    background-color: rgb(255, 246, 248);\n"
 "}\n"
-"\n"
-"#leftWidget CButton {\n"
-"    background-color: transparent;\n"
-"}\n"
-"\n"
-"#leftWidget CButton:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#leftWidget CButton:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"/*=============================================================================*/\n"
-"/*=================================\u53f3\u4fa7\u7a97\u53e3\u6837\u5f0f=====================================*/\n"
-"/*=============================================================================*/\n"
-"\n"
+"/*-----------------------------------right----------------------------------*/\n"
 "#rightWidget {\n"
 "    background-color: rgb(235, 235, 235);\n"
 "}\n"
-"\n"
 "#currentPageTitle {\n"
-"   "
-                        " font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 18pt;\n"
 "    font-weight: bold;\n"
 "    color: rgb(80, 80, 80);\n"
 "}\n"
-"\n"
 "#stackedWidget > QWidget {\n"
-"    background-color: rgb(235, 235, 235);\n"
+"    background-color: rgb(235, 235, 235);"
+                        "\n"
 "}\n"
-"\n"
 "#bottomWidget {\n"
 "    background-color: rgb(255, 246, 248);\n"
 "}\n"
@@ -108,31 +66,8 @@ class Ui_mainWindow(object):
 "	border: 1px solid rgb(235, 235, 235);\n"
 "	background-color: rgb(255, 246, 248);\n"
 "    border-radius: 2px;\n"
-"\n"
 "}\n"
-"#bottomWidget CButton {\n"
-"    background-color: rgb(255, 99, 134);\n"
-"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"    font-size: 12pt;\n"
-"	border: 1px solid lightgray;\n"
-"    font-weight: bold;\n"
-"    color: white;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#bottomWidget bottomWidget:hover {\n"
-"    background-color: rgb(240, 90, 125);\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#bottomWidget bottomWidget:pressed {\n"
-"    background-color: rg"
-                        "b(230, 80, 110);\n"
-"    border-radius: 2px;\n"
-"}\n"
-"/*===============================================================================*/\n"
-"/*=================================page0=====================================*/\n"
-"/*===============================================================================*/\n"
+"/*---------------------------------page0-------------------------------------*/\n"
 "#page_0 QLabel{\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 10pt;\n"
@@ -140,25 +75,20 @@ class Ui_mainWindow(object):
 "	background-color: rgb(255, 246, 248);\n"
 "    border-radius: 4px;\n"
 "}\n"
-"/*===============================================================================*/\n"
-"/*=================================page1=====================================*/\n"
-"/*===============================================================================*/\n"
-"\n"
+"/*----------------------------------page1-----------------------------------*/\n"
 "#searchWidget QLabel{\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 10pt;\n"
 "    color: rgb(60, 60, 60);\n"
 "}\n"
-"\n"
 "#searchWidget QLineEdit{\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"    font-size: "
-                        "10pt;\n"
+"    font-size: 10pt;\n"
 "    color: rgb(60, 60, 60);\n"
 "	border: 1px solid lightgray;\n"
-"	border-radius: 2px;\n"
+"	bord"
+                        "er-radius: 2px;\n"
 "}\n"
-"\n"
 "#searchWidget QComboBox {\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 10pt;\n"
@@ -167,39 +97,17 @@ class Ui_mainWindow(object):
 "    border-radius: 2px;\n"
 "}\n"
 "#searchWidget QComboBox::drop-down {\n"
-"    border: none; /* \u53bb\u6389\u4e0b\u62c9\u6309\u94ae\u7684\u8fb9\u6846 */\n"
-"    background-color: #f0f0f0; /* \u4fee\u6539\u4e0b\u62c9\u6309\u94ae\u80cc\u666f\u989c\u8272 */\n"
-"    width: 20px; /* \u8c03\u6574\u4e0b\u62c9\u6309\u94ae\u7684\u5bbd\u5ea6 */\n"
-"    border-top-right-radius: 2px; /* \u8bbe\u7f6e\u53f3\u4e0a\u89d2\u5706\u89d2 */\n"
-"    border-bottom-right-radius: 2px; /* \u8bbe\u7f6e\u53f3\u4e0b\u89d2\u5706\u89d2 */\n"
+"    border: none; \n"
+"    background-color: #f0f0f0; \n"
+"    width: 20px; \n"
+"    border-top-right-radius: 2px; \n"
+"    border-bottom-right-radius: 2px; \n"
 "}\n"
-"\n"
 "#searchWidget QComboBox::down-arrow {\n"
 "	image: url(:/iamge_pack/content/down_arrow.png);\n"
-"    width: 16px; /* \u8bbe\u7f6e\u7bad\u5934\u7684\u5bbd\u5ea6 */\n"
-"    height: 16px; /* \u8bbe\u7f6e\u7bad\u5934"
-                        "\u7684\u9ad8\u5ea6 */\n"
+"    width: 16px; \n"
+"    height: 16px; \n"
 "}\n"
-"\n"
-"#searchWidget CButton {\n"
-"    background-color: rgb(235, 235, 235);\n"
-"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"    font-size: 10pt;\n"
-"    color: rgb(60, 60, 60);\n"
-"    border: 1px solid lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#searchWidget CButton:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#searchWidget CButton:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
 "#page_1 #moduleWidget QWidget > QLabel {\n"
 "	background-color: rgb(255, 246, 248);\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
@@ -211,10 +119,10 @@ class Ui_mainWindow(object):
 "	border-bottom-left-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "}\n"
-"#page_1 #moduleWidget #previewWidget_2 #preview_1 {\n"
+"#page_1 #moduleWidget #previewWidget_2"
+                        " #preview_1 {\n"
 "	background-color: rgb(255, 246, 248);\n"
-"	"
-                        "border-bottom: 1px solid rgb(235, 235, 235);\n"
+"	border-bottom: 1px solid rgb(235, 235, 235);\n"
 "	border-radius: 0px;\n"
 "}\n"
 "#page_1 #moduleWidget #previewWidget_2 #preview_2 {\n"
@@ -224,52 +132,7 @@ class Ui_mainWindow(object):
 "	border-bottom-left-radius: 5px;\n"
 "	border-bottom-right-radius: 5px;\n"
 "}\n"
-"#page_1 QScrollArea {\n"
-"	border: none;\n"
-"}\n"
-"#page_1 QScrollArea QWidget {\n"
-"	background-color: rgba(255, 246, 248, 100);\n"
-"	border-top-left-radius: 0px;\n"
-"	border-top-right-radius: 0px;\n"
-"	border-bottom-left-radius: 5px;\n"
-"	border-bottom-right-radius: 5px;\n"
-"}\n"
-"#page_1 QScrollArea QScrollBar:vertical {\n"
-"    width: 6px;\n"
-"    margin: 0px 0px 0px 0px;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#page_1 QScrollArea QScrollBar::handle:vertical {\n"
-"    background: rgb(215,215,215);\n"
-"    min-height: 20px;\n"
-"    border-radius: 2px;\n"
-"    width: 6px;\n"
-"}\n"
-"\n"
-"#page_1 QScrollArea QScrollBar::add-line:vertical {\n"
-"    background: transparent;\n"
-"    bord"
-                        "er: none;\n"
-"    height: 0px;\n"
-"}\n"
-"\n"
-"#page_1 QScrollArea QScrollBar::sub-line:vertical {\n"
-"    background: transparent;\n"
-"    border: none;\n"
-"    height: 0px;\n"
-"}\n"
-"\n"
-"#page_1 QScrollArea QScrollBar::up-arrow:vertical,\n"
-"#page_1 QScrollArea QScrollBar::down-arrow:vertical {\n"
-"    border: none;\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"/*===============================================================================*/\n"
-"/*=================================page2=====================================*/\n"
-"/*===============================================================================*/\n"
-"\n"
+"/*--------------------------------page2--------------------------------------*/\n"
 "#functionWidget {\n"
 "    background-color: rgb(255, 246, 248);\n"
 "    border-bottom: 1px solid rgb(235, 235, 235);\n"
@@ -278,72 +141,6 @@ class Ui_mainWindow(object):
 "	border-bottom-left-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "}\n"
-"\n"
-"#functionWidget CButton {\n"
-"    background-color: transparent;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#functionWi"
-                        "dget CButton#ButtonEditFolder:checked {\n"
-"    background-color: rgb(220, 220, 220);\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#functionWidget CButton:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#functionWidget CButton:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#startPageScrollArea {\n"
-"    border: none;\n"
-"}\n"
-"\n"
-"#startPageScrollArea  QWidget{\n"
-"	background-color: rgba(255, 246, 248, 100);\n"
-"	border-top-left-radius: 0px;\n"
-"	border-top-right-radius: 0px;\n"
-"	border-bottom-left-radius: 5px;\n"
-"	border-bottom-right-radius: 5px;\n"
-"}\n"
-"\n"
-"#startPageScrollArea QScrollBar:vertical {\n"
-"    width: 6px;\n"
-"    margin: 0px 0px 0px 0px;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#startPageScrollArea QScrollBar::handle:vertical {\n"
-"    background: rgb(215,215,215);\n"
-"    min-height: 20px;\n"
-"    border-radius: 2px;\n"
-"    width: 6px;\n"
-"}\n"
-"\n"
-"#startPageScrollArea QScrollBar::add-line:"
-                        "vertical {\n"
-"    background: transparent;\n"
-"    border: none;\n"
-"    height: 0px;\n"
-"}\n"
-"\n"
-"#startPageScrollArea QScrollBar::sub-line:vertical {\n"
-"    background: transparent;\n"
-"    border: none;\n"
-"    height: 0px;\n"
-"}\n"
-"\n"
-"#startPageScrollArea QScrollBar::up-arrow:vertical,\n"
-"#startPageScrollArea QScrollBar::down-arrow:vertical {\n"
-"    border: none;\n"
-"    background: none;\n"
-"}\n"
-"\n"
 "#folderWidget {\n"
 "    background-color: rgb(255, 246, 248);\n"
 "	border-top-left-radius: 0px;\n"
@@ -351,16 +148,12 @@ class Ui_mainWindow(object):
 "	border-bottom-left-radius: 5px;\n"
 "	border-bottom-right-radius: 5px;\n"
 "}\n"
-"\n"
-"/*=============================================================================*/\n"
-"/*=================================page3=====================================*/\n"
-"/*=============================================================================*/\n"
-"\n"
+"/*-----------------------------page3---------------------------"
+                        "-----------*/\n"
 "#configBtnWidget {\n"
 "	background-color: rgb(255, 246, 248);\n"
 "    border-bottom: 1px solid rgb(235, 235, 235);\n"
-"	bor"
-                        "der-top-left-radius: 5px;\n"
+"	border-top-left-radius: 5px;\n"
 "	border-top-right-radius: 5px;\n"
 "	border-bottom-left-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
@@ -371,65 +164,6 @@ class Ui_mainWindow(object):
 "    font-weight: bold;\n"
 "    color: rgb(60, 60, 60);\n"
 "}\n"
-"#configBtnWidget CButton {\n"
-"    background-color: rgb(235, 235, 235);\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#configBtnWidget CButton:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#configBtnWidget CButton:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#configScrollArea {\n"
-"    border: none;\n"
-"}\n"
-"\n"
-"#configScrollArea QWidget {\n"
-"	background-color: rgba(255, 246, 248, 100);\n"
-"	border-top-left-radius: 0px;\n"
-"	border-top-right-radius: 0px;\n"
-"	border-bottom-left-radius: 5px;\n"
-"	border-bottom-right-radius: 5px;\n"
-"}\n"
-"\n"
-"#configScrollArea QScrollBar:vertical {\n"
-"    width: 6px;"
-                        "\n"
-"    margin: 0px 0px 0px 0px;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#configScrollArea QScrollBar::handle:vertical {\n"
-"    background: rgb(215,215,215);\n"
-"    min-height: 20px;\n"
-"    border-radius: 2px;\n"
-"    width: 6px;\n"
-"}\n"
-"\n"
-"#configScrollArea QScrollBar::add-line:vertical {\n"
-"    background: transparent;\n"
-"    border: none;\n"
-"    height: 0px;\n"
-"}\n"
-"\n"
-"#configScrollArea QScrollBar::sub-line:vertical {\n"
-"    background: transparent;\n"
-"    border: none;\n"
-"    height: 0px;\n"
-"}\n"
-"\n"
-"#configScrollArea QScrollBar::up-arrow:vertical,\n"
-"#configScrollArea QScrollBar::down-arrow:vertical {\n"
-"    border: none;\n"
-"    background: none;\n"
-"}\n"
-"\n"
 "#configLeft {\n"
 "	background-color: rgb(255, 246, 248);\n"
 "	border-right: 1px solid rgb(235, 235, 235);\n"
@@ -438,22 +172,19 @@ class Ui_mainWindow(object):
 "	border-bottom-left-radius: 5px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "}\n"
-"\n"
 "#configRight {\n"
 "	background-color: rgb(255, 246, 248);\n"
-""
-                        "	border-top-left-radius: 0px;\n"
+"	border-top-left-radius: 0px;\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-left-radius: 0px;\n"
 "	border-bottom-right-radius: 5px;\n"
 "}\n"
-"\n"
 "#configScrollWidget QLabel{\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"    font-size: 10pt;\n"
+"    font-siz"
+                        "e: 10pt;\n"
 "    color: rgb(60, 60, 60);\n"
 "}\n"
-"\n"
 "#configScrollWidget QLineEdit{\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 10pt;\n"
@@ -461,7 +192,6 @@ class Ui_mainWindow(object):
 "	border: 1px solid lightgray;\n"
 "	border-radius: 2px;\n"
 "}\n"
-"\n"
 "#configScrollWidget QComboBox {\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 10pt;\n"
@@ -469,123 +199,104 @@ class Ui_mainWindow(object):
 "    border: 1px solid lightgray;\n"
 "    border-radius: 2px;\n"
 "}\n"
-"\n"
 "#configScrollWidget QComboBox::drop-down {\n"
 "    border: none; /* \u53bb\u6389\u4e0b\u62c9\u6309\u94ae\u7684\u8fb9\u6846 */\n"
 "    background-color: #f0f0f0; /* \u4fee\u6539\u4e0b\u62c9\u6309\u94ae\u80cc\u666f\u989c\u8272 */\n"
-"    width: 20px; /* \u8c03\u6574\u4e0b\u62c9\u6309\u94ae"
-                        "\u7684\u5bbd\u5ea6 */\n"
+"    width: 20px; /* \u8c03\u6574\u4e0b\u62c9\u6309\u94ae\u7684\u5bbd\u5ea6 */\n"
 "    border-top-right-radius: 2px; /* \u8bbe\u7f6e\u53f3\u4e0a\u89d2\u5706\u89d2 */\n"
 "    border-bottom-right-radius: 2px; /* \u8bbe\u7f6e\u53f3\u4e0b\u89d2\u5706\u89d2 */\n"
 "}\n"
-"\n"
 "#configScrollWidget QComboBox::down-arrow {\n"
-"	image: url(:/iamge_pack/content/down_arrow.png);\n"
+"	image"
+                        ": url(:/iamge_pack/content/down_arrow.png);\n"
 "    width: 16px; /* \u8bbe\u7f6e\u7bad\u5934\u7684\u5bbd\u5ea6 */\n"
 "    height: 16px; /* \u8bbe\u7f6e\u7bad\u5934\u7684\u9ad8\u5ea6 */\n"
 "}\n"
-"\n"
-"#configScrollWidget CButton {\n"
-"    background-color: rgb(235, 235, 235);\n"
-"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"    font-size: 10pt;\n"
-"    color: rgb(60, 60, 60);\n"
-"    border: 1px solid lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#configScrollWidget CButton:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#configScrollWidget CButton:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"/*============================================="
-                        "==================================*/\n"
-"/*=================================page4=====================================*/\n"
-"/*===============================================================================*/\n"
-"\n"
+"/*-----------------------------------page4----------------------------------*/\n"
 "#softwareInfoWidget {\n"
 "    background-color: rgb(255, 246, 248);\n"
 "	border-radius: 5px;\n"
 "}\n"
-"\n"
 "#softwareInfoTitle {\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 11pt;\n"
 "    font-weight: bold;\n"
 "    color: rgb(80, 80, 80);\n"
 "}\n"
-"\n"
 "#softwareName {\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 9pt;\n"
 "    font-weight: bold;\n"
 "    color: rgb(80, 80, 80);\n"
 "}\n"
-"\n"
 "#softwareVersion {\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 9pt;\n"
 "    color: dimgray;\n"
 "}\n"
-"\n"
 "#developerName {\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 9pt;\n"
 "    font-weight: bold;\n"
 "    color: rgb(80, 80, 80);\n"
 "}\n"
-"\n"
 "#developerInfo {\n"
-"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1"
-                        "\";\n"
+"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 9pt;\n"
 "    color: dimgray;\n"
 "}\n"
-"\n"
-"#softwareInfoWidget CButton {\n"
-"    background-color: rgb(235, 235, 235);\n"
-"    color: rgb(80, 80, 80);\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#softwareInfoWidget CButton:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#softwareInfoWidget CButton:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
 "#copyrightLabel {\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 9pt;\n"
 "    color: dimgray\n"
 "}\n"
-"\n"
-"/*===============================================================================*/\n"
-"/*===============================================================================*/\n"
-"/*===============================================================================*/\n"
-"\n"
-"QToolTip {\n"
-"    font: 10pt;\n"
-"    background-color: whitesmoke;\n"
-"    color: dimgray;\n"
+"/*-----------------------------------btn----------------------------------*/\n"
+"CButton {\n"
+"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    font-size: 10pt;\n"
+"    color: rgb(60, 60, 60);\n"
+"	 border:1px solid transparent;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"CButton::icon {\n"
+"    padding-right: 10px;\n"
+"}\n"
+"/*-----------------------------------ScrollArea----------------------------------*/\n"
+"QScrollArea{\n"
+"	border:none;\n"
+"}\n"
+"QScrollArea QScrollBar:vertical {\n"
+"    width: 6px;\n"
+"    margin: 0px 0px 0px 0px;\n"
 "    border-radius: 2px;\n"
-"    border: 1px solid lightgray;\n"
-""
-                        "}\n"
+"}\n"
+"QScrollArea QScrollBar::handle:vertical {\n"
+"    background: rgb(215,215,215);\n"
+"    min-height: 20px;\n"
+"    border-radius: 2px;\n"
+"    width: 6px;\n"
+"}\n"
+"QScrollArea QScrollBar::add-line:vertical {\n"
+" "
+                        "   background: transparent;\n"
+"    border: none;\n"
+"    height: 0px;\n"
+"}\n"
+"QScrollArea QScrollBar::sub-line:vertical {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    height: 0px;\n"
+"}\n"
+"QScrollArea QScrollBar::up-arrow:vertical,\n"
+"QScrollArea QScrollBar::down-arrow:vertical {\n"
+"    border: none;\n"
+"    background: none;\n"
+"}\n"
 "")
         self.verticalLayout = QVBoxLayout(self.backBoard)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(9, -1, -1, -1)
         self.titleWidget = QWidget(self.backBoard)
         self.titleWidget.setObjectName(u"titleWidget")
         self.titleWidget.setMinimumSize(QSize(0, 40))
@@ -613,7 +324,6 @@ class Ui_mainWindow(object):
         self.hboxLayout.addItem(self.titleSpacer)
 
         self.btnMin = CButton(self.titleWidget)
-        self.btnMin.setTipText("最小化")
         self.btnMin.setObjectName(u"btnMin")
         self.btnMin.setMinimumSize(QSize(24, 24))
         self.btnMin.setMaximumSize(QSize(24, 24))
@@ -623,27 +333,13 @@ class Ui_mainWindow(object):
 
         self.hboxLayout.addWidget(self.btnMin)
 
-        self.btnMax = CButton(self.titleWidget)
-        self.btnMax.setTipText("全屏/窗口")
-        self.btnMax.setObjectName(u"btnMax")
-        self.btnMax.setMinimumSize(QSize(24, 24))
-        self.btnMax.setMaximumSize(QSize(24, 24))
-        icon2 = QIcon()
-        icon2.addFile(u":/iamge_pack/title_bar/maximize.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon2.addFile(u":/iamge_pack/title_bar/windowed.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.btnMax.setIcon(icon2)
-        self.btnMax.setCheckable(True)
-
-        self.hboxLayout.addWidget(self.btnMax)
-
         self.btnExit = CButton(self.titleWidget)
-        self.btnExit.setTipText("退出")
         self.btnExit.setObjectName(u"btnExit")
         self.btnExit.setMinimumSize(QSize(24, 24))
         self.btnExit.setMaximumSize(QSize(24, 24))
-        icon3 = QIcon()
-        icon3.addFile(u":/iamge_pack/title_bar/shutdown.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnExit.setIcon(icon3)
+        icon2 = QIcon()
+        icon2.addFile(u":/iamge_pack/title_bar/shutdown.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnExit.setIcon(icon2)
 
         self.hboxLayout.addWidget(self.btnExit)
 
@@ -674,9 +370,9 @@ class Ui_mainWindow(object):
         self.btnHome.setObjectName(u"btnHome")
         self.btnHome.setMinimumSize(QSize(42, 42))
         self.btnHome.setMaximumSize(QSize(42, 42))
-        icon4 = QIcon()
-        icon4.addFile(u":/iamge_pack/tab/home.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnHome.setIcon(icon4)
+        icon3 = QIcon()
+        icon3.addFile(u":/iamge_pack/tab/home.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnHome.setIcon(icon3)
         self.btnHome.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnHome)
@@ -686,9 +382,9 @@ class Ui_mainWindow(object):
         self.btnModule.setObjectName(u"btnModule")
         self.btnModule.setMinimumSize(QSize(42, 42))
         self.btnModule.setMaximumSize(QSize(42, 42))
-        icon5 = QIcon()
-        icon5.addFile(u":/iamge_pack/tab/module_1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnModule.setIcon(icon5)
+        icon4 = QIcon()
+        icon4.addFile(u":/iamge_pack/tab/module_1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnModule.setIcon(icon4)
         self.btnModule.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnModule)
@@ -698,9 +394,9 @@ class Ui_mainWindow(object):
         self.btnFolder.setObjectName(u"btnFolder")
         self.btnFolder.setMinimumSize(QSize(42, 42))
         self.btnFolder.setMaximumSize(QSize(42, 42))
-        icon6 = QIcon()
-        icon6.addFile(u":/iamge_pack/tab/folder.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnFolder.setIcon(icon6)
+        icon5 = QIcon()
+        icon5.addFile(u":/iamge_pack/tab/folder.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnFolder.setIcon(icon5)
         self.btnFolder.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnFolder)
@@ -710,9 +406,9 @@ class Ui_mainWindow(object):
         self.btnConfig.setObjectName(u"btnConfig")
         self.btnConfig.setMinimumSize(QSize(42, 42))
         self.btnConfig.setMaximumSize(QSize(42, 42))
-        icon7 = QIcon()
-        icon7.addFile(u":/iamge_pack/tab/Settings.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnConfig.setIcon(icon7)
+        icon6 = QIcon()
+        icon6.addFile(u":/iamge_pack/tab/Settings.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnConfig.setIcon(icon6)
         self.btnConfig.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnConfig)
@@ -722,9 +418,9 @@ class Ui_mainWindow(object):
         self.btnAbout.setObjectName(u"btnAbout")
         self.btnAbout.setMinimumSize(QSize(42, 42))
         self.btnAbout.setMaximumSize(QSize(42, 42))
-        icon8 = QIcon()
-        icon8.addFile(u":/iamge_pack/tab/about.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnAbout.setIcon(icon8)
+        icon7 = QIcon()
+        icon7.addFile(u":/iamge_pack/tab/about.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnAbout.setIcon(icon7)
         self.btnAbout.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnAbout)
@@ -738,10 +434,10 @@ class Ui_mainWindow(object):
         self.btnTheme.setObjectName(u"btnTheme")
         self.btnTheme.setMinimumSize(QSize(42, 42))
         self.btnTheme.setMaximumSize(QSize(42, 42))
-        icon9 = QIcon()
-        icon9.addFile(u":/iamge_pack/tab/dark_theme.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon9.addFile(u":/iamge_pack/tab/light_theme.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.btnTheme.setIcon(icon9)
+        icon8 = QIcon()
+        icon8.addFile(u":/iamge_pack/tab/dark_theme.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon8.addFile(u":/iamge_pack/tab/light_theme.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.btnTheme.setIcon(icon8)
         self.btnTheme.setIconSize(QSize(24, 24))
         self.btnTheme.setCheckable(True)
         self.btnTheme.setChecked(False)
@@ -818,9 +514,9 @@ class Ui_mainWindow(object):
         self.btnSearch.setObjectName(u"btnSearch")
         self.btnSearch.setMinimumSize(QSize(30, 24))
         self.btnSearch.setMaximumSize(QSize(30, 24))
-        icon10 = QIcon()
-        icon10.addFile(u":/iamge_pack/content/search.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnSearch.setIcon(icon10)
+        icon9 = QIcon()
+        icon9.addFile(u":/iamge_pack/content/search.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnSearch.setIcon(icon9)
         self.btnSearch.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_6.addWidget(self.btnSearch)
@@ -1004,13 +700,13 @@ class Ui_mainWindow(object):
         self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
 
         self.btnDelFolder = CButton(self.functionWidget)
-        self.btnDelFolder.setTipText("删除文件夹")
+        self.btnDelFolder.setTipText("删除选中文件夹")
         self.btnDelFolder.setObjectName(u"btnDelFolder")
         self.btnDelFolder.setMinimumSize(QSize(32, 32))
         self.btnDelFolder.setMaximumSize(QSize(32, 32))
-        icon11 = QIcon()
-        icon11.addFile(u":/iamge_pack/content/delete.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnDelFolder.setIcon(icon11)
+        icon10 = QIcon()
+        icon10.addFile(u":/iamge_pack/content/delete.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnDelFolder.setIcon(icon10)
         self.btnDelFolder.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.btnDelFolder)
@@ -1020,10 +716,10 @@ class Ui_mainWindow(object):
         self.btnSelectAll.setObjectName(u"btnSelectAll")
         self.btnSelectAll.setMinimumSize(QSize(32, 32))
         self.btnSelectAll.setMaximumSize(QSize(32, 32))
-        icon12 = QIcon()
-        icon12.addFile(u":/iamge_pack/content/select_2.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon12.addFile(u":/iamge_pack/content/unselect_2.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.btnSelectAll.setIcon(icon12)
+        icon11 = QIcon()
+        icon11.addFile(u":/iamge_pack/content/select_2.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon11.addFile(u":/iamge_pack/content/unselect_2.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.btnSelectAll.setIcon(icon11)
         self.btnSelectAll.setIconSize(QSize(24, 24))
         self.btnSelectAll.setCheckable(True)
         self.btnSelectAll.setChecked(False)
@@ -1035,9 +731,9 @@ class Ui_mainWindow(object):
         self.btnAddFolder.setObjectName(u"btnAddFolder")
         self.btnAddFolder.setMinimumSize(QSize(32, 32))
         self.btnAddFolder.setMaximumSize(QSize(32, 32))
-        icon13 = QIcon()
-        icon13.addFile(u":/iamge_pack/content/increase.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnAddFolder.setIcon(icon13)
+        icon12 = QIcon()
+        icon12.addFile(u":/iamge_pack/content/increase.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnAddFolder.setIcon(icon12)
         self.btnAddFolder.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.btnAddFolder)
@@ -1047,10 +743,10 @@ class Ui_mainWindow(object):
         self.btnEditFolder.setObjectName(u"btnEditFolder")
         self.btnEditFolder.setMinimumSize(QSize(32, 32))
         self.btnEditFolder.setMaximumSize(QSize(32, 32))
-        icon14 = QIcon()
-        icon14.addFile(u":/iamge_pack/content/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon14.addFile(u":/btn/main_widget/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.btnEditFolder.setIcon(icon14)
+        icon13 = QIcon()
+        icon13.addFile(u":/iamge_pack/content/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon13.addFile(u":/btn/main_widget/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.btnEditFolder.setIcon(icon13)
         self.btnEditFolder.setIconSize(QSize(24, 24))
         self.btnEditFolder.setCheckable(True)
 
@@ -1066,7 +762,7 @@ class Ui_mainWindow(object):
         self.startPageScrollArea.setWidgetResizable(True)
         self.startPageScrollWidget = QWidget()
         self.startPageScrollWidget.setObjectName(u"startPageScrollWidget")
-        self.startPageScrollWidget.setGeometry(QRect(0, 0, 950, 521))
+        self.startPageScrollWidget.setGeometry(QRect(0, 0, 100, 30))
         self.startPageScrollWidget.setMinimumSize(QSize(0, 0))
         self.verticalLayout_5 = QVBoxLayout(self.startPageScrollWidget)
         self.verticalLayout_5.setSpacing(0)
@@ -1121,13 +817,13 @@ class Ui_mainWindow(object):
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
         self.btnClearGameData = CButton(self.configBtnWidget)
-        self.btnClearGameData.setTipText("清空当前游戏数据")
+        self.btnClearGameData.setTipText("清除当前配置")
         self.btnClearGameData.setObjectName(u"btnClearGameData")
         self.btnClearGameData.setMinimumSize(QSize(28, 28))
         self.btnClearGameData.setMaximumSize(QSize(28, 28))
-        icon15 = QIcon()
-        icon15.addFile(u":/iamge_pack/content/clear.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnClearGameData.setIcon(icon15)
+        icon14 = QIcon()
+        icon14.addFile(u":/iamge_pack/content/clear.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnClearGameData.setIcon(icon14)
         self.btnClearGameData.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_3.addWidget(self.btnClearGameData)
@@ -1137,9 +833,9 @@ class Ui_mainWindow(object):
         self.btnNext.setObjectName(u"btnNext")
         self.btnNext.setMinimumSize(QSize(28, 28))
         self.btnNext.setMaximumSize(QSize(28, 28))
-        icon16 = QIcon()
-        icon16.addFile(u":/iamge_pack/content/next.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnNext.setIcon(icon16)
+        icon15 = QIcon()
+        icon15.addFile(u":/iamge_pack/content/next.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnNext.setIcon(icon15)
 
         self.horizontalLayout_3.addWidget(self.btnNext)
 
@@ -1153,7 +849,7 @@ class Ui_mainWindow(object):
         self.configScrollArea.setWidgetResizable(True)
         self.configScrollWidget = QWidget()
         self.configScrollWidget.setObjectName(u"configScrollWidget")
-        self.configScrollWidget.setGeometry(QRect(0, 0, 950, 521))
+        self.configScrollWidget.setGeometry(QRect(0, 0, 937, 102))
         self.horizontalLayout_5 = QHBoxLayout(self.configScrollWidget)
         self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
@@ -1283,9 +979,9 @@ class Ui_mainWindow(object):
         self.btnSelect_1.setObjectName(u"btnSelect_1")
         self.btnSelect_1.setMinimumSize(QSize(22, 22))
         self.btnSelect_1.setMaximumSize(QSize(22, 22))
-        icon17 = QIcon()
-        icon17.addFile(u":/iamge_pack/content/more.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnSelect_1.setIcon(icon17)
+        icon16 = QIcon()
+        icon16.addFile(u":/iamge_pack/content/more.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnSelect_1.setIcon(icon16)
 
         self.gridLayout.addWidget(self.btnSelect_1, 2, 4, 1, 1)
 
@@ -1294,7 +990,7 @@ class Ui_mainWindow(object):
         self.btnSelect_2.setObjectName(u"btnSelect_2")
         self.btnSelect_2.setMinimumSize(QSize(22, 22))
         self.btnSelect_2.setMaximumSize(QSize(22, 22))
-        self.btnSelect_2.setIcon(icon17)
+        self.btnSelect_2.setIcon(icon16)
 
         self.gridLayout.addWidget(self.btnSelect_2, 3, 4, 1, 1)
 
@@ -1354,32 +1050,29 @@ class Ui_mainWindow(object):
         self.developerInfo.setMinimumSize(QSize(125, 32))
         self.developerInfo.setMaximumSize(QSize(16777215, 32))
         self.btnGitHub = CButton(self.softwareInfoWidget)
-        self.btnGitHub.setTipText("")
         self.btnGitHub.setObjectName(u"btnGitHub")
         self.btnGitHub.setGeometry(QRect(280, 160, 151, 32))
         self.btnGitHub.setMinimumSize(QSize(120, 32))
         self.btnGitHub.setMaximumSize(QSize(16777215, 32))
-        icon18 = QIcon()
-        icon18.addFile(u":/iamge_pack/content/github.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnGitHub.setIcon(icon18)
+        icon17 = QIcon()
+        icon17.addFile(u":/iamge_pack/content/github.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnGitHub.setIcon(icon17)
         self.btnGitHub.setIconSize(QSize(24, 24))
         self.btnCheckUpdate = CButton(self.softwareInfoWidget)
-        self.btnCheckUpdate.setTipText("")
         self.btnCheckUpdate.setObjectName(u"btnCheckUpdate")
         self.btnCheckUpdate.setGeometry(QRect(20, 160, 100, 32))
         self.btnCheckUpdate.setMinimumSize(QSize(100, 32))
         self.btnCheckUpdate.setMaximumSize(QSize(16777215, 32))
-        icon19 = QIcon()
-        icon19.addFile(u":/iamge_pack/content/update.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnCheckUpdate.setIcon(icon19)
+        icon18 = QIcon()
+        icon18.addFile(u":/iamge_pack/content/update.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnCheckUpdate.setIcon(icon18)
         self.btnCheckUpdate.setIconSize(QSize(24, 24))
         self.btnRemoveUerdata = CButton(self.softwareInfoWidget)
-        self.btnRemoveUerdata.setTipText("")
         self.btnRemoveUerdata.setObjectName(u"btnRemoveUerdata")
         self.btnRemoveUerdata.setGeometry(QRect(150, 160, 100, 32))
         self.btnRemoveUerdata.setMinimumSize(QSize(100, 32))
         self.btnRemoveUerdata.setMaximumSize(QSize(16777215, 32))
-        self.btnRemoveUerdata.setIcon(icon15)
+        self.btnRemoveUerdata.setIcon(icon14)
         self.btnRemoveUerdata.setIconSize(QSize(24, 24))
         self.copyrightLabel = QLabel(self.softwareInfoWidget)
         self.copyrightLabel.setObjectName(u"copyrightLabel")
@@ -1412,23 +1105,13 @@ class Ui_mainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.currentGamePic)
 
-        self.btnStart = CButton(self.bottomWidget)
-        self.btnStart.setTipText("")
-        self.btnStart.setObjectName(u"btnStart")
-        self.btnStart.setEnabled(True)
-        self.btnStart.setMinimumSize(QSize(110, 42))
-        self.btnStart.setMaximumSize(QSize(110, 42))
-
-        self.horizontalLayout_4.addWidget(self.btnStart)
-
         self.btnPlay = CButton(self.bottomWidget)
-        self.btnPlay.setTipText("")
         self.btnPlay.setObjectName(u"btnPlay")
         self.btnPlay.setMinimumSize(QSize(110, 42))
         self.btnPlay.setMaximumSize(QSize(110, 42))
-        icon20 = QIcon()
-        icon20.addFile(u":/iamge_pack/content/run_1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnPlay.setIcon(icon20)
+        icon19 = QIcon()
+        icon19.addFile(u":/iamge_pack/content/run_1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnPlay.setIcon(icon19)
         self.btnPlay.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_4.addWidget(self.btnPlay)
@@ -1488,7 +1171,6 @@ class Ui_mainWindow(object):
         self.btnRemoveUerdata.setText(QCoreApplication.translate("mainWindow", u" \u6e05\u9664\u6570\u636e", None))
         self.copyrightLabel.setText(QCoreApplication.translate("mainWindow", u"Copyright \u00a9 ichinoseyuu 2023-2025. All Rights Reserved.", None))
         self.currentGamePic.setText("")
-        self.btnStart.setText(QCoreApplication.translate("mainWindow", u"\u5f00\u59cb", None))
         self.btnPlay.setText(QCoreApplication.translate("mainWindow", u" \u542f\u52a8", None))
         pass
     # retranslateUi

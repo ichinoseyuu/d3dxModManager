@@ -24,9 +24,7 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">/*=============================================================================*/
-/*=================================标题栏样式===================================*/
-/*=============================================================================*/
+    <string notr="true">/*---------------------------------title------------------------------------*/
 #titleWidget {
     border-bottom: 1px solid rgb(235, 235, 235);
     background-color: rgb(250, 245, 245);
@@ -40,63 +38,24 @@
     background-color: transparent;
     color: rgb(60, 60, 60);
 }
-
-#titleWidget QPushButton {
-    background-color: transparent;
-}
-
-#titleWidget QPushButton:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#titleWidget QPushButton:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-
-
-/*=============================================================================*/
-/*=================================左侧窗口样式=================================*/
-/*=============================================================================*/
-
+/*-----------------------------------left------------------------------------*/
 #leftWidget {
     border-right: 1px solid rgb(235, 235, 235);
     background-color: rgb(255, 246, 248);
 }
-
-#leftWidget QPushButton {
-    background-color: transparent;
-}
-
-#leftWidget QPushButton:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#leftWidget QPushButton:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-/*=============================================================================*/
-/*=================================右侧窗口样式=====================================*/
-/*=============================================================================*/
-
+/*-----------------------------------right----------------------------------*/
 #rightWidget {
     background-color: rgb(235, 235, 235);
 }
-
 #currentPageTitle {
     font-family: &quot;微软雅黑&quot;;
     font-size: 18pt;
     font-weight: bold;
     color: rgb(80, 80, 80);
 }
-
 #stackedWidget &gt; QWidget {
     background-color: rgb(235, 235, 235);
 }
-
 #bottomWidget {
     background-color: rgb(255, 246, 248);
 }
@@ -107,30 +66,8 @@
 	border: 1px solid rgb(235, 235, 235);
 	background-color: rgb(255, 246, 248);
     border-radius: 2px;
-
 }
-#bottomWidget QPushButton {
-    background-color: rgb(255, 99, 134);
-    font-family: &quot;微软雅黑&quot;;
-    font-size: 12pt;
-	border: 1px solid lightgray;
-    font-weight: bold;
-    color: white;
-    border-radius: 2px;
-}
-
-#bottomWidget bottomWidget:hover {
-    background-color: rgb(240, 90, 125);
-    border-radius: 2px;
-}
-
-#bottomWidget bottomWidget:pressed {
-    background-color: rgb(230, 80, 110);
-    border-radius: 2px;
-}
-/*===============================================================================*/
-/*=================================page0=====================================*/
-/*===============================================================================*/
+/*---------------------------------page0-------------------------------------*/
 #page_0 QLabel{
     font-family: &quot;微软雅黑&quot;;
     font-size: 10pt;
@@ -138,16 +75,12 @@
 	background-color: rgb(255, 246, 248);
     border-radius: 4px;
 }
-/*===============================================================================*/
-/*=================================page1=====================================*/
-/*===============================================================================*/
-
+/*----------------------------------page1-----------------------------------*/
 #searchWidget QLabel{
     font-family: &quot;微软雅黑&quot;;
     font-size: 10pt;
     color: rgb(60, 60, 60);
 }
-
 #searchWidget QLineEdit{
     font-family: &quot;微软雅黑&quot;;
     font-size: 10pt;
@@ -155,7 +88,6 @@
 	border: 1px solid lightgray;
 	border-radius: 2px;
 }
-
 #searchWidget QComboBox {
     font-family: &quot;微软雅黑&quot;;
     font-size: 10pt;
@@ -164,38 +96,17 @@
     border-radius: 2px;
 }
 #searchWidget QComboBox::drop-down {
-    border: none; /* 去掉下拉按钮的边框 */
-    background-color: #f0f0f0; /* 修改下拉按钮背景颜色 */
-    width: 20px; /* 调整下拉按钮的宽度 */
-    border-top-right-radius: 2px; /* 设置右上角圆角 */
-    border-bottom-right-radius: 2px; /* 设置右下角圆角 */
+    border: none; 
+    background-color: #f0f0f0; 
+    width: 20px; 
+    border-top-right-radius: 2px; 
+    border-bottom-right-radius: 2px; 
 }
-
 #searchWidget QComboBox::down-arrow {
 	image: url(:/iamge_pack/content/down_arrow.png);
-    width: 16px; /* 设置箭头的宽度 */
-    height: 16px; /* 设置箭头的高度 */
+    width: 16px; 
+    height: 16px; 
 }
-
-#searchWidget QPushButton {
-    background-color: rgb(235, 235, 235);
-    font-family: &quot;微软雅黑&quot;;
-    font-size: 10pt;
-    color: rgb(60, 60, 60);
-    border: 1px solid lightgray;
-    border-radius: 2px;
-}
-
-#searchWidget QPushButton:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#searchWidget QPushButton:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-
 #page_1 #moduleWidget QWidget &gt; QLabel {
 	background-color: rgb(255, 246, 248);
     font-family: &quot;微软雅黑&quot;;
@@ -219,51 +130,7 @@
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
-#page_1 QScrollArea {
-	border: none;
-}
-#page_1 QScrollArea QWidget {
-	background-color: rgba(255, 246, 248, 100);
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-#page_1 QScrollArea QScrollBar:vertical {
-    width: 6px;
-    margin: 0px 0px 0px 0px;
-    border-radius: 2px;
-}
-
-#page_1 QScrollArea QScrollBar::handle:vertical {
-    background: rgb(215,215,215);
-    min-height: 20px;
-    border-radius: 2px;
-    width: 6px;
-}
-
-#page_1 QScrollArea QScrollBar::add-line:vertical {
-    background: transparent;
-    border: none;
-    height: 0px;
-}
-
-#page_1 QScrollArea QScrollBar::sub-line:vertical {
-    background: transparent;
-    border: none;
-    height: 0px;
-}
-
-#page_1 QScrollArea QScrollBar::up-arrow:vertical,
-#page_1 QScrollArea QScrollBar::down-arrow:vertical {
-    border: none;
-    background: none;
-}
-
-/*===============================================================================*/
-/*=================================page2=====================================*/
-/*===============================================================================*/
-
+/*--------------------------------page2--------------------------------------*/
 #functionWidget {
     background-color: rgb(255, 246, 248);
     border-bottom: 1px solid rgb(235, 235, 235);
@@ -272,70 +139,6 @@
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 }
-
-#functionWidget QPushButton {
-    background-color: transparent;
-    border-radius: 2px;
-}
-
-#functionWidget QPushButton#ButtonEditFolder:checked {
-    background-color: rgb(220, 220, 220);
-    border-radius: 2px;
-}
-
-#functionWidget QPushButton:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#functionWidget QPushButton:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-
-#startPageScrollArea {
-    border: none;
-}
-
-#startPageScrollArea  QWidget{
-	background-color: rgba(255, 246, 248, 100);
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-
-#startPageScrollArea QScrollBar:vertical {
-    width: 6px;
-    margin: 0px 0px 0px 0px;
-    border-radius: 2px;
-}
-
-#startPageScrollArea QScrollBar::handle:vertical {
-    background: rgb(215,215,215);
-    min-height: 20px;
-    border-radius: 2px;
-    width: 6px;
-}
-
-#startPageScrollArea QScrollBar::add-line:vertical {
-    background: transparent;
-    border: none;
-    height: 0px;
-}
-
-#startPageScrollArea QScrollBar::sub-line:vertical {
-    background: transparent;
-    border: none;
-    height: 0px;
-}
-
-#startPageScrollArea QScrollBar::up-arrow:vertical,
-#startPageScrollArea QScrollBar::down-arrow:vertical {
-    border: none;
-    background: none;
-}
-
 #folderWidget {
     background-color: rgb(255, 246, 248);
 	border-top-left-radius: 0px;
@@ -343,11 +146,7 @@
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
-
-/*=============================================================================*/
-/*=================================page3=====================================*/
-/*=============================================================================*/
-
+/*-----------------------------page3--------------------------------------*/
 #configBtnWidget {
 	background-color: rgb(255, 246, 248);
     border-bottom: 1px solid rgb(235, 235, 235);
@@ -362,64 +161,6 @@
     font-weight: bold;
     color: rgb(60, 60, 60);
 }
-#configBtnWidget QPushButton {
-    background-color: rgb(235, 235, 235);
-    border-radius: 2px;
-}
-
-#configBtnWidget QPushButton:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#configBtnWidget QPushButton:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-
-#configScrollArea {
-    border: none;
-}
-
-#configScrollArea QWidget {
-	background-color: rgba(255, 246, 248, 100);
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-
-#configScrollArea QScrollBar:vertical {
-    width: 6px;
-    margin: 0px 0px 0px 0px;
-    border-radius: 2px;
-}
-
-#configScrollArea QScrollBar::handle:vertical {
-    background: rgb(215,215,215);
-    min-height: 20px;
-    border-radius: 2px;
-    width: 6px;
-}
-
-#configScrollArea QScrollBar::add-line:vertical {
-    background: transparent;
-    border: none;
-    height: 0px;
-}
-
-#configScrollArea QScrollBar::sub-line:vertical {
-    background: transparent;
-    border: none;
-    height: 0px;
-}
-
-#configScrollArea QScrollBar::up-arrow:vertical,
-#configScrollArea QScrollBar::down-arrow:vertical {
-    border: none;
-    background: none;
-}
-
 #configLeft {
 	background-color: rgb(255, 246, 248);
 	border-right: 1px solid rgb(235, 235, 235);
@@ -428,7 +169,6 @@
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 0px;
 }
-
 #configRight {
 	background-color: rgb(255, 246, 248);
 	border-top-left-radius: 0px;
@@ -436,13 +176,11 @@
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 5px;
 }
-
 #configScrollWidget QLabel{
     font-family: &quot;微软雅黑&quot;;
     font-size: 10pt;
     color: rgb(60, 60, 60);
 }
-
 #configScrollWidget QLineEdit{
     font-family: &quot;微软雅黑&quot;;
     font-size: 10pt;
@@ -450,7 +188,6 @@
 	border: 1px solid lightgray;
 	border-radius: 2px;
 }
-
 #configScrollWidget QComboBox {
     font-family: &quot;微软雅黑&quot;;
     font-size: 10pt;
@@ -458,7 +195,6 @@
     border: 1px solid lightgray;
     border-radius: 2px;
 }
-
 #configScrollWidget QComboBox::drop-down {
     border: none; /* 去掉下拉按钮的边框 */
     background-color: #f0f0f0; /* 修改下拉按钮背景颜色 */
@@ -466,112 +202,98 @@
     border-top-right-radius: 2px; /* 设置右上角圆角 */
     border-bottom-right-radius: 2px; /* 设置右下角圆角 */
 }
-
 #configScrollWidget QComboBox::down-arrow {
 	image: url(:/iamge_pack/content/down_arrow.png);
     width: 16px; /* 设置箭头的宽度 */
     height: 16px; /* 设置箭头的高度 */
 }
-
-#configScrollWidget QPushButton {
-    background-color: rgb(235, 235, 235);
-    font-family: &quot;微软雅黑&quot;;
-    font-size: 10pt;
-    color: rgb(60, 60, 60);
-    border: 1px solid lightgray;
-    border-radius: 2px;
-}
-
-#configScrollWidget QPushButton:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#configScrollWidget QPushButton:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-
-/*===============================================================================*/
-/*=================================page4=====================================*/
-/*===============================================================================*/
-
+/*-----------------------------------page4----------------------------------*/
 #softwareInfoWidget {
     background-color: rgb(255, 246, 248);
 	border-radius: 5px;
 }
-
 #softwareInfoTitle {
     font-family: &quot;微软雅黑&quot;;
     font-size: 11pt;
     font-weight: bold;
     color: rgb(80, 80, 80);
 }
-
 #softwareName {
     font-family: &quot;微软雅黑&quot;;
     font-size: 9pt;
     font-weight: bold;
     color: rgb(80, 80, 80);
 }
-
 #softwareVersion {
     font-family: &quot;微软雅黑&quot;;
     font-size: 9pt;
     color: dimgray;
 }
-
 #developerName {
     font-family: &quot;微软雅黑&quot;;
     font-size: 9pt;
     font-weight: bold;
     color: rgb(80, 80, 80);
 }
-
 #developerInfo {
     font-family: &quot;微软雅黑&quot;;
     font-size: 9pt;
     color: dimgray;
 }
-
-#softwareInfoWidget QPushButton {
-    background-color: rgb(235, 235, 235);
-    color: rgb(80, 80, 80);
-    border-radius: 2px;
-}
-
-#softwareInfoWidget QPushButton:hover {
-    background-color: gainsboro;
-    border-radius: 2px;
-}
-
-#softwareInfoWidget QPushButton:pressed {
-    background-color: lightgray;
-    border-radius: 2px;
-}
-
 #copyrightLabel {
     font-family: &quot;微软雅黑&quot;;
     font-size: 9pt;
     color: dimgray
 }
-
-/*===============================================================================*/
-/*===============================================================================*/
-/*===============================================================================*/
-
-QToolTip {
-    font: 10pt;
-    background-color: whitesmoke;
-    color: dimgray;
+/*-----------------------------------btn----------------------------------*/
+QPushButton {
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 10pt;
+    color: rgb(60, 60, 60);
+	border:1px solid transparent;
+    border-radius: 4px;
+}
+QPushButton::icon {
+    padding-right: 10px;
+}
+/*-----------------------------------ScrollArea----------------------------------*/
+QScrollArea{
+	border:none;
+}
+QScrollArea QScrollBar:vertical {
+    width: 6px;
+    margin: 0px 0px 0px 0px;
     border-radius: 2px;
-    border: 1px solid lightgray;
+}
+QScrollArea QScrollBar::handle:vertical {
+    background: rgb(215,215,215);
+    min-height: 20px;
+    border-radius: 2px;
+    width: 6px;
+}
+QScrollArea QScrollBar::add-line:vertical {
+    background: transparent;
+    border: none;
+    height: 0px;
+}
+QScrollArea QScrollBar::sub-line:vertical {
+    background: transparent;
+    border: none;
+    height: 0px;
+}
+QScrollArea QScrollBar::up-arrow:vertical,
+QScrollArea QScrollBar::down-arrow:vertical {
+    border: none;
+    background: none;
 }
 </string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
      <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>9</number>
     </property>
     <item>
      <widget class="QWidget" name="titleWidget" native="true">
@@ -662,30 +384,6 @@ QToolTip {
          <property name="icon">
           <iconset resource="../resource/resources.qrc">
            <normaloff>:/iamge_pack/title_bar/minimize.png</normaloff>:/iamge_pack/title_bar/minimize.png</iconset>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnMax">
-         <property name="minimumSize">
-          <size>
-           <width>24</width>
-           <height>24</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>24</width>
-           <height>24</height>
-          </size>
-         </property>
-         <property name="icon">
-          <iconset resource="../resource/resources.qrc">
-           <normaloff>:/iamge_pack/title_bar/maximize.png</normaloff>
-           <normalon>:/iamge_pack/title_bar/windowed.png</normalon>:/iamge_pack/title_bar/maximize.png</iconset>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -982,7 +680,7 @@ QToolTip {
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>4</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="page_0">
              <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -1720,8 +1418,8 @@ QToolTip {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>950</width>
-                   <height>521</height>
+                   <width>100</width>
+                   <height>30</height>
                   </rect>
                  </property>
                  <property name="minimumSize">
@@ -1926,8 +1624,8 @@ QToolTip {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>950</width>
-                   <height>521</height>
+                   <width>937</width>
+                   <height>102</height>
                   </rect>
                  </property>
                  <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -2674,28 +2372,6 @@ QToolTip {
                </property>
                <property name="text">
                 <string/>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnStart">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>110</width>
-                 <height>42</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>42</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>开始</string>
                </property>
               </widget>
              </item>

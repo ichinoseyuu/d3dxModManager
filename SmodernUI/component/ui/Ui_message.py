@@ -12,6 +12,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from resource.resources_rc import *
+from ..widgets.button import CButton
 
 class Ui_message(object):
     def setupUi(self, message):
@@ -37,22 +38,6 @@ class Ui_message(object):
 "    color: rgb(60, 60, 60);\n"
 "}\n"
 "\n"
-"#titleWidget QPushButton {\n"
-"    background-color: transparent;\n"
-"}\n"
-"\n"
-"#titleWidget QPushButton:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#titleWidget QPushButton:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"/*=========================*/\n"
-"\n"
 "#messageWidget {\n"
 "    background-color: rgb(240, 240, 240);\n"
 "}\n"
@@ -65,52 +50,19 @@ class Ui_message(object):
 "    color: rgb(80, 80, 80);\n"
 "}\n"
 "\n"
-"/*=========================*/\n"
 "#bottomWidget {\n"
-"    background-color: rgb(250, 245, 245"
-                        ");\n"
+"    background-color: rgb(250, 245, 245);\n"
 "}\n"
-"#btnCancel{\n"
-"    background-color: rgb(235, 235, 235);\n"
+"\n"
+"\n"
+"CButton {\n"
 "	font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "	font-size: 10pt;\n"
-"	color: rgb(80, 80, 80);\n"
-"    border-radius: 2px;\n"
+"	color: rgb(60, 60, 60);\n"
+"    border-radius: 4px;\n"
 "}\n"
-"\n"
-"#btnCancel:hover {\n"
-"    background-color: gainsboro;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#btnCancel:pressed {\n"
-"    background-color: lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#btnOk {\n"
-"    background-color: rgb(108, 195, 238);\n"
-"	font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"	font-size: 10pt;\n"
-"	color: rgb(255, 255, 255);\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#btnOk:hover {\n"
-"    background-color: rgb(197, 172, 227);\n"
-"    border-radius: 2px;\n"
-"}\n"
-"\n"
-"#btnOk:pressed {\n"
-"    background-color: rgb(181, 164, 232);\n"
-"    border-radius: 2px;\n"
-"}\n"
-"QToolTip {\n"
-"    font: 10pt;\n"
-"    background-color: whitesmoke;\n"
-"    color: dimgray;\n"
-"    border-radius: 2px;\n"
-"    border: 1px solid lightgray;\n"
+"CButton::icon {\n"
+"    padding-right: 10px;\n"
 "}")
         self.verticalLayout_3 = QVBoxLayout(message)
         self.verticalLayout_3.setSpacing(0)
@@ -131,7 +83,8 @@ class Ui_message(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.btnExit = QPushButton(self.titleWidget)
+        self.btnExit = CButton(self.titleWidget)
+        self.btnExit.setTipText("")
         self.btnExit.setObjectName(u"btnExit")
         self.btnExit.setMinimumSize(QSize(24, 24))
         self.btnExit.setMaximumSize(QSize(24, 24))
@@ -171,14 +124,16 @@ class Ui_message(object):
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
 
-        self.btnOk = QPushButton(self.bottomWidget)
+        self.btnOk = CButton(self.bottomWidget)
+        self.btnOk.setTipText("")
         self.btnOk.setObjectName(u"btnOk")
         self.btnOk.setMinimumSize(QSize(60, 32))
         self.btnOk.setMaximumSize(QSize(60, 32))
 
         self.horizontalLayout_2.addWidget(self.btnOk)
 
-        self.btnCancel = QPushButton(self.bottomWidget)
+        self.btnCancel = CButton(self.bottomWidget)
+        self.btnCancel.setTipText("")
         self.btnCancel.setObjectName(u"btnCancel")
         self.btnCancel.setMinimumSize(QSize(60, 32))
         self.btnCancel.setMaximumSize(QSize(60, 32))
