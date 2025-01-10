@@ -35,7 +35,7 @@ def get_variable_name(line):
 
 if __name__ == "__main__":
     #target_file = r".\main\Ui_mainWindow.py"
-    target_file = r".\SmodernUI\component\ui\Ui_message.py"
+    target_file = r".\SmodernUI\component\ui\Ui_dialog.py"
     #target_file = r"test.py"
     old_pattern = "QPushButton"  # 捕获行首的空白字符
     new_pattern = "CButton"

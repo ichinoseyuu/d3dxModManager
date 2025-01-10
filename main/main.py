@@ -18,10 +18,10 @@ class d3dxModManager(QMainWindow,Ui_mainWindow):
 
 
     def _Ui_init(self):
-        btns = Globals.findObjByType(self, CButton)
-        Globals.addObjList2Ref(btns,'BTN')
-        for btn in btns:
-            btn.updateStyle()
+        # btns = Globals.findObjByType(self, CButton)
+        # Globals.addObjList2Ref(btns,'BTN')
+        # for btn in btns:
+        #     btn.updateStyle()
         self.btnMin.setBGTransparentAllTheme()
         self.btnExit.setBGTransparentAllTheme()
         self.btnHome.setBGTransparentAllTheme()
@@ -30,12 +30,14 @@ class d3dxModManager(QMainWindow,Ui_mainWindow):
         self.btnConfig.setBGTransparentAllTheme()
         self.btnAbout.setBGTransparentAllTheme()
         self.btnTheme.setBGTransparentAllTheme()
-        self.btnSearch.setBorderColor(Globals.Theme.Light, QColor(211, 211, 211))
-        self.btnSelect_1.setBorderColor(Globals.Theme.Light, QColor(211, 211, 211))
-        self.btnSelect_2.setBorderColor(Globals.Theme.Light, QColor(211, 211, 211))
-        self.btnPlay.setBGColor(Globals.Theme.Light,Color.Base.DarkPink.value)
-        self.btnPlay.setBGColor(Globals.Theme.Dark,Color.Base.Purple.value)
-        self.btnPlay.setFontColor(Globals.Theme.Light,Color.Base.Whtite.value)
+        self.btnSearch.setBorderColor(Theme.Light, QColor(211, 211, 211))
+        self.btnSelect_1.setBorderColor(Theme.Light, QColor(211, 211, 211))
+        self.btnSelect_2.setBorderColor(Theme.Light, QColor(211, 211, 211))
+        self.btnPlay.setBGColor(Theme.Light, CColor.Base.darkPink.value)
+        self.btnPlay.setBGColor(Theme.Dark, CColor.Base.purple.value)
+        self.btnPlay.setFontColor(Theme.Light, CColor.Base.whtite.value)
+        self.btnPlay.setFontSize(Theme.Light,CFont.Size.large.value)
+
 
 
     def btnConnect(self):
@@ -58,7 +60,7 @@ class d3dxModManager(QMainWindow,Ui_mainWindow):
 
 
     def quit(self):
-        message = CMessage('退出', '您确定要退出吗？', self)
+        message = CDialog('退出', '您确定要退出吗？', self)
         reply = message.exec()
         if reply == 1:
             QApplication.instance().quit()

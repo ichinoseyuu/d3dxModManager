@@ -1,27 +1,29 @@
-from PySide6.QtCore import Signal, Slot, QObject
-import enum
+from PySide6.QtCore import QObject
+from .theme import Theme
+
 class Globals():
-    class Theme(enum.Enum):
-        Light = 0
-        Dark = 1
+    '''全局变量'''
     #全局obj引用
     ObjRef= {
         'TOOLTIP': None,
         'MAINWINDOW': None,
         'BTN':[],
     }
-
     theme = Theme.Light
     MAINWINDOW_MARGIN = 9
     TOOLTIP_OFFSET_X = -12
     TOOLTIP_OFFSET_Y = -1
 
-    def changeTheme():
-        Globals.theme = Globals.Theme.Dark if Globals.theme == Globals.Theme.Light else Globals.Theme.Light
-        for btn in Globals.ObjRef['BTN']:
+    @classmethod
+    def changeTheme(cls):
+        cls.theme = Theme.Dark if cls.theme == Theme.Light else Theme.Light
+        from ..component.widgets.button import CButton
+        cls.addObjList2Ref(cls.findObjByType(cls.ObjRef['MAINWINDOW'], CButton),'BTN')
+        for btn in cls.ObjRef['BTN']:
             btn.updateStyle(True)
 
 
+    @staticmethod
     def addObjList2Ref(objs: list, token: str):
         """_summary_ 添加对象列表到引用
 
@@ -35,6 +37,7 @@ class Globals():
         Globals.ObjRef[token].extend(objs)
 
 
+    @staticmethod
     def findObjByType(target: QObject, type: object):
         """_summary_ 查找指定类型对象
 
@@ -52,6 +55,7 @@ class Globals():
         return obj_list
 
 
+    @staticmethod
     def findObjByName(target: QObject, name: str):
         """_summary_ 查找指定名字的对象
 
@@ -67,6 +71,8 @@ class Globals():
             if child.objectName() == name:
                 return child
 
+
+    @staticmethod
     def _get_all_children(parent: QObject):
         all_children = []
         children = parent.children()  # 获取直接子对象
@@ -81,6 +87,8 @@ class Globals():
 
         return all_children
 
+
+    @staticmethod
     def findObjByNames(target: QObject, names: list):
         """_summary_ 查找指定名字的对象
 

@@ -1,2 +1,2 @@
-from .Ui_message import Ui_message
-from .Ui_tip import Ui_tip
+from .Ui_dialog import *
+from .Ui_tooltip import *

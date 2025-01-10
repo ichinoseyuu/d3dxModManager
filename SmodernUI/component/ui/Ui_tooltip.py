@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tip.ui'
+## Form generated from reading UI file 'tooltip.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -12,19 +12,19 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
-class Ui_tip(object):
-    def setupUi(self, tip):
-        if not tip.objectName():
-            tip.setObjectName(u"tip")
-        tip.resize(94, 28)
+class Ui_tooltip(object):
+    def setupUi(self, tooltip):
+        if not tooltip.objectName():
+            tooltip.setObjectName(u"tooltip")
+        tooltip.resize(94, 28)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(tip.sizePolicy().hasHeightForWidth())
-        tip.setSizePolicy(sizePolicy)
-        tip.setMinimumSize(QSize(0, 28))
-        tip.setMaximumSize(QSize(16777215, 28))
-        tip.setStyleSheet(u"#tipBoard{\n"
+        sizePolicy.setHeightForWidth(tooltip.sizePolicy().hasHeightForWidth())
+        tooltip.setSizePolicy(sizePolicy)
+        tooltip.setMinimumSize(QSize(0, 28))
+        tooltip.setMaximumSize(QSize(16777215, 28))
+        tooltip.setStyleSheet(u"#tipBoard{\n"
 "    border: 1px solid rgb(230,230,230);\n"
 "    border-radius: 2px;\n"
 "    background-color: rgb(250, 245, 245);\n"
@@ -36,11 +36,11 @@ class Ui_tip(object):
 "    background-color: transparent;\n"
 "    color: rgb(80, 80, 80);\n"
 "}")
-        self.verticalLayout = QVBoxLayout(tip)
+        self.verticalLayout = QVBoxLayout(tooltip)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.tipBoard = QWidget(tip)
+        self.tipBoard = QWidget(tooltip)
         self.tipBoard.setObjectName(u"tipBoard")
         self.verticalLayout_2 = QVBoxLayout(self.tipBoard)
         self.verticalLayout_2.setSpacing(0)
@@ -58,13 +58,13 @@ class Ui_tip(object):
         self.verticalLayout.addWidget(self.tipBoard)
 
 
-        self.retranslateUi(tip)
+        self.retranslateUi(tooltip)
 
-        QMetaObject.connectSlotsByName(tip)
+        QMetaObject.connectSlotsByName(tooltip)
     # setupUi
 
-    def retranslateUi(self, tip):
-        tip.setWindowTitle("")
-        self.tipLabel.setText(QCoreApplication.translate("tip", u"\u63d0\u793a", None))
+    def retranslateUi(self, tooltip):
+        tooltip.setWindowTitle("")
+        self.tipLabel.setText(QCoreApplication.translate("tooltip", u"\u63d0\u793a", None))
     # retranslateUi
 

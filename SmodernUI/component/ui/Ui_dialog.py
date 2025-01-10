@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'message.ui'
+## Form generated from reading UI file 'dialog.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -14,18 +14,18 @@ from PySide6.QtWidgets import *
 from resource.resources_rc import *
 from ..widgets.button import CButton
 
-class Ui_message(object):
-    def setupUi(self, message):
-        if not message.objectName():
-            message.setObjectName(u"message")
-        message.resize(318, 228)
+class Ui_dialog(object):
+    def setupUi(self, dialog):
+        if not dialog.objectName():
+            dialog.setObjectName(u"dialog")
+        dialog.resize(318, 228)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(message.sizePolicy().hasHeightForWidth())
-        message.setSizePolicy(sizePolicy)
-        message.setMinimumSize(QSize(318, 0))
-        message.setStyleSheet(u"#titleWidget {\n"
+        sizePolicy.setHeightForWidth(dialog.sizePolicy().hasHeightForWidth())
+        dialog.setSizePolicy(sizePolicy)
+        dialog.setMinimumSize(QSize(318, 0))
+        dialog.setStyleSheet(u"#titleWidget {\n"
 "    border-bottom: 1px solid rgb(235, 235, 235);\n"
 "    background-color: rgb(250, 245, 245);\n"
 "}\n"
@@ -64,10 +64,10 @@ class Ui_message(object):
 "CButton::icon {\n"
 "    padding-right: 10px;\n"
 "}")
-        self.verticalLayout_3 = QVBoxLayout(message)
+        self.verticalLayout_3 = QVBoxLayout(dialog)
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.titleWidget = QWidget(message)
+        self.titleWidget = QWidget(dialog)
         self.titleWidget.setObjectName(u"titleWidget")
         self.titleWidget.setMinimumSize(QSize(300, 40))
         self.titleWidget.setMaximumSize(QSize(16777215, 40))
@@ -97,7 +97,7 @@ class Ui_message(object):
 
         self.verticalLayout_3.addWidget(self.titleWidget)
 
-        self.messageWidget = QWidget(message)
+        self.messageWidget = QWidget(dialog)
         self.messageWidget.setObjectName(u"messageWidget")
         self.messageWidget.setMinimumSize(QSize(300, 120))
         self.messageWidget.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
@@ -112,7 +112,7 @@ class Ui_message(object):
 
         self.verticalLayout_3.addWidget(self.messageWidget)
 
-        self.bottomWidget = QWidget(message)
+        self.bottomWidget = QWidget(dialog)
         self.bottomWidget.setObjectName(u"bottomWidget")
         self.bottomWidget.setMinimumSize(QSize(300, 50))
         self.bottomWidget.setMaximumSize(QSize(16777215, 50))
@@ -144,16 +144,16 @@ class Ui_message(object):
         self.verticalLayout_3.addWidget(self.bottomWidget)
 
 
-        self.retranslateUi(message)
+        self.retranslateUi(dialog)
 
-        QMetaObject.connectSlotsByName(message)
+        QMetaObject.connectSlotsByName(dialog)
     # setupUi
 
-    def retranslateUi(self, message):
-        self.title.setText(QCoreApplication.translate("message", u"\u6807\u9898", None))
-        self.messageLabel.setText(QCoreApplication.translate("message", u"\u6d88\u606f", None))
-        self.btnOk.setText(QCoreApplication.translate("message", u"\u786e\u5b9a", None))
-        self.btnCancel.setText(QCoreApplication.translate("message", u"\u53d6\u6d88", None))
+    def retranslateUi(self, dialog):
+        self.title.setText(QCoreApplication.translate("dialog", u"\u6807\u9898", None))
+        self.messageLabel.setText(QCoreApplication.translate("dialog", u"\u6d88\u606f", None))
+        self.btnOk.setText(QCoreApplication.translate("dialog", u"\u786e\u5b9a", None))
+        self.btnCancel.setText(QCoreApplication.translate("dialog", u"\u53d6\u6d88", None))
         pass
     # retranslateUi
 

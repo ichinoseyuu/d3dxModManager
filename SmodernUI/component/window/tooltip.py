@@ -1,10 +1,11 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
-from ..ui.Ui_tip import Ui_tip
+from ..ui import Ui_tooltip
 from ...core import Globals
 
-class CToolTip(QWidget, Ui_tip):
+class CToolTip(QWidget, Ui_tooltip):
+    '''提示标签'''
     def __init__(self):
         super().__init__()
         self.parent = None
@@ -61,7 +62,7 @@ class CToolTip(QWidget, Ui_tip):
         new_width = max(recommended_size.width() + 36, min_width)
         new_height = max(recommended_size.height(), min_height)
         # 调整大小
-        
+
         self.anim_resize.setStartValue(QSize(self.width(), self.height()))
         self.anim_resize.setEndValue(QSize(new_width, new_height))
         self.anim_resize.start()
