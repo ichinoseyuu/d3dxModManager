@@ -2,15 +2,57 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 import copy
-from ...core import Globals, Theme, ColorMap, CFont, CWidgetProps, CColor
+from enum import Enum, auto
+from ...core import Globals, Theme, CColor, CFont
 
 class CButton(QPushButton):
     '''按钮控件'''
+    class Props(Enum):
+        """summary: 按钮相关属性
+
+        Consts:
+            Enum (auto): bg, bg_hover, bg_pressed, border, border_radius, font_family, font_size, font_color, font_weight
+        """
+        bg = auto()                 # Background color
+        bg_hover = auto()           # Background color on hover
+        bg_pressed = auto()         # Background color when pressed
+        border = auto()             # Border style
+        border_radius = auto()      # Border radius
+        font_family = auto()        # Font family
+        font_size = auto()          # Font size
+        font_color = auto()         # Font color
+        font_weight = auto()        # Font weight
+
+    map = {
+            Theme.Light:{
+                Props.bg: QColor(235, 235, 235),
+                Props.bg_hover: QColor(220, 220, 220),
+                Props.bg_pressed: QColor(211, 211, 211),
+                Props.border: CColor.Base.transparent.value,
+                Props.border_radius: 4,
+                Props.font_color: QColor(60, 60, 60),
+                Props.font_size: CFont.Size.small.value,
+                Props.font_family: CFont.Family.yahei.value,
+                Props.font_weight: CFont.Weight.normal.value,
+            },
+            Theme.Dark:{
+                Props.bg: QColor(211, 211, 211),
+                Props.bg_hover: QColor(220, 220, 220),
+                Props.bg_pressed: QColor(235, 235, 235),
+                Props.border: CColor.Base.transparent.value,
+                Props.border_radius: 4,
+                Props.font_color: CColor.Base.whtite.value,
+                Props.font_size: CFont.Size.small.value,
+                Props.font_family: CFont.Family.yahei.value,
+                Props.font_weight: CFont.Weight.normal.value,
+            }
+        }
+
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.__map = copy.deepcopy(ColorMap(CWidgetProps.Btn).map)
+        self.__map = copy.deepcopy(CButton.map)
         self.__tip_text = ''
-        self.__init_style()
+        self.__init_props()
         self.__init_Anim()
         self.__updateStyleSheet()
 
@@ -103,15 +145,15 @@ class CButton(QPushButton):
 
     # region 私有方法
 
-    def __init_style(self):
+    def __init_props(self):
         '''初始化颜色'''
-        self.__bg_color = self.__map[Globals.theme][CWidgetProps.Btn.bg]
-        self.__font_color = self.__map[Globals.theme][CWidgetProps.Btn.font_color]
-        self.__border_color = self.__map[Globals.theme][CWidgetProps.Btn.border]
-        self.__border_radius = self.__map[Globals.theme][CWidgetProps.Btn.border_radius]
-        self.__font_size = self.__map[Globals.theme][CWidgetProps.Btn.font_size]
-        self.__font_family = self.__map[Globals.theme][CWidgetProps.Btn.font_family]
-        self.__font_weight = self.__map[Globals.theme][CWidgetProps.Btn.font_weight]
+        self.__bg_color = self.__map[Globals.theme][self.Props.bg]
+        self.__font_color = self.__map[Globals.theme][self.Props.font_color]
+        self.__border_color = self.__map[Globals.theme][self.Props.border]
+        self.__border_radius = self.__map[Globals.theme][self.Props.border_radius]
+        self.__font_size = self.__map[Globals.theme][self.Props.font_size]
+        self.__font_family = self.__map[Globals.theme][self.Props.font_family]
+        self.__font_weight = self.__map[Globals.theme][self.Props.font_weight]
 
 
     def __init_Anim(self):
@@ -163,6 +205,7 @@ class CButton(QPushButton):
         self.__border_radius_anim.setStartValue(self.__border_radius)
         self.__border_radius_anim.setEndValue(end)
         self.__border_radius_anim.start()
+
     # endregion
 
 
@@ -187,69 +230,69 @@ class CButton(QPushButton):
     def updateStyle(self, playAnim = False):
         '''更新按钮样式'''
         if playAnim:
-            self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg])
-            self.__playBorderColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.border])
-            self.__playFontColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.font_color])
-            self.__playFontSizeAnim(self.__map[Globals.theme][CWidgetProps.Btn.font_size])
-            self.__playBorderRadiusAnim(self.__map[Globals.theme][CWidgetProps.Btn.border_radius])
-            self.fontFamily = self.__map[Globals.theme][CWidgetProps.Btn.font_family]
-            self.fontWeight = self.__map[Globals.theme][CWidgetProps.Btn.font_weight]
+            self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg])
+            self.__playBorderColorAnim(self.__map[Globals.theme][self.Props.border])
+            self.__playFontColorAnim(self.__map[Globals.theme][self.Props.font_color])
+            self.__playFontSizeAnim(self.__map[Globals.theme][self.Props.font_size])
+            self.__playBorderRadiusAnim(self.__map[Globals.theme][self.Props.border_radius])
+            self.fontFamily = self.__map[Globals.theme][self.Props.font_family]
+            self.fontWeight = self.__map[Globals.theme][self.Props.font_weight]
             return
-        self.backgroundColor = self.__map[Globals.theme][CWidgetProps.Btn.bg]
-        self.borderColor = self.__map[Globals.theme][CWidgetProps.Btn.border]
-        self.fontColor = self.__map[Globals.theme][CWidgetProps.Btn.font_color]
-        self.fontSize = self.__map[Globals.theme][CWidgetProps.Btn.font_size]
-        self.fontFamily = self.__map[Globals.theme][CWidgetProps.Btn.font_family]
-        self.fontWeight = self.__map[Globals.theme][CWidgetProps.Btn.font_weight]
-        self.borderRadius = self.__map[Globals.theme][CWidgetProps.Btn.border_radius]
+        self.backgroundColor = self.__map[Globals.theme][self.Props.bg]
+        self.borderColor = self.__map[Globals.theme][self.Props.border]
+        self.fontColor = self.__map[Globals.theme][self.Props.font_color]
+        self.fontSize = self.__map[Globals.theme][self.Props.font_size]
+        self.fontFamily = self.__map[Globals.theme][self.Props.font_family]
+        self.fontWeight = self.__map[Globals.theme][self.Props.font_weight]
+        self.borderRadius = self.__map[Globals.theme][self.Props.border_radius]
 
 
     def setBGColor(self,theme: Theme, color: QColor, playAnim = False):
         """_summary_: 更改背景颜色及Map
 
         Args:
-            theme (CWidgetProps.Theme):  主题
+            theme (CProps.Theme):  主题
             color (QColor): 颜色
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[theme][CWidgetProps.Btn.bg] = color
+        self.__map[theme][self.Props.bg] = color
         if theme != Globals.theme: return
         if playAnim:
-            self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg])
+            self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg])
             return
-        self.backgroundColor = self.__map[Globals.theme][CWidgetProps.Btn.bg]
+        self.backgroundColor = self.__map[Globals.theme][self.Props.bg]
 
 
     def setBorderColor(self, theme: Theme, color: QColor, playAnim = False):
         """_summary_: 更改边框颜色及Map
 
         Args:
-            theme (CWidgetProps.Theme):  主题
+            theme (CProps.Theme):  主题
             color (QColor): 颜色
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[theme][CWidgetProps.Btn.border] = color
+        self.__map[theme][self.Props.border] = color
         if theme != Globals.theme: return
         if playAnim:
-            self.__playBorderColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.border])
+            self.__playBorderColorAnim(self.__map[Globals.theme][self.Props.border])
             return
-        self.borderColor = self.__map[Globals.theme][CWidgetProps.Btn.border]
+        self.borderColor = self.__map[Globals.theme][self.Props.border]
 
 
     def setFontColor(self, theme: Theme, color: QColor, playAnim = False):
         """_summary_: 更改字体颜色及Map
 
         Args:
-            theme (CWidgetProps.Theme):  主题
+            theme (CProps.Theme):  主题
             color (QColor): 颜色
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[theme][CWidgetProps.Btn.font_color] = color
+        self.__map[theme][self.Props.font_color] = color
         if theme != Globals.theme: return
         if playAnim:
-            self.__playFontColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.font_color])
+            self.__playFontColorAnim(self.__map[Globals.theme][self.Props.font_color])
             return
-        self.fontColor = self.__map[Globals.theme][CWidgetProps.Btn.font_color]
+        self.fontColor = self.__map[Globals.theme][self.Props.font_color]
 
 
     def setBGTransparentAllTheme(self, playAnim = False):
@@ -258,27 +301,27 @@ class CButton(QPushButton):
         Args:
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[Theme.Light][CWidgetProps.Btn.bg] = CColor.Base.transparent.value
-        self.__map[Theme.Dark][CWidgetProps.Btn.bg] = CColor.Base.transparent.value
+        self.__map[Theme.Light][self.Props.bg] = CColor.Base.transparent.value
+        self.__map[Theme.Dark][self.Props.bg] = CColor.Base.transparent.value
         if playAnim:
-            self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg])
+            self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg])
             return
-        self.backgroundColor = self.__map[Globals.theme][CWidgetProps.Btn.bg]
+        self.backgroundColor = self.__map[Globals.theme][self.Props.bg]
 
 
     def setBGTransparent(self, theme: Theme, playAnim = False):
         """_summary_: 设置该控件指定主题透明
 
         Args:
-            theme (CWidgetProps.Theme):  主题
+            theme (CProps.Theme):  主题
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[theme][CWidgetProps.Btn.bg] = CColor.Base.transparent.value
+        self.__map[theme][self.Props.bg] = CColor.Base.transparent.value
         if theme != Globals.theme: return
         if playAnim:
-            self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg])
+            self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg])
             return
-        self.backgroundColor = self.__map[Globals.theme][CWidgetProps.Btn.bg]
+        self.backgroundColor = self.__map[Globals.theme][self.Props.bg]
 
 
     def removeBorderAllTheme(self, playAnim = False):
@@ -287,41 +330,41 @@ class CButton(QPushButton):
         Args:
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[Theme.Light][CWidgetProps.Btn.border] = CColor.Base.transparent.value
-        self.__map[Theme.Dark][CWidgetProps.Btn.border] = CColor.Base.transparent.value
+        self.__map[Theme.Light][self.Props.border] = CColor.Base.transparent.value
+        self.__map[Theme.Dark][self.Props.border] = CColor.Base.transparent.value
         if playAnim:
-            self.__playBorderColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.border])
+            self.__playBorderColorAnim(self.__map[Globals.theme][self.Props.border])
             return
-        self.borderColor = self.__map[Globals.theme][CWidgetProps.Btn.border]
+        self.borderColor = self.__map[Globals.theme][self.Props.border]
 
 
     def removeBorder(self, theme: Theme, playAnim = False):
         """_summary_: 移除指定主题边框
 
         Args:
-            theme (CWidgetProps.Theme): 主题
+            theme (CProps.Theme): 主题
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[theme][CWidgetProps.Btn.border] = CColor.Base.transparent.value
+        self.__map[theme][self.Props.border] = CColor.Base.transparent.value
         if theme != Globals.theme: return
         if playAnim:
-            self.__playBorderColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.border])
+            self.__playBorderColorAnim(self.__map[Globals.theme][self.Props.border])
             return
-        self.borderColor = self.__map[Globals.theme][CWidgetProps.Btn.border]
+        self.borderColor = self.__map[Globals.theme][self.Props.border]
 
 
     def setDefaultStyle(self, playAnim = False):
         """_summary_: 恢复默认样式"""
-        self.__map = copy.deepcopy(ColorMap(CWidgetProps.Btn).map)
+        self.__map = copy.deepcopy(CButton.map)
         self.updateStyle(playAnim)
 
 
-    def getColorFromMap(self,theme: Theme, token: CWidgetProps.Btn,):
+    def getColorFromMap(self,theme: Theme, token: Props):
         """_summary_ 从map中获取颜色
 
         Args:
-            theme (CWidgetProps.Theme): 主题
-            token (CWidgetProps.Btn): 颜色类型
+            theme (CProps.Theme): 主题
+            token (self.Props): 颜色类型
 
         Returns:
             _type_: QColor
@@ -333,11 +376,11 @@ class CButton(QPushButton):
         """_summary_: 设置字体大小
 
         Args:
-            theme (CWidgetProps.Theme):  主题
+            theme (CProps.Theme):  主题
             size (int): 字体大小
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[theme][CWidgetProps.Btn.font_size] = size
+        self.__map[theme][self.Props.font_size] = size
         if theme != Globals.theme: return
         if playAnim:
             self.__playFontSizeAnim(size)
@@ -349,11 +392,11 @@ class CButton(QPushButton):
         """_summary_: 设置边框圆角
 
         Args:
-            theme (CWidgetProps.Theme): 主题
+            theme (CProps.Theme): 主题
             radius (int): 圆角大小
             playAnim (bool, optional): 是否播放动画. Defaults to False.
         """
-        self.__map[theme][CWidgetProps.Btn.border_radius] = radius
+        self.__map[theme][self.Props.border_radius] = radius
         if theme != Globals.theme: return
         if playAnim:
             self.__playBorderRadiusAnim(radius)
@@ -367,7 +410,7 @@ class CButton(QPushButton):
         Args:
             family (str): 字体
         """
-        self.__map[theme][CWidgetProps.Btn.font_family] = family
+        self.__map[theme][self.Props.font_family] = family
         if theme != Globals.theme: return
         self.fontFamily = family
 
@@ -378,7 +421,7 @@ class CButton(QPushButton):
         Args:
             weight (int): 粗细
         """
-        self.__map[theme][CWidgetProps.Btn.font_weight] = weight
+        self.__map[theme][self.Props.font_weight] = weight
         if theme != Globals.theme: return
         self.fontWeight = weight
 
@@ -393,7 +436,7 @@ class CButton(QPushButton):
             Globals.ObjRef['TOOLTIP'].showTip()
 
         # 触发动画改变背景颜色
-        self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg_hover])
+        self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg_hover])
 
 
     def leaveEvent(self, event:QMouseEvent):
@@ -401,24 +444,26 @@ class CButton(QPushButton):
         if Globals.ObjRef['TOOLTIP'] is not None and self.__tip_text != '':
             Globals.ObjRef['TOOLTIP'].hideTip()
         # 触发动画改变背景颜色
-        self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg])
+        self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg])
 
 
     def mousePressEvent(self, event:QMouseEvent):
         # 触发动画改变背景颜色
-        self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg_pressed])
+        self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg_pressed])
 
 
     def mouseReleaseEvent(self, event:QMouseEvent):
         if self.rect().contains(event.pos()):
             self.clicked.emit()
+            if self.isCheckable():
+                self.setChecked(not self.isChecked())
         mouse_pos = QCursor.pos()#获取鼠标当前位置
         # 判断鼠标是否在按钮区域内
         if self.rect().contains(self.mapFromGlobal(mouse_pos)):
             # 如果鼠标在按钮内，保持 hover 状态
-            self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg_hover])
+            self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg_hover])
         else:
-            self.__playBGColorAnim(self.__map[Globals.theme][CWidgetProps.Btn.bg])
+            self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg])
 
     def mouseMoveEvent(self, event: QMouseEvent):
         pass

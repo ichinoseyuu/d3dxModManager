@@ -89,25 +89,7 @@ class Ui_mainWindow(object):
 "	bord"
                         "er-radius: 2px;\n"
 "}\n"
-"#searchWidget QComboBox {\n"
-"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"    font-size: 10pt;\n"
-"    color: rgb(60, 60, 60);\n"
-"    border: 1px solid lightgray;\n"
-"    border-radius: 2px;\n"
-"}\n"
-"#searchWidget QComboBox::drop-down {\n"
-"    border: none; \n"
-"    background-color: #f0f0f0; \n"
-"    width: 20px; \n"
-"    border-top-right-radius: 2px; \n"
-"    border-bottom-right-radius: 2px; \n"
-"}\n"
-"#searchWidget QComboBox::down-arrow {\n"
-"	image: url(:/iamge_pack/content/down_arrow.png);\n"
-"    width: 16px; \n"
-"    height: 16px; \n"
-"}\n"
+"\n"
 "#page_1 #moduleWidget QWidget > QLabel {\n"
 "	background-color: rgb(255, 246, 248);\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
@@ -119,8 +101,7 @@ class Ui_mainWindow(object):
 "	border-bottom-left-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
 "}\n"
-"#page_1 #moduleWidget #previewWidget_2"
-                        " #preview_1 {\n"
+"#page_1 #moduleWidget #previewWidget_2 #preview_1 {\n"
 "	background-color: rgb(255, 246, 248);\n"
 "	border-bottom: 1px solid rgb(235, 235, 235);\n"
 "	border-radius: 0px;\n"
@@ -135,7 +116,8 @@ class Ui_mainWindow(object):
 "/*--------------------------------page2--------------------------------------*/\n"
 "#functionWidget {\n"
 "    background-color: rgb(255, 246, 248);\n"
-"    border-bottom: 1px solid rgb(235, 235, 235);\n"
+"    border-bottom"
+                        ": 1px solid rgb(235, 235, 235);\n"
 "	border-top-left-radius: 5px;\n"
 "	border-top-right-radius: 5px;\n"
 "	border-bottom-left-radius: 0px;\n"
@@ -148,8 +130,7 @@ class Ui_mainWindow(object):
 "	border-bottom-left-radius: 5px;\n"
 "	border-bottom-right-radius: 5px;\n"
 "}\n"
-"/*-----------------------------page3---------------------------"
-                        "-----------*/\n"
+"/*-----------------------------page3--------------------------------------*/\n"
 "#configBtnWidget {\n"
 "	background-color: rgb(255, 246, 248);\n"
 "    border-bottom: 1px solid rgb(235, 235, 235);\n"
@@ -166,7 +147,8 @@ class Ui_mainWindow(object):
 "}\n"
 "#configLeft {\n"
 "	background-color: rgb(255, 246, 248);\n"
-"	border-right: 1px solid rgb(235, 235, 235);\n"
+"	border-right: 1px solid rgb(235, 235, 23"
+                        "5);\n"
 "	border-top-left-radius: 0px;\n"
 "	border-top-right-radius: 0px;\n"
 "	border-bottom-left-radius: 5px;\n"
@@ -181,8 +163,7 @@ class Ui_mainWindow(object):
 "}\n"
 "#configScrollWidget QLabel{\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"    font-siz"
-                        "e: 10pt;\n"
+"    font-size: 10pt;\n"
 "    color: rgb(60, 60, 60);\n"
 "}\n"
 "#configScrollWidget QLineEdit{\n"
@@ -200,15 +181,15 @@ class Ui_mainWindow(object):
 "    border-radius: 2px;\n"
 "}\n"
 "#configScrollWidget QComboBox::drop-down {\n"
-"    border: none; /* \u53bb\u6389\u4e0b\u62c9\u6309\u94ae\u7684\u8fb9\u6846 */\n"
+"    border: none; /* \u53bb\u6389\u4e0b"
+                        "\u62c9\u6309\u94ae\u7684\u8fb9\u6846 */\n"
 "    background-color: #f0f0f0; /* \u4fee\u6539\u4e0b\u62c9\u6309\u94ae\u80cc\u666f\u989c\u8272 */\n"
 "    width: 20px; /* \u8c03\u6574\u4e0b\u62c9\u6309\u94ae\u7684\u5bbd\u5ea6 */\n"
 "    border-top-right-radius: 2px; /* \u8bbe\u7f6e\u53f3\u4e0a\u89d2\u5706\u89d2 */\n"
 "    border-bottom-right-radius: 2px; /* \u8bbe\u7f6e\u53f3\u4e0b\u89d2\u5706\u89d2 */\n"
 "}\n"
 "#configScrollWidget QComboBox::down-arrow {\n"
-"	image"
-                        ": url(:/iamge_pack/content/down_arrow.png);\n"
+"	image: url(:/iamge_pack/content/down_arrow.png);\n"
 "    width: 16px; /* \u8bbe\u7f6e\u7bad\u5934\u7684\u5bbd\u5ea6 */\n"
 "    height: 16px; /* \u8bbe\u7f6e\u7bad\u5934\u7684\u9ad8\u5ea6 */\n"
 "}\n"
@@ -223,7 +204,8 @@ class Ui_mainWindow(object):
 "    font-weight: bold;\n"
 "    color: rgb(80, 80, 80);\n"
 "}\n"
-"#softwareName {\n"
+"#softwareName"
+                        " {\n"
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 9pt;\n"
 "    font-weight: bold;\n"
@@ -255,13 +237,14 @@ class Ui_mainWindow(object):
 "    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
 "    font-size: 10pt;\n"
 "    color: rgb(60, 60, 60);\n"
-"	 border:1px solid transparent;\n"
+"	border:1px solid transparent;\n"
 "    border-radius: 4px;\n"
 "}\n"
 "CButton::icon {\n"
 "    padding-right: 10px;\n"
 "}\n"
-"/*-----------------------------------ScrollArea----------------------------------*/\n"
+"/*"
+                        "-----------------------------------ScrollArea----------------------------------*/\n"
 "QScrollArea{\n"
 "	border:none;\n"
 "}\n"
@@ -277,8 +260,7 @@ class Ui_mainWindow(object):
 "    width: 6px;\n"
 "}\n"
 "QScrollArea QScrollBar::add-line:vertical {\n"
-" "
-                        "   background: transparent;\n"
+"    background: transparent;\n"
 "    border: none;\n"
 "    height: 0px;\n"
 "}\n"
@@ -292,67 +274,32 @@ class Ui_mainWindow(object):
 "    border: none;\n"
 "    background: none;\n"
 "}\n"
+"QComboBox {\n"
+"    font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
+"    font-size: 10pt;\n"
+"    color: rgb(60, 60, 60);\n"
+"    border: 1px solid lightgray;\n"
+"    border-radius: 2px;\n"
+"}\n"
+"QCo"
+                        "mboBox::drop-down {\n"
+"    border: none; \n"
+"    background-color: #f0f0f0; \n"
+"    width: 20px; \n"
+"    border-top-right-radius: 2px; \n"
+"    border-bottom-right-radius: 2px; \n"
+"}\n"
+"QComboBox::down-arrow {\n"
+"	image: url(:/iamge_pack/content/down_arrow.png);\n"
+"    width: 16px; \n"
+"    height: 16px; \n"
+"}\n"
 "")
-        self.verticalLayout = QVBoxLayout(self.backBoard)
-        self.verticalLayout.setSpacing(0)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(9, -1, -1, -1)
-        self.titleWidget = QWidget(self.backBoard)
-        self.titleWidget.setObjectName(u"titleWidget")
-        self.titleWidget.setMinimumSize(QSize(0, 40))
-        self.titleWidget.setMaximumSize(QSize(16777215, 40))
-        self.hboxLayout = QHBoxLayout(self.titleWidget)
-        self.hboxLayout.setSpacing(12)
-        self.hboxLayout.setObjectName(u"hboxLayout")
-        self.hboxLayout.setContentsMargins(12, 0, 15, 0)
-        self.icon = QLabel(self.titleWidget)
-        self.icon.setObjectName(u"icon")
-        self.icon.setMinimumSize(QSize(32, 32))
-        self.icon.setMaximumSize(QSize(32, 32))
-        self.icon.setPixmap(QPixmap(u":/images/icon/icon.png"))
-        self.icon.setScaledContents(True)
-
-        self.hboxLayout.addWidget(self.icon)
-
-        self.title = QLabel(self.titleWidget)
-        self.title.setObjectName(u"title")
-
-        self.hboxLayout.addWidget(self.title)
-
-        self.titleSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.hboxLayout.addItem(self.titleSpacer)
-
-        self.btnMin = CButton(self.titleWidget)
-        self.btnMin.setObjectName(u"btnMin")
-        self.btnMin.setMinimumSize(QSize(24, 24))
-        self.btnMin.setMaximumSize(QSize(24, 24))
-        icon1 = QIcon()
-        icon1.addFile(u":/iamge_pack/title_bar/minimize.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnMin.setIcon(icon1)
-
-        self.hboxLayout.addWidget(self.btnMin)
-
-        self.btnExit = CButton(self.titleWidget)
-        self.btnExit.setObjectName(u"btnExit")
-        self.btnExit.setMinimumSize(QSize(24, 24))
-        self.btnExit.setMaximumSize(QSize(24, 24))
-        icon2 = QIcon()
-        icon2.addFile(u":/iamge_pack/title_bar/shutdown.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnExit.setIcon(icon2)
-
-        self.hboxLayout.addWidget(self.btnExit)
-
-
-        self.verticalLayout.addWidget(self.titleWidget)
-
-        self.contentWidget = QWidget(self.backBoard)
-        self.contentWidget.setObjectName(u"contentWidget")
-        self.horizontalLayout = QHBoxLayout(self.contentWidget)
+        self.horizontalLayout = QHBoxLayout(self.backBoard)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.leftWidget = QWidget(self.contentWidget)
+        self.horizontalLayout.setContentsMargins(0, 40, 0, 0)
+        self.leftWidget = QWidget(self.backBoard)
         self.leftWidget.setObjectName(u"leftWidget")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -366,61 +313,56 @@ class Ui_mainWindow(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(7, -1, 7, -1)
         self.btnHome = CButton(self.leftWidget)
-        self.btnHome.setTipText("主页")
         self.btnHome.setObjectName(u"btnHome")
         self.btnHome.setMinimumSize(QSize(42, 42))
         self.btnHome.setMaximumSize(QSize(42, 42))
-        icon3 = QIcon()
-        icon3.addFile(u":/iamge_pack/tab/home.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnHome.setIcon(icon3)
+        icon = QIcon()
+        icon.addFile(u":/iamge_pack/tab/home.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnHome.setIcon(icon)
         self.btnHome.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnHome)
 
         self.btnModule = CButton(self.leftWidget)
-        self.btnModule.setTipText("模组管理")
         self.btnModule.setObjectName(u"btnModule")
         self.btnModule.setMinimumSize(QSize(42, 42))
         self.btnModule.setMaximumSize(QSize(42, 42))
-        icon4 = QIcon()
-        icon4.addFile(u":/iamge_pack/tab/module_1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnModule.setIcon(icon4)
+        icon1 = QIcon()
+        icon1.addFile(u":/iamge_pack/tab/module_1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnModule.setIcon(icon1)
         self.btnModule.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnModule)
 
         self.btnFolder = CButton(self.leftWidget)
-        self.btnFolder.setTipText("常用文件夹")
         self.btnFolder.setObjectName(u"btnFolder")
         self.btnFolder.setMinimumSize(QSize(42, 42))
         self.btnFolder.setMaximumSize(QSize(42, 42))
-        icon5 = QIcon()
-        icon5.addFile(u":/iamge_pack/tab/folder.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnFolder.setIcon(icon5)
+        icon2 = QIcon()
+        icon2.addFile(u":/iamge_pack/tab/folder.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnFolder.setIcon(icon2)
         self.btnFolder.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnFolder)
 
         self.btnConfig = CButton(self.leftWidget)
-        self.btnConfig.setTipText("配置")
         self.btnConfig.setObjectName(u"btnConfig")
         self.btnConfig.setMinimumSize(QSize(42, 42))
         self.btnConfig.setMaximumSize(QSize(42, 42))
-        icon6 = QIcon()
-        icon6.addFile(u":/iamge_pack/tab/Settings.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnConfig.setIcon(icon6)
+        icon3 = QIcon()
+        icon3.addFile(u":/iamge_pack/tab/Settings.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnConfig.setIcon(icon3)
         self.btnConfig.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnConfig)
 
         self.btnAbout = CButton(self.leftWidget)
-        self.btnAbout.setTipText("关于")
         self.btnAbout.setObjectName(u"btnAbout")
         self.btnAbout.setMinimumSize(QSize(42, 42))
         self.btnAbout.setMaximumSize(QSize(42, 42))
-        icon7 = QIcon()
-        icon7.addFile(u":/iamge_pack/tab/about.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnAbout.setIcon(icon7)
+        icon4 = QIcon()
+        icon4.addFile(u":/iamge_pack/tab/about.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnAbout.setIcon(icon4)
         self.btnAbout.setIconSize(QSize(24, 24))
 
         self.verticalLayout_2.addWidget(self.btnAbout)
@@ -430,14 +372,13 @@ class Ui_mainWindow(object):
         self.verticalLayout_2.addItem(self.verticalSpacer)
 
         self.btnTheme = CButton(self.leftWidget)
-        self.btnTheme.setTipText("切换主题")
         self.btnTheme.setObjectName(u"btnTheme")
         self.btnTheme.setMinimumSize(QSize(42, 42))
         self.btnTheme.setMaximumSize(QSize(42, 42))
-        icon8 = QIcon()
-        icon8.addFile(u":/iamge_pack/tab/dark_theme.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon8.addFile(u":/iamge_pack/tab/light_theme.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.btnTheme.setIcon(icon8)
+        icon5 = QIcon()
+        icon5.addFile(u":/iamge_pack/tab/dark_theme.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon5.addFile(u":/iamge_pack/tab/light_theme.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.btnTheme.setIcon(icon5)
         self.btnTheme.setIconSize(QSize(24, 24))
         self.btnTheme.setCheckable(True)
         self.btnTheme.setChecked(False)
@@ -447,7 +388,7 @@ class Ui_mainWindow(object):
 
         self.horizontalLayout.addWidget(self.leftWidget)
 
-        self.rightWidget = QWidget(self.contentWidget)
+        self.rightWidget = QWidget(self.backBoard)
         self.rightWidget.setObjectName(u"rightWidget")
         self.verticalLayout_9 = QVBoxLayout(self.rightWidget)
         self.verticalLayout_9.setSpacing(0)
@@ -510,13 +451,12 @@ class Ui_mainWindow(object):
         self.horizontalLayout_6.addWidget(self.comboBox)
 
         self.btnSearch = CButton(self.searchWidget)
-        self.btnSearch.setTipText("查找")
         self.btnSearch.setObjectName(u"btnSearch")
         self.btnSearch.setMinimumSize(QSize(30, 24))
         self.btnSearch.setMaximumSize(QSize(30, 24))
-        icon9 = QIcon()
-        icon9.addFile(u":/iamge_pack/content/search.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnSearch.setIcon(icon9)
+        icon6 = QIcon()
+        icon6.addFile(u":/iamge_pack/content/search.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnSearch.setIcon(icon6)
         self.btnSearch.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_6.addWidget(self.btnSearch)
@@ -614,7 +554,7 @@ class Ui_mainWindow(object):
         self.classifiScrollArea.setWidgetResizable(True)
         self.roleScrollWidget = QWidget()
         self.roleScrollWidget.setObjectName(u"roleScrollWidget")
-        self.roleScrollWidget.setGeometry(QRect(0, 0, 200, 505))
+        self.roleScrollWidget.setGeometry(QRect(0, 0, 200, 30))
         self.verticalLayout_11 = QVBoxLayout(self.roleScrollWidget)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
@@ -632,7 +572,7 @@ class Ui_mainWindow(object):
         self.modScrollArea.setWidgetResizable(True)
         self.modScrollWidget = QWidget()
         self.modScrollWidget.setObjectName(u"modScrollWidget")
-        self.modScrollWidget.setGeometry(QRect(0, 0, 200, 505))
+        self.modScrollWidget.setGeometry(QRect(0, 0, 200, 30))
         self.verticalLayout_15 = QVBoxLayout(self.modScrollWidget)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
@@ -650,7 +590,7 @@ class Ui_mainWindow(object):
         self.partScrollArea.setWidgetResizable(True)
         self.partScrollWidget = QWidget()
         self.partScrollWidget.setObjectName(u"partScrollWidget")
-        self.partScrollWidget.setGeometry(QRect(0, 0, 200, 505))
+        self.partScrollWidget.setGeometry(QRect(0, 0, 200, 30))
         self.verticalLayout_12 = QVBoxLayout(self.partScrollWidget)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
@@ -700,26 +640,24 @@ class Ui_mainWindow(object):
         self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
 
         self.btnDelFolder = CButton(self.functionWidget)
-        self.btnDelFolder.setTipText("删除选中文件夹")
         self.btnDelFolder.setObjectName(u"btnDelFolder")
         self.btnDelFolder.setMinimumSize(QSize(32, 32))
         self.btnDelFolder.setMaximumSize(QSize(32, 32))
-        icon10 = QIcon()
-        icon10.addFile(u":/iamge_pack/content/delete.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnDelFolder.setIcon(icon10)
+        icon7 = QIcon()
+        icon7.addFile(u":/iamge_pack/content/delete.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnDelFolder.setIcon(icon7)
         self.btnDelFolder.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.btnDelFolder)
 
         self.btnSelectAll = CButton(self.functionWidget)
-        self.btnSelectAll.setTipText("全选/取消全选")
         self.btnSelectAll.setObjectName(u"btnSelectAll")
         self.btnSelectAll.setMinimumSize(QSize(32, 32))
         self.btnSelectAll.setMaximumSize(QSize(32, 32))
-        icon11 = QIcon()
-        icon11.addFile(u":/iamge_pack/content/select_2.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon11.addFile(u":/iamge_pack/content/unselect_2.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.btnSelectAll.setIcon(icon11)
+        icon8 = QIcon()
+        icon8.addFile(u":/iamge_pack/content/select_2.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon8.addFile(u":/iamge_pack/content/unselect_2.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.btnSelectAll.setIcon(icon8)
         self.btnSelectAll.setIconSize(QSize(24, 24))
         self.btnSelectAll.setCheckable(True)
         self.btnSelectAll.setChecked(False)
@@ -727,26 +665,24 @@ class Ui_mainWindow(object):
         self.horizontalLayout_2.addWidget(self.btnSelectAll)
 
         self.btnAddFolder = CButton(self.functionWidget)
-        self.btnAddFolder.setTipText("添加文件夹")
         self.btnAddFolder.setObjectName(u"btnAddFolder")
         self.btnAddFolder.setMinimumSize(QSize(32, 32))
         self.btnAddFolder.setMaximumSize(QSize(32, 32))
-        icon12 = QIcon()
-        icon12.addFile(u":/iamge_pack/content/increase.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnAddFolder.setIcon(icon12)
+        icon9 = QIcon()
+        icon9.addFile(u":/iamge_pack/content/increase.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnAddFolder.setIcon(icon9)
         self.btnAddFolder.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_2.addWidget(self.btnAddFolder)
 
         self.btnEditFolder = CButton(self.functionWidget)
-        self.btnEditFolder.setTipText("编辑模式")
         self.btnEditFolder.setObjectName(u"btnEditFolder")
         self.btnEditFolder.setMinimumSize(QSize(32, 32))
         self.btnEditFolder.setMaximumSize(QSize(32, 32))
-        icon13 = QIcon()
-        icon13.addFile(u":/iamge_pack/content/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        icon13.addFile(u":/btn/main_widget/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
-        self.btnEditFolder.setIcon(icon13)
+        icon10 = QIcon()
+        icon10.addFile(u":/iamge_pack/content/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon10.addFile(u":/btn/main_widget/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.On)
+        self.btnEditFolder.setIcon(icon10)
         self.btnEditFolder.setIconSize(QSize(24, 24))
         self.btnEditFolder.setCheckable(True)
 
@@ -817,25 +753,23 @@ class Ui_mainWindow(object):
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
         self.btnClearGameData = CButton(self.configBtnWidget)
-        self.btnClearGameData.setTipText("清除当前配置")
         self.btnClearGameData.setObjectName(u"btnClearGameData")
         self.btnClearGameData.setMinimumSize(QSize(28, 28))
         self.btnClearGameData.setMaximumSize(QSize(28, 28))
-        icon14 = QIcon()
-        icon14.addFile(u":/iamge_pack/content/clear.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnClearGameData.setIcon(icon14)
+        icon11 = QIcon()
+        icon11.addFile(u":/iamge_pack/content/clear.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnClearGameData.setIcon(icon11)
         self.btnClearGameData.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_3.addWidget(self.btnClearGameData)
 
         self.btnNext = CButton(self.configBtnWidget)
-        self.btnNext.setTipText("下一步")
         self.btnNext.setObjectName(u"btnNext")
         self.btnNext.setMinimumSize(QSize(28, 28))
         self.btnNext.setMaximumSize(QSize(28, 28))
-        icon15 = QIcon()
-        icon15.addFile(u":/iamge_pack/content/next.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnNext.setIcon(icon15)
+        icon12 = QIcon()
+        icon12.addFile(u":/iamge_pack/content/next.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnNext.setIcon(icon12)
 
         self.horizontalLayout_3.addWidget(self.btnNext)
 
@@ -975,22 +909,20 @@ class Ui_mainWindow(object):
         self.gridLayout.addWidget(self.label_R_2, 2, 2, 1, 1)
 
         self.btnSelect_1 = CButton(self.configRight)
-        self.btnSelect_1.setTipText("选择游戏路径")
         self.btnSelect_1.setObjectName(u"btnSelect_1")
         self.btnSelect_1.setMinimumSize(QSize(22, 22))
         self.btnSelect_1.setMaximumSize(QSize(22, 22))
-        icon16 = QIcon()
-        icon16.addFile(u":/iamge_pack/content/more.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnSelect_1.setIcon(icon16)
+        icon13 = QIcon()
+        icon13.addFile(u":/iamge_pack/content/more.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnSelect_1.setIcon(icon13)
 
         self.gridLayout.addWidget(self.btnSelect_1, 2, 4, 1, 1)
 
         self.btnSelect_2 = CButton(self.configRight)
-        self.btnSelect_2.setTipText("选择模组加载器路径")
         self.btnSelect_2.setObjectName(u"btnSelect_2")
         self.btnSelect_2.setMinimumSize(QSize(22, 22))
         self.btnSelect_2.setMaximumSize(QSize(22, 22))
-        self.btnSelect_2.setIcon(icon16)
+        self.btnSelect_2.setIcon(icon13)
 
         self.gridLayout.addWidget(self.btnSelect_2, 3, 4, 1, 1)
 
@@ -1054,25 +986,25 @@ class Ui_mainWindow(object):
         self.btnGitHub.setGeometry(QRect(280, 160, 151, 32))
         self.btnGitHub.setMinimumSize(QSize(120, 32))
         self.btnGitHub.setMaximumSize(QSize(16777215, 32))
-        icon17 = QIcon()
-        icon17.addFile(u":/iamge_pack/content/github.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnGitHub.setIcon(icon17)
+        icon14 = QIcon()
+        icon14.addFile(u":/iamge_pack/content/github.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnGitHub.setIcon(icon14)
         self.btnGitHub.setIconSize(QSize(24, 24))
         self.btnCheckUpdate = CButton(self.softwareInfoWidget)
         self.btnCheckUpdate.setObjectName(u"btnCheckUpdate")
         self.btnCheckUpdate.setGeometry(QRect(20, 160, 100, 32))
         self.btnCheckUpdate.setMinimumSize(QSize(100, 32))
         self.btnCheckUpdate.setMaximumSize(QSize(16777215, 32))
-        icon18 = QIcon()
-        icon18.addFile(u":/iamge_pack/content/update.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnCheckUpdate.setIcon(icon18)
+        icon15 = QIcon()
+        icon15.addFile(u":/iamge_pack/content/update.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnCheckUpdate.setIcon(icon15)
         self.btnCheckUpdate.setIconSize(QSize(24, 24))
         self.btnRemoveUerdata = CButton(self.softwareInfoWidget)
         self.btnRemoveUerdata.setObjectName(u"btnRemoveUerdata")
         self.btnRemoveUerdata.setGeometry(QRect(150, 160, 100, 32))
         self.btnRemoveUerdata.setMinimumSize(QSize(100, 32))
         self.btnRemoveUerdata.setMaximumSize(QSize(16777215, 32))
-        self.btnRemoveUerdata.setIcon(icon14)
+        self.btnRemoveUerdata.setIcon(icon11)
         self.btnRemoveUerdata.setIconSize(QSize(24, 24))
         self.copyrightLabel = QLabel(self.softwareInfoWidget)
         self.copyrightLabel.setObjectName(u"copyrightLabel")
@@ -1109,9 +1041,9 @@ class Ui_mainWindow(object):
         self.btnPlay.setObjectName(u"btnPlay")
         self.btnPlay.setMinimumSize(QSize(110, 42))
         self.btnPlay.setMaximumSize(QSize(110, 42))
-        icon19 = QIcon()
-        icon19.addFile(u":/iamge_pack/content/run_1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnPlay.setIcon(icon19)
+        icon16 = QIcon()
+        icon16.addFile(u":/iamge_pack/content/run_1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnPlay.setIcon(icon16)
         self.btnPlay.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_4.addWidget(self.btnPlay)
@@ -1122,21 +1054,17 @@ class Ui_mainWindow(object):
 
         self.horizontalLayout.addWidget(self.rightWidget)
 
-
-        self.verticalLayout.addWidget(self.contentWidget)
-
         mainWindow.setCentralWidget(self.backBoard)
 
         self.retranslateUi(mainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(mainWindow)
     # setupUi
 
     def retranslateUi(self, mainWindow):
-        self.title.setText(QCoreApplication.translate("mainWindow", u"d3dxModManager", None))
         self.currentPageTitle.setText(QCoreApplication.translate("mainWindow", u"\u9996\u9875", None))
         self.wallpaper.setText("")
         self.btnSearch.setText("")

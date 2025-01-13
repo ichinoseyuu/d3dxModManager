@@ -4,26 +4,20 @@ from PySide6.QtGui import *
 from SmodernUI import *
 from .Ui_mainWindow import Ui_mainWindow
 
-
 class d3dxModManager(QMainWindow,Ui_mainWindow):
     def __init__(self):
         super().__init__()
         Globals.ObjRef['TOOLTIP'] = CToolTip()
         self.setupUi(self)
         Globals.ObjRef['MAINWINDOW'] = self
-        self.setWindowFlags(Qt.FramelessWindowHint) # 表示窗口没有边框
-        self.setAttribute(Qt.WA_TranslucentBackground) # 表示窗口具有透明效果
+        self.setWindowFlags(Qt.CustomizeWindowHint|Qt.FramelessWindowHint)
+        self.setMenuWidget(CTitleBar())
         self._Ui_init()
         self.btnConnect()
 
 
+
     def _Ui_init(self):
-        # btns = Globals.findObjByType(self, CButton)
-        # Globals.addObjList2Ref(btns,'BTN')
-        # for btn in btns:
-        #     btn.updateStyle()
-        self.btnMin.setBGTransparentAllTheme()
-        self.btnExit.setBGTransparentAllTheme()
         self.btnHome.setBGTransparentAllTheme()
         self.btnModule.setBGTransparentAllTheme()
         self.btnFolder.setBGTransparentAllTheme()
@@ -37,14 +31,15 @@ class d3dxModManager(QMainWindow,Ui_mainWindow):
         self.btnPlay.setBGColor(Theme.Dark, CColor.Base.purple.value)
         self.btnPlay.setFontColor(Theme.Light, CColor.Base.whtite.value)
         self.btnPlay.setFontSize(Theme.Light,CFont.Size.large.value)
-
+        
+    def test(self):
+        print('test')
+        self.btnPlay.setBorderRadius(Theme.Light, 20,True)
+        self.btnPlay.setFontSize(Theme.Light, 15,True)
+        self.btnPlay.setBGColor(Theme.Light, CColor.Base.purple.value,True)
 
 
     def btnConnect(self):
-        #标题栏按钮
-        self.btnMin.clicked.connect(self.showMinimized) #最小化
-        self.btnExit.clicked.connect(self.quit) # 右上角退出
-
         #左侧菜单栏按钮
         self.btnHome.clicked.connect(lambda: self.swithPage(0))
         self.btnModule.clicked.connect(lambda: self.swithPage(1))
@@ -52,18 +47,20 @@ class d3dxModManager(QMainWindow,Ui_mainWindow):
         self.btnConfig.clicked.connect(lambda: self.swithPage(3))
         self.btnAbout.clicked.connect(lambda: self.swithPage(4))
         self.btnTheme.clicked.connect(lambda: Globals.changeTheme())
-        #self.btnTheme.clicked.connect(self.btnPlay.toggleTransparent)
-        #self.btnTheme.clicked.connect(self.btnPlay.switchFontColor)
+        # self.btnTheme.clicked.connect(self.test)
+
 
     def swithPage(self, index: int):
         self.stackedWidget.setCurrentIndex(index)
 
 
-    def quit(self):
+    def closeEvent(self, event):
         message = CDialog('退出', '您确定要退出吗？', self)
         reply = message.exec()
         if reply == 1:
-            QApplication.instance().quit()
+            event.accept()
+        else:
+            event.ignore()
 
     def mousePressEvent(self, event):
         GenericFunc.mousePressEvent(self, event)
@@ -76,3 +73,5 @@ class d3dxModManager(QMainWindow,Ui_mainWindow):
 
     def paintShadow(self):
         GenericFunc.paintShadow(self)
+
+

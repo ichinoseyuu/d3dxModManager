@@ -25,7 +25,7 @@ class CColor:
         whtite = QColor(255, 255, 255)
 
     class Presets(Enum):
-        window_bg_light = QColor(250, 245, 245)
+        window_bg_light = QColor(250, 245, 245, 255)
         border_light = QColor(235, 235, 235)
 
     def toHex(color: QColor):
