@@ -2,14 +2,18 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from ..ui import Ui_tooltip
-from ...core import Globals
-
+from ...core.globals import *
+from ...core.cenum import *
 class CToolTip(QWidget, Ui_tooltip):
     '''提示标签'''
     def __init__(self):
         super().__init__()
         self.parent = None
         self.setupUi(self)
+        self.tipBoard.setBorder((1, 1, 1, 1))
+        self.tipBoard.setBorder((1, 1, 1, 1), 1, Theme.Dark)
+        self.tipBoard.setBGColor(QColor(90, 90, 90), Theme.Dark)
+        self.tipBoard.setBorderColors({Theme.Light: QColor(230, 230, 230), Theme.Dark: QColor(200, 200, 200)})
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool | Qt.WindowTransparentForInput)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self._init_Anim()
@@ -70,15 +74,15 @@ class CToolTip(QWidget, Ui_tooltip):
     def refreshPos(self):
         pos = QCursor.pos()
         x, y = pos.x(), pos.y()
-        left = x + Globals.TOOLTIP_OFFSET_X
-        top = y - self.geometry().height() + Globals.TOOLTIP_OFFSET_Y
-        if Globals.ObjRef['MAINWINDOW'] != None:
-            new_left = max(left, Globals.ObjRef['MAINWINDOW'].geometry().left()+Globals.MAINWINDOW_MARGIN)
-            new_top = max(top, Globals.ObjRef['MAINWINDOW'].geometry().top()+Globals.MAINWINDOW_MARGIN)
-            if new_left + self.width() > Globals.ObjRef['MAINWINDOW'].geometry().right()-Globals.MAINWINDOW_MARGIN:
-                new_left = min(left, Globals.ObjRef['MAINWINDOW'].geometry().right()-self.width()-Globals.MAINWINDOW_MARGIN)
-            if new_top + self.height() > Globals.ObjRef['MAINWINDOW'].geometry().bottom()-Globals.MAINWINDOW_MARGIN:
-                new_top = min(top, Globals.ObjRef['MAINWINDOW'].geometry().bottom()-self.height()-Globals.MAINWINDOW_MARGIN)
+        left = x + TOOLTIP_OFFSET_X
+        top = y - self.geometry().height() + TOOLTIP_OFFSET_Y
+        if Var.objref['mainwindow'] != None:
+            new_left = max(left, Var.objref['mainwindow'].geometry().left())
+            new_top = max(top, Var.objref['mainwindow'].geometry().top())
+            if new_left + self.width() > Var.objref['mainwindow'].geometry().right():
+                new_left = min(left, Var.objref['mainwindow'].geometry().right()-self.width())
+            if new_top + self.height() > Var.objref['mainwindow'].geometry().bottom():
+                new_top = min(top, Var.objref['mainwindow'].geometry().bottom()-self.height())
             self.move(new_left, new_top)
         else:
             self.move(left, top)

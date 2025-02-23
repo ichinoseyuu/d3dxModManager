@@ -1,60 +1,63 @@
 from PySide6.QtWidgets import *
-from PySide6.QtCore import *
 from PySide6.QtGui import *
-from ..ui import Ui_dialog
-from ...core import GenericFunc, CColor, Theme
+from PySide6.QtCore import *
 
-class CDialog(QDialog, Ui_dialog) :
+from .frameless_window import FramelessWindow
+from ..ui import Ui_dialog
+from ..window.titlebar import CTitleBar
+from ...core import GenericFunc, Theme, ColorBase
+
+class CDialog(FramelessWindow, Ui_dialog) :
     '''对话框'''
-    def __init__(self, title = '', dialog = '', parent=None):
-        """
-        Args:
-            title (str, optional): 标题. Defaults to ''.
-            dialog (str, optional): 问题. Defaults to ''.
-            parent (_type_, optional): 父级窗口引用. Defaults to None.
-        """
-        super(CDialog, self).__init__()
-        self.parent = parent
+    def __init__(self, title:str, dialog = '', parent: QWidget = None):
+        super().__init__()
+        self._parent_window = parent
+        self._result = 0
         self.setupUi(self)
         self.setWindowFlags(Qt.FramelessWindowHint) # 表示窗口没有边框
-        self.setAttribute(Qt.WA_TranslucentBackground) # 表示窗口具有透明效果
-        self.setModal(True)
-        self.setWindowModality(Qt.ApplicationModal)
+        self.setWindowModality(Qt.ApplicationModal) # 表示该窗口为模态窗口
+        #self.setAttribute(Qt.WA_TranslucentBackground)
 
-        self.title.setText(title)
-        self.messageLabel.setText(dialog)
+        self.messageLabel.setText(dialog) # 设置对话框内容
         # 自动调整窗口大小
         self.adjustSize()
-        self.setGeometry(GenericFunc.calculateGlobalCenterPos(self.geometry(),self.parent.geometry()))
+        self.setGeometry(GenericFunc.calculateGlobalCenterPos(self.geometry(),self._parent_window.geometry()))
 
-        self.__Ui_init()
-        self.__btn_connect()
-        self.__init_anim()
-        self.__play_FadeAnim(0, 1)
+        self._init_ui()
+        self._setupTitleBar(title)
+        self._btn_connect()
+        self._init_anim()
+        self._play_FadeAnim(0, 1)
 
-    def __Ui_init(self):
-        self.btnExit.setBGTransparentAllTheme()
-        self.btnOk.setBGColor(Theme.Light,CColor.Base.purple.value)
-        self.btnOk.setBGColor(Theme.Dark,CColor.Base.purple.value)
-        self.btnOk.setFontColor(Theme.Light, CColor.Base.whtite.value)
 
-    def __btn_connect(self):
-        self.btnExit.clicked.connect(self.__cancel)
-        self.btnCancel.clicked.connect(self.__cancel)
-        self.btnOk.clicked.connect(self.__confirm)
+    def _init_ui(self):
+        self.btnOk.setBGColor(ColorBase.purple.value)
+        self.btnOk.setBGColor(ColorBase.pink.value,Theme.Dark)
+        self.btnOk.setFontColor(ColorBase.whtite.value,Theme.Light)
 
-    def __init_anim(self):
+    def _setupTitleBar(self,title:str):
+        self.titleBar = CTitleBar(self)
+        self.titleBar.hideMaxBtn()
+        self.titleBar.hideIcon()
+        self.titleBar.setTitle(title)
+        self.titleBar.raise_()
+
+    def _btn_connect(self):
+        self.btnCancel.clicked.connect(self._cancel)
+        self.btnOk.clicked.connect(self._confirm)
+
+    def _init_anim(self):
         self.fadeAnim = QPropertyAnimation(self, b"windowOpacity")
         self.fadeAnim.setDuration(200)
 
 
-    def __play_FadeAnim(self,start: float, endValue: float):
+    def _play_FadeAnim(self,start: float, endValue: float):
         self.fadeAnim.stop()
         self.fadeAnim.setStartValue(start)
         self.fadeAnim.setEndValue(endValue)
         self.fadeAnim.start()
         
-    def __play_FadeAnimToDo(self,start: float, endValue: float,finished: callable):
+    def _play_FadeAnimToDo(self,start: float, endValue: float,finished: callable = None):
         self.fadeAnim.stop()
         self.fadeAnim.setStartValue(start)
         self.fadeAnim.setEndValue(endValue)
@@ -62,32 +65,51 @@ class CDialog(QDialog, Ui_dialog) :
         self.fadeAnim.start()
 
 
-    def exec(self):
-        return super().exec()
-
-
-    def __cancel(self):
+    def _cancel(self):
         # 当点击退出按钮时，执行淡出动画并关闭窗口
-        self.__play_FadeAnimToDo(1, 0, self.reject)
+        self._play_FadeAnimToDo(1, 0, self.reject)
 
 
-    def __confirm(self):
+    def _confirm(self):
         # 当点击确定按钮时，执行淡出动画并关闭窗口
-        self.__play_FadeAnimToDo(1, 0, self.accept)
+        self._play_FadeAnimToDo(1, 0, self.accept)
 
 
-    def mousePressEvent(self, event:QMouseEvent):
-        GenericFunc.mousePressEvent(self, event)
+    def showEvent(self, event):
+        if self._parent_window:
+            # 禁用父窗口
+            self._parent_window.setEnabled(False)
+            # 创建遮罩层
+            # self.mask = QWidget(self._parent_window)
+            # self.mask.setGeometry(self._parent_window.rect())
+            # self.mask.setStyleSheet("background-color: rgba(0, 0, 0, 25);")  # 半透明黑色
+            # self.mask.show()
+            # self.mask.raise_()  # 确保遮罩层在最上层
+        self.raise_()  # 确保模态窗口在最上层
+        self.activateWindow()  # 激活窗口，使其成为活动窗口
+        super().showEvent(event)
+
+    def closeEvent(self, event: QEvent):
+        if self._parent_window:
+            # 重新启用父窗口
+            self._parent_window.setEnabled(True)
+            # 移除遮罩层
+            # self.mask.close()
+            event.accept()
+            self.deleteLater()
 
 
-    def mouseMoveEvent(self, event:QMouseEvent):
-        GenericFunc.mouseMoveEvent(self, event)
+    def exec(self):
+        self.show()
+        loop = QEventLoop()
+        self.destroyed.connect(loop.quit)  # 连接到事件循环的退出方法
+        loop.exec()  # 启动事件循环，直到窗口被销毁
+        return self._result
 
+    def accept(self):
+        self._result = 1
+        self.close()
 
-    def mouseReleaseEvent(self, event:QMouseEvent):
-        GenericFunc.mouseReleaseEvent(self, event)
-
-
-    def paintEvent(self, event:QMouseEvent):
-        super().paintEvent(event)
-        GenericFunc.paintShadow(self)
+    def reject(self):
+        self._result = 0
+        self.close()

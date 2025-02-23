@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainWindow.ui'
+## Form generated from reading UI file 'mainwindow.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.8.0
 ##
@@ -11,19 +11,21 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-from resource.resources_rc import *
 from SmodernUI import *
 
-class Ui_mainWindow(object):
-    def setupUi(self, mainWindow):
-        if not mainWindow.objectName():
-            mainWindow.setObjectName(u"mainWindow")
-        mainWindow.resize(1042, 738)
-        mainWindow.setMinimumSize(QSize(1042, 738))
-        self.backBoard = QWidget(mainWindow)
-        self.backBoard.setObjectName(u"backBoard")
-        self.backBoard.setMinimumSize(QSize(1042, 738))
-        self.backBoard.setStyleSheet(u"/*---------------------------------title------------------------------------*/\n"
+class Ui_mainwindow(object):
+    def setupUi(self, mainwindow):
+        if not mainwindow.objectName():
+            mainwindow.setObjectName(u"mainwindow")
+        mainwindow.resize(1042, 738)
+        mainwindow.setStyleSheet(u"")
+        self.verticalLayout = QVBoxLayout(mainwindow)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 36, 0, 0)
+        self.mainboard = QWidget(mainwindow)
+        self.mainboard.setObjectName(u"mainboard")
+        self.mainboard.setStyleSheet(u"/*---------------------------------title------------------------------------*/\n"
 "#titleWidget {\n"
 "    border-bottom: 1px solid rgb(235, 235, 235);\n"
 "    background-color: rgb(250, 245, 245);\n"
@@ -295,11 +297,11 @@ class Ui_mainWindow(object):
 "    height: 16px; \n"
 "}\n"
 "")
-        self.horizontalLayout = QHBoxLayout(self.backBoard)
+        self.horizontalLayout = QHBoxLayout(self.mainboard)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 40, 0, 0)
-        self.leftWidget = QWidget(self.backBoard)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.leftWidget = QWidget(self.mainboard)
         self.leftWidget.setObjectName(u"leftWidget")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -313,6 +315,7 @@ class Ui_mainWindow(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(7, -1, 7, -1)
         self.btnHome = CButton(self.leftWidget)
+        self.btnHome.setTipText("")
         self.btnHome.setObjectName(u"btnHome")
         self.btnHome.setMinimumSize(QSize(42, 42))
         self.btnHome.setMaximumSize(QSize(42, 42))
@@ -324,6 +327,7 @@ class Ui_mainWindow(object):
         self.verticalLayout_2.addWidget(self.btnHome)
 
         self.btnModule = CButton(self.leftWidget)
+        self.btnModule.setTipText("")
         self.btnModule.setObjectName(u"btnModule")
         self.btnModule.setMinimumSize(QSize(42, 42))
         self.btnModule.setMaximumSize(QSize(42, 42))
@@ -335,6 +339,7 @@ class Ui_mainWindow(object):
         self.verticalLayout_2.addWidget(self.btnModule)
 
         self.btnFolder = CButton(self.leftWidget)
+        self.btnFolder.setTipText("")
         self.btnFolder.setObjectName(u"btnFolder")
         self.btnFolder.setMinimumSize(QSize(42, 42))
         self.btnFolder.setMaximumSize(QSize(42, 42))
@@ -346,6 +351,7 @@ class Ui_mainWindow(object):
         self.verticalLayout_2.addWidget(self.btnFolder)
 
         self.btnConfig = CButton(self.leftWidget)
+        self.btnConfig.setTipText("")
         self.btnConfig.setObjectName(u"btnConfig")
         self.btnConfig.setMinimumSize(QSize(42, 42))
         self.btnConfig.setMaximumSize(QSize(42, 42))
@@ -357,6 +363,7 @@ class Ui_mainWindow(object):
         self.verticalLayout_2.addWidget(self.btnConfig)
 
         self.btnAbout = CButton(self.leftWidget)
+        self.btnAbout.setTipText("")
         self.btnAbout.setObjectName(u"btnAbout")
         self.btnAbout.setMinimumSize(QSize(42, 42))
         self.btnAbout.setMaximumSize(QSize(42, 42))
@@ -372,6 +379,7 @@ class Ui_mainWindow(object):
         self.verticalLayout_2.addItem(self.verticalSpacer)
 
         self.btnTheme = CButton(self.leftWidget)
+        self.btnTheme.setTipText("")
         self.btnTheme.setObjectName(u"btnTheme")
         self.btnTheme.setMinimumSize(QSize(42, 42))
         self.btnTheme.setMaximumSize(QSize(42, 42))
@@ -388,7 +396,7 @@ class Ui_mainWindow(object):
 
         self.horizontalLayout.addWidget(self.leftWidget)
 
-        self.rightWidget = QWidget(self.backBoard)
+        self.rightWidget = QWidget(self.mainboard)
         self.rightWidget.setObjectName(u"rightWidget")
         self.verticalLayout_9 = QVBoxLayout(self.rightWidget)
         self.verticalLayout_9.setSpacing(0)
@@ -451,6 +459,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_6.addWidget(self.comboBox)
 
         self.btnSearch = CButton(self.searchWidget)
+        self.btnSearch.setTipText("")
         self.btnSearch.setObjectName(u"btnSearch")
         self.btnSearch.setMinimumSize(QSize(30, 24))
         self.btnSearch.setMaximumSize(QSize(30, 24))
@@ -640,6 +649,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
 
         self.btnDelFolder = CButton(self.functionWidget)
+        self.btnDelFolder.setTipText("")
         self.btnDelFolder.setObjectName(u"btnDelFolder")
         self.btnDelFolder.setMinimumSize(QSize(32, 32))
         self.btnDelFolder.setMaximumSize(QSize(32, 32))
@@ -651,6 +661,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_2.addWidget(self.btnDelFolder)
 
         self.btnSelectAll = CButton(self.functionWidget)
+        self.btnSelectAll.setTipText("")
         self.btnSelectAll.setObjectName(u"btnSelectAll")
         self.btnSelectAll.setMinimumSize(QSize(32, 32))
         self.btnSelectAll.setMaximumSize(QSize(32, 32))
@@ -665,6 +676,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_2.addWidget(self.btnSelectAll)
 
         self.btnAddFolder = CButton(self.functionWidget)
+        self.btnAddFolder.setTipText("")
         self.btnAddFolder.setObjectName(u"btnAddFolder")
         self.btnAddFolder.setMinimumSize(QSize(32, 32))
         self.btnAddFolder.setMaximumSize(QSize(32, 32))
@@ -676,6 +688,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_2.addWidget(self.btnAddFolder)
 
         self.btnEditFolder = CButton(self.functionWidget)
+        self.btnEditFolder.setTipText("")
         self.btnEditFolder.setObjectName(u"btnEditFolder")
         self.btnEditFolder.setMinimumSize(QSize(32, 32))
         self.btnEditFolder.setMaximumSize(QSize(32, 32))
@@ -753,6 +766,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
         self.btnClearGameData = CButton(self.configBtnWidget)
+        self.btnClearGameData.setTipText("")
         self.btnClearGameData.setObjectName(u"btnClearGameData")
         self.btnClearGameData.setMinimumSize(QSize(28, 28))
         self.btnClearGameData.setMaximumSize(QSize(28, 28))
@@ -764,6 +778,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_3.addWidget(self.btnClearGameData)
 
         self.btnNext = CButton(self.configBtnWidget)
+        self.btnNext.setTipText("")
         self.btnNext.setObjectName(u"btnNext")
         self.btnNext.setMinimumSize(QSize(28, 28))
         self.btnNext.setMaximumSize(QSize(28, 28))
@@ -909,6 +924,7 @@ class Ui_mainWindow(object):
         self.gridLayout.addWidget(self.label_R_2, 2, 2, 1, 1)
 
         self.btnSelect_1 = CButton(self.configRight)
+        self.btnSelect_1.setTipText("")
         self.btnSelect_1.setObjectName(u"btnSelect_1")
         self.btnSelect_1.setMinimumSize(QSize(22, 22))
         self.btnSelect_1.setMaximumSize(QSize(22, 22))
@@ -919,6 +935,7 @@ class Ui_mainWindow(object):
         self.gridLayout.addWidget(self.btnSelect_1, 2, 4, 1, 1)
 
         self.btnSelect_2 = CButton(self.configRight)
+        self.btnSelect_2.setTipText("")
         self.btnSelect_2.setObjectName(u"btnSelect_2")
         self.btnSelect_2.setMinimumSize(QSize(22, 22))
         self.btnSelect_2.setMaximumSize(QSize(22, 22))
@@ -982,6 +999,7 @@ class Ui_mainWindow(object):
         self.developerInfo.setMinimumSize(QSize(125, 32))
         self.developerInfo.setMaximumSize(QSize(16777215, 32))
         self.btnGitHub = CButton(self.softwareInfoWidget)
+        self.btnGitHub.setTipText("")
         self.btnGitHub.setObjectName(u"btnGitHub")
         self.btnGitHub.setGeometry(QRect(280, 160, 151, 32))
         self.btnGitHub.setMinimumSize(QSize(120, 32))
@@ -991,6 +1009,7 @@ class Ui_mainWindow(object):
         self.btnGitHub.setIcon(icon14)
         self.btnGitHub.setIconSize(QSize(24, 24))
         self.btnCheckUpdate = CButton(self.softwareInfoWidget)
+        self.btnCheckUpdate.setTipText("")
         self.btnCheckUpdate.setObjectName(u"btnCheckUpdate")
         self.btnCheckUpdate.setGeometry(QRect(20, 160, 100, 32))
         self.btnCheckUpdate.setMinimumSize(QSize(100, 32))
@@ -1000,6 +1019,7 @@ class Ui_mainWindow(object):
         self.btnCheckUpdate.setIcon(icon15)
         self.btnCheckUpdate.setIconSize(QSize(24, 24))
         self.btnRemoveUerdata = CButton(self.softwareInfoWidget)
+        self.btnRemoveUerdata.setTipText("")
         self.btnRemoveUerdata.setObjectName(u"btnRemoveUerdata")
         self.btnRemoveUerdata.setGeometry(QRect(150, 160, 100, 32))
         self.btnRemoveUerdata.setMinimumSize(QSize(100, 32))
@@ -1038,6 +1058,7 @@ class Ui_mainWindow(object):
         self.horizontalLayout_4.addWidget(self.currentGamePic)
 
         self.btnPlay = CButton(self.bottomWidget)
+        self.btnPlay.setTipText("")
         self.btnPlay.setObjectName(u"btnPlay")
         self.btnPlay.setMinimumSize(QSize(110, 42))
         self.btnPlay.setMaximumSize(QSize(110, 42))
@@ -1054,52 +1075,54 @@ class Ui_mainWindow(object):
 
         self.horizontalLayout.addWidget(self.rightWidget)
 
-        mainWindow.setCentralWidget(self.backBoard)
 
-        self.retranslateUi(mainWindow)
+        self.verticalLayout.addWidget(self.mainboard)
+
+
+        self.retranslateUi(mainwindow)
 
         self.stackedWidget.setCurrentIndex(0)
 
 
-        QMetaObject.connectSlotsByName(mainWindow)
+        QMetaObject.connectSlotsByName(mainwindow)
     # setupUi
 
-    def retranslateUi(self, mainWindow):
-        self.currentPageTitle.setText(QCoreApplication.translate("mainWindow", u"\u9996\u9875", None))
+    def retranslateUi(self, mainwindow):
+        mainwindow.setWindowTitle("")
+        self.currentPageTitle.setText(QCoreApplication.translate("mainwindow", u"\u9996\u9875", None))
         self.wallpaper.setText("")
         self.btnSearch.setText("")
-        self.classifiLabel.setText(QCoreApplication.translate("mainWindow", u"\u5206\u7c7b", None))
-        self.partLabel.setText(QCoreApplication.translate("mainWindow", u"\u90e8\u4ef6", None))
-        self.modLabel.setText(QCoreApplication.translate("mainWindow", u"mod", None))
-        self.previewLabel.setText(QCoreApplication.translate("mainWindow", u"\u9884\u89c8", None))
+        self.classifiLabel.setText(QCoreApplication.translate("mainwindow", u"\u5206\u7c7b", None))
+        self.partLabel.setText(QCoreApplication.translate("mainwindow", u"\u90e8\u4ef6", None))
+        self.modLabel.setText(QCoreApplication.translate("mainwindow", u"mod", None))
+        self.previewLabel.setText(QCoreApplication.translate("mainwindow", u"\u9884\u89c8", None))
         self.preview_1.setText("")
         self.preview_2.setText("")
         self.btnDelFolder.setText("")
         self.btnSelectAll.setText("")
         self.btnAddFolder.setText("")
         self.btnEditFolder.setText("")
-        self.homeTitle.setText(QCoreApplication.translate("mainWindow", u"\u57fa\u7840\u914d\u7f6e\uff1a", None))
+        self.homeTitle.setText(QCoreApplication.translate("mainwindow", u"\u57fa\u7840\u914d\u7f6e\uff1a", None))
         self.btnClearGameData.setText("")
-        self.label_L_2.setText(QCoreApplication.translate("mainWindow", u"\u5207\u6362mod\u65f6\u5220\u9664\u7f13\u5b58:", None))
-        self.label_L_1.setText(QCoreApplication.translate("mainWindow", u"\u81ea\u52a8\u6dfb\u52a0\u9884\u89c8\u56fe:", None))
-        self.label_R_3.setText(QCoreApplication.translate("mainWindow", u"\u5f53\u524d\u6e38\u620f:", None))
-        self.label_R_1.setText(QCoreApplication.translate("mainWindow", u"\u6a21\u7ec4\u52a0\u8f7d\u5668\u8def\u5f84:", None))
-        self.label_R_2.setText(QCoreApplication.translate("mainWindow", u"\u6e38\u620f\u8def\u5f84:", None))
+        self.label_L_2.setText(QCoreApplication.translate("mainwindow", u"\u5207\u6362mod\u65f6\u5220\u9664\u7f13\u5b58:", None))
+        self.label_L_1.setText(QCoreApplication.translate("mainwindow", u"\u81ea\u52a8\u6dfb\u52a0\u9884\u89c8\u56fe:", None))
+        self.label_R_3.setText(QCoreApplication.translate("mainwindow", u"\u5f53\u524d\u6e38\u620f:", None))
+        self.label_R_1.setText(QCoreApplication.translate("mainwindow", u"\u6a21\u7ec4\u52a0\u8f7d\u5668\u8def\u5f84:", None))
+        self.label_R_2.setText(QCoreApplication.translate("mainwindow", u"\u6e38\u620f\u8def\u5f84:", None))
         self.btnSelect_1.setText("")
         self.btnSelect_2.setText("")
-        self.softwareInfoTitle.setText(QCoreApplication.translate("mainWindow", u"\u8f6f\u4ef6\u4fe1\u606f", None))
+        self.softwareInfoTitle.setText(QCoreApplication.translate("mainwindow", u"\u8f6f\u4ef6\u4fe1\u606f", None))
         self.softwarePic.setText("")
-        self.softwareName.setText(QCoreApplication.translate("mainWindow", u"d3dxModManager", None))
-        self.softwareVersion.setText(QCoreApplication.translate("mainWindow", u"Version\uff1a1.0.0", None))
+        self.softwareName.setText(QCoreApplication.translate("mainwindow", u"d3dxModManager", None))
+        self.softwareVersion.setText(QCoreApplication.translate("mainwindow", u"Version\uff1a1.0.0", None))
         self.developerPic.setText("")
-        self.developerName.setText(QCoreApplication.translate("mainWindow", u"ichinoseyuu", None))
-        self.developerInfo.setText(QCoreApplication.translate("mainWindow", u"d3dxModManager\u7684\u5f00\u53d1\u8005", None))
-        self.btnGitHub.setText(QCoreApplication.translate("mainWindow", u" \u53bb\u6211\u7684github\u4e3b\u9875", None))
-        self.btnCheckUpdate.setText(QCoreApplication.translate("mainWindow", u" \u68c0\u67e5\u66f4\u65b0", None))
-        self.btnRemoveUerdata.setText(QCoreApplication.translate("mainWindow", u" \u6e05\u9664\u6570\u636e", None))
-        self.copyrightLabel.setText(QCoreApplication.translate("mainWindow", u"Copyright \u00a9 ichinoseyuu 2023-2025. All Rights Reserved.", None))
+        self.developerName.setText(QCoreApplication.translate("mainwindow", u"ichinoseyuu", None))
+        self.developerInfo.setText(QCoreApplication.translate("mainwindow", u"d3dxModManager\u7684\u5f00\u53d1\u8005", None))
+        self.btnGitHub.setText(QCoreApplication.translate("mainwindow", u" \u53bb\u6211\u7684github\u4e3b\u9875", None))
+        self.btnCheckUpdate.setText(QCoreApplication.translate("mainwindow", u" \u68c0\u67e5\u66f4\u65b0", None))
+        self.btnRemoveUerdata.setText(QCoreApplication.translate("mainwindow", u" \u6e05\u9664\u6570\u636e", None))
+        self.copyrightLabel.setText(QCoreApplication.translate("mainwindow", u"Copyright \u00a9 ichinoseyuu 2023-2025. All Rights Reserved.", None))
         self.currentGamePic.setText("")
-        self.btnPlay.setText(QCoreApplication.translate("mainWindow", u" \u542f\u52a8", None))
-        pass
+        self.btnPlay.setText(QCoreApplication.translate("mainwindow", u" \u542f\u52a8", None))
     # retranslateUi
 

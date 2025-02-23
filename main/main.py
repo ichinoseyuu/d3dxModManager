@@ -2,41 +2,38 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from SmodernUI import *
-from .Ui_mainWindow import Ui_mainWindow
+from .Ui_mainwindow import Ui_mainwindow
 
-class d3dxModManager(QMainWindow,Ui_mainWindow):
+class d3dxModManager(FramelessWindow,Ui_mainwindow):
     def __init__(self):
         super().__init__()
-        Globals.ObjRef['TOOLTIP'] = CToolTip()
         self.setupUi(self)
-        Globals.ObjRef['MAINWINDOW'] = self
-        self.setWindowFlags(Qt.CustomizeWindowHint|Qt.FramelessWindowHint)
-        self.setMenuWidget(CTitleBar())
         self._Ui_init()
+        initialize(self,"d3dxModManager")
         self.btnConnect()
 
 
 
     def _Ui_init(self):
-        self.btnHome.setBGTransparentAllTheme()
-        self.btnModule.setBGTransparentAllTheme()
-        self.btnFolder.setBGTransparentAllTheme()
-        self.btnConfig.setBGTransparentAllTheme()
-        self.btnAbout.setBGTransparentAllTheme()
-        self.btnTheme.setBGTransparentAllTheme()
-        self.btnSearch.setBorderColor(Theme.Light, QColor(211, 211, 211))
-        self.btnSelect_1.setBorderColor(Theme.Light, QColor(211, 211, 211))
-        self.btnSelect_2.setBorderColor(Theme.Light, QColor(211, 211, 211))
-        self.btnPlay.setBGColor(Theme.Light, CColor.Base.darkPink.value)
-        self.btnPlay.setBGColor(Theme.Dark, CColor.Base.purple.value)
-        self.btnPlay.setFontColor(Theme.Light, CColor.Base.whtite.value)
-        self.btnPlay.setFontSize(Theme.Light,CFont.Size.large.value)
+        self.btnHome.setBGTransparent()
+        self.btnModule.setBGTransparent()
+        self.btnFolder.setBGTransparent()
+        self.btnConfig.setBGTransparent()
+        self.btnAbout.setBGTransparent()
+        self.btnTheme.setBGTransparent()
+        self.btnSearch.setBorderColor(QColor(211, 211, 211))
+        self.btnSelect_1.setBorderColor(QColor(211, 211, 211))
+        self.btnSelect_2.setBorderColor(QColor(211, 211, 211))
+        self.btnPlay.setBGColor(ColorBase.darkPink.value)
+        self.btnPlay.setBGColor(ColorBase.purple.value, Theme.Dark)
+        self.btnPlay.setFontColor(ColorBase.whtite.value)
+        self.btnPlay.setFontSize(FontSize.large)
         
     def test(self):
         print('test')
-        self.btnPlay.setBorderRadius(Theme.Light, 20,True)
-        self.btnPlay.setFontSize(Theme.Light, 15,True)
-        self.btnPlay.setBGColor(Theme.Light, CColor.Base.purple.value,True)
+        self.btnPlay.setRadiusSizes({Theme.Light: 20, Theme.Dark: 20})
+        self.btnPlay.setFontSize(FontSize.large)
+        self.btnPlay.setBGColor(ColorBase.purple.value,True)
 
 
     def btnConnect(self):
@@ -46,7 +43,7 @@ class d3dxModManager(QMainWindow,Ui_mainWindow):
         self.btnFolder.clicked.connect(lambda: self.swithPage(2))
         self.btnConfig.clicked.connect(lambda: self.swithPage(3))
         self.btnAbout.clicked.connect(lambda: self.swithPage(4))
-        self.btnTheme.clicked.connect(lambda: Globals.changeTheme())
+        self.btnTheme.clicked.connect(lambda: changeTheme())
         # self.btnTheme.clicked.connect(self.test)
 
 

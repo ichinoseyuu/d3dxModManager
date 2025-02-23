@@ -2,397 +2,304 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 import copy
-from enum import Enum, auto
-from ...core import Globals, CColor, Theme
+from ...core.cenum import *
+from ...core.color import *
+from ...core.globals import *
 
 class CContainer(QWidget):
-    class Props(Enum):
-        """summary: 容器相关属性
-
-        Consts:
-            Enum (auto): bg, border_top, border_right, border_bottom, border_left,
-
-            border_T_R_radius, border_B_R_radius, border_B_L_radius, border_T_L_radius
-        """
-        bg = auto()                 # Background color
-        border_T = auto()           # Top border style
-        border_L = auto()           # Left border style
-        border_R = auto()           # Right border style
-        border_B = auto()           # Bottom border style
-        radius_T_L = auto()         # Top left border radius
-        radius_T_R = auto()         # Top right border radius
-        radius_B_L = auto()         # Bottom left border radius
-        radius_B_R = auto()         # Bottom right border radius
-
+    count = 0
     map = {
             Theme.Light:{
-                Props.bg: CColor.Presets.window_bg_light.value,
-                Props.border_L: CColor.Presets.border_light.value,
-                Props.border_R: CColor.Presets.border_light.value,
-                Props.border_T: CColor.Presets.border_light.value,
-                Props.border_B: CColor.Presets.border_light.value,
-                Props.radius_T_L: 0,
-                Props.radius_T_R: 0,
-                Props.radius_B_L: 0,
-                Props.radius_B_R: 0,
+                Background.bg_color: ColorPresets.window_bg_light.value,
+                Border.color: ColorBase.transparent.value,
+                Border.ishad: False,
+                Border.pos: [],
+                Border.width: 1,
+                Radius.ishad: False,
+                Radius.pos: [],
+                Radius.size: 5
             },
             Theme.Dark:{
-                Props.bg: QColor(60, 60, 60),
-                Props.border_L: CColor.Base.transparent.value,
-                Props.border_R: CColor.Base.transparent.value,
-                Props.border_T: CColor.Base.transparent.value,
-                Props.border_B: CColor.Base.transparent.name,
-                Props.radius_T_L: 0,
-                Props.radius_T_R: 0,
-                Props.radius_B_L: 0,
-                Props.radius_B_R: 0,
+                Background.bg_color: ColorPresets.window_bg_dark.value,
+                Border.color: ColorBase.transparent.value,
+                Border.ishad: False,
+                Border.pos: [],
+                Border.width: 1,
+                Radius.ishad: False,
+                Radius.pos: [],
+                Radius.size: 5
             }
         }
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.__map = copy.deepcopy(CContainer.map)
-        self.__init_props()
-        self.__init_anim()
-        self.__updateStyleSheet()
+        self.setAttribute(Qt.WA_StyledBackground, True)
+        self._init_props()
+        self._init_anim()
+        self._updateStyleSheet()
+        self.style().polish(self) # 初始化样式表,避免产生默认样式的重影
+        self.updateStyle()
 
 
-    # region 属性
     @Property(QColor)
     def backgroundColor(self):
-        return self.__bg_color
+        return self._bg_color
 
     @backgroundColor.setter
     def backgroundColor(self, color):
-        self.__bg_color = color
-        self.__updateStyleSheet()
+        self._bg_color = color
+        self._scheduleUpdateStyleSheet()
 
 
     @Property(QColor)
-    def borderColorL(self):
-        return self.__border_L
+    def borderColor(self):
+        return self._border_color
 
-    @borderColorL.setter
-    def borderColorL(self, color):
-        self.__border_L = color
-        self.__updateStyleSheet()
-
-
-    @Property(QColor)
-    def borderColorR(self):
-        return self.__border_R
-
-    @borderColorR.setter
-    def borderColorR(self, color):
-        self.__border_R = color
-        self.__updateStyleSheet()
-
-
-    @Property(QColor)
-    def borderColorT(self):
-        return self.__border_T
-
-    @borderColorR.setter
-    def borderColorT(self, color):
-        self.__border_T = color
-        self.__updateStyleSheet()
-
-
-    @Property(QColor)
-    def borderColorB(self):
-        return self.__border_B
-
-    @borderColorR.setter
-    def borderColorB(self, color):
-        self.__border_B = color
-        self.__updateStyleSheet()
+    @borderColor.setter
+    def borderColor(self, color):
+        self._border_color = color
+        self._scheduleUpdateStyleSheet()
 
 
     @Property(int)
-    def borderRadiusTR(self):
-        return self.__radius_T_R
+    def borderRadius(self):
+        return self._border_radius
 
-    @borderRadiusTR.setter
-    def borderRadiusTR(self, radius):
-        self.__radius_T_R = radius
-        self.__updateStyleSheet()
-
-
-    @Property(int)
-    def borderRadiusTL(self):
-        return self.__radius_T_L
-
-    @borderRadiusTL.setter
-    def borderRadiusTL(self, radius):
-        self.__radius_T_L = radius
-        self.__updateStyleSheet()
+    @borderRadius.setter
+    def borderRadius(self, radius):
+        self._border_radius = radius
+        self._scheduleUpdateStyleSheet()
 
 
-    @Property(int)
-    def borderRadiusBR(self):
-        return self.__radius_B_R
-
-    @borderRadiusBR.setter
-    def borderRadiusBR(self, radius):
-        self.__radius_B_R = radius
-        self.__updateStyleSheet()
+    def _scheduleUpdateStyleSheet(self):
+        """ 调度一次更新样式的方法，避免重复调用 """
+        if self._canUpdate:
+            self._canUpdate = False
+            QTimer.singleShot(0, self._updateStyleSheet)
 
 
-    @Property(int)
-    def borderRadiusBL(self):
-        return self.__radius_B_L
-
-    @borderRadiusBR.setter
-    def borderRadiusBL(self, radius):
-        self.__radius_B_L = radius
-        self.__updateStyleSheet()
-    
-    def __updateStyleSheet(self):
-        style = f'''
-            background-color: {CColor.toHex(self.__bg_color)};
-            border-left: {CColor.toHex(self.__border_L)};
-            border-right: {CColor.toHex(self.__border_R)};
-            border-top: {CColor.toHex(self.__border_T)};
-            border-bottom: {CColor.toHex(self.__border_B)};
-            border-top-left-radius: {self.__radius_T_L}px;
-            border-top-right-radius: {self.__radius_T_R}px;
-            border-bottom-left-radius: {self.__radius_B_L}px;
-            border-bottom-right-radius: {self.__radius_B_R}px;
-        '''
-        self.setStyleSheet(style)
+    def _updateStyleSheet(self):
+        object_name = self.objectName()
+        sheet_parts = []
+        if object_name:
+            sheet_parts.append(f"#{object_name} {{\n")
+        # 设置背景颜色
+        sheet_parts.append(f'\t background-color: {toHex(self._bg_color)};\n')
+        # 设置边框
+        if not self.withBorder or not self._border_pos:
+            sheet_parts.append(f'\t border: none;\n')
+        else:
+            for pos in self._border_pos:
+                sheet_parts.append(f'\t {pos}: {self._border_width}px solid {toHex(self._border_color)};\n')
+        # 设置边框圆角
+        if self.isRoundedRect and self._radius_pos:
+            for pos in self._radius_pos:
+                sheet_parts.append(f'\t {pos}: {self._border_radius}px;\n')
+        # 如果有对象名，关闭选择器
+        if object_name:
+            sheet_parts.append(f'\t }}')
+        # 更新样式表
+        self.setStyleSheet(''.join(sheet_parts))
+        # 更新样式表后，重置flag，允许再次更新
+        self._canUpdate = True
+        #print(''.join(sheet_parts))
     # endregion
 
 
 
+
     # region 内部方法
-    def __init_props(self):
+    def _init_props(self):
         '''初始化属性'''
-        self.__bg_color = self.__map[Globals.theme][self.Props.bg]
-        self.__border_L = self.__map[Globals.theme][self.Props.border_L]
-        self.__border_R = self.__map[Globals.theme][self.Props.border_R]
-        self.__border_T = self.__map[Globals.theme][self.Props.border_T]
-        self.__border_B = self.__map[Globals.theme][self.Props.border_B]
-        self.__radius_T_L = self.__map[Globals.theme][self.Props.radius_T_L]
-        self.__radius_T_R = self.__map[Globals.theme][self.Props.radius_T_R]
-        self.__radius_B_L = self.__map[Globals.theme][self.Props.radius_B_L]
-        self.__radius_B_R = self.__map[Globals.theme][self.Props.radius_B_R]
+        self._map = copy.deepcopy(CContainer.map)
+        self._canUpdate = True  # styleSheet是否已经可以更新，避免同一帧多次更新样式表
+
+        self._bg_color = self._map[Var.theme][Background.bg_color]
+        self._border_color = self._map[Var.theme][Border.color]
+        self.withBorder = self._map[Var.theme][Border.ishad]
+        self._border_pos = self._map[Var.theme][Border.pos]
+        self._border_width = self._map[Var.theme][Border.width]
+        self.isRoundedRect = self._map[Var.theme][Radius.ishad]
+        self._radius_pos = self._map[Var.theme][Radius.pos]
+        self._border_radius = self._map[Var.theme][Radius.size]
 
 
 
-    def __init_anim(self):
+    def _init_anim(self):
         '''初始化动画'''
-        self.__bg_color_anim = QPropertyAnimation(self, b'backgroundColor')
-        self.__bg_color_anim.setDuration(250)
-        self.__border_L_anim = QPropertyAnimation(self, b'borderColorL')
-        self.__border_L_anim.setDuration(250)
-        self.__border_R_anim = QPropertyAnimation(self, b'borderColorR')
-        self.__border_R_anim.setDuration(250)
-        self.__border_T_anim = QPropertyAnimation(self, b'borderColorT')
-        self.__border_T_anim.setDuration(250)
-        self.__border_B_anim = QPropertyAnimation(self, b'borderColorB')
-        self.__border_B_anim.setDuration(250)
-        self.__radius_T_L_anim = QPropertyAnimation(self, b'borderRadiusTL')
-        self.__radius_T_L_anim.setDuration(250)
-        self.__radius_T_R_anim = QPropertyAnimation(self, b'borderRadiusTR')
-        self.__radius_T_R_anim.setDuration(250)
-        self.__radius_B_L_anim = QPropertyAnimation(self, b'borderRadiusBL')
-        self.__radius_B_L_anim.setDuration(250)
-        self.__radius_B_R_anim = QPropertyAnimation(self, b'borderRadiusBR')
-        self.__radius_B_R_anim.setDuration(250)
+        self._bg_color_anim = QPropertyAnimation(self, b'backgroundColor')
+        self._bg_color_anim.setDuration(250)
+        self._border_anim = QPropertyAnimation(self, b'borderColor')
+        self._border_anim.setDuration(250)
 
-    def __playBGColorAnim(self, end: QColor):
+
+
+    def _playBGColorAnim(self, end: QColor):
         '''播放颜色切换动画'''
-        self.__bg_color_anim.stop()
-        self.__bg_color_anim.setStartValue(self.__bg_color)
-        self.__bg_color_anim.setEndValue(end)
-        self.__bg_color_anim.start()
+        self._bg_color_anim.stop()
+        self._bg_color_anim.setStartValue(self._bg_color)
+        self._bg_color_anim.setEndValue(end)
+        self._bg_color_anim.start()
 
-    def __playBorderLAnim(self, end: QColor):
+
+    def _playBorderAnim(self, end: QColor):
         '''播放左边框颜色切换动画'''
-        self.__border_L_anim.stop()
-        self.__border_L_anim.setStartValue(self.__border_L)
-        self.__border_L_anim.setEndValue(end)
-        self.__border_L_anim.start()
+        self._border_anim.stop()
+        self._border_anim.setStartValue(self._border_color)
+        self._border_anim.setEndValue(end)
+        self._border_anim.start()
 
-    def __playBorderRAnim(self, end: QColor):
-        '''播放右边框颜色切换动画'''
-        self.__border_R_anim.stop()
-        self.__border_R_anim.setStartValue(self.__border_R)
-        self.__border_R_anim.setEndValue(end)
-        self.__border_R_anim.start()
-
-    def __playBorderTAnim(self, end: QColor):
-        '''播放上边框颜色切换动画'''
-        self.__border_T_anim.stop()
-        self.__border_T_anim.setStartValue(self.__border_T)
-        self.__border_T_anim.setEndValue(end)
-        self.__border_T_anim.start()
-
-    def __playBorderBAnim(self, end: QColor):
-        '''播放下边框颜色切换动画'''
-        self.__border_B_anim.stop()
-        self.__border_B_anim.setStartValue(self.__border_B)
-        self.__border_B_anim.setEndValue(end)
-        self.__border_B_anim.start()
-        
-    def __playRadiusTLAnim(self, end: int):
-        '''播放左上角圆角切换动画'''
-        self.__radius_T_L_anim.stop()
-        self.__radius_T_L_anim.setStartValue(self.__radius_T_L)
-        self.__radius_T_L_anim.setEndValue(end)
-        self.__radius_T_L_anim.start()
-        
-    def __playRadiusTRAnim(self, end: int):
-        '''播放右上角圆角切换动画'''
-        self.__radius_T_R_anim.stop()
-        self.__radius_T_R_anim.setStartValue(self.__radius_T_R)
-        self.__radius_T_R_anim.setEndValue(end)
-        self.__radius_T_R_anim.start()
-
-    def __playRadiusBLAnim(self, end: int):
-        '''播放左下角圆角切换动画'''
-        self.__radius_B_L_anim.stop()
-        self.__radius_B_L_anim.setStartValue(self.__radius_B_L)
-        self.__radius_B_L_anim.setEndValue(end)
-        self.__radius_B_L_anim.start()
-
-    def __playRadiusBRAnim(self, end: int):
-        '''播放右下角圆角切换动画'''
-        self.__radius_B_R_anim.stop()
-        self.__radius_B_R_anim.setStartValue(self.__radius_B_R)
-        self.__radius_B_R_anim.setEndValue(end)
-        self.__radius_B_R_anim.start()
 
     # endregion
 
 
 
     # region 外部方法
-    def setDurationForAnim(self, duration: int):
-        """_summary_: 设置动画时长
 
+    def setDurationForAnim(self, duration: int):
+        """设置动画时长
         Args:
             duration (int): 时长(ms)
         """
-        self.__bg_color_anim.setDuration(duration)
-        self.__border_L_anim.setDuration(duration)
-        self.__border_R_anim.setDuration(duration)
-        self.__border_T_anim.setDuration(duration)
-        self.__border_B_anim.setDuration(duration)
-        self.__radius_T_L_anim.setDuration(duration)
-        self.__radius_T_R_anim.setDuration(duration)
-        self.__radius_B_L_anim.setDuration(duration)
-        self.__radius_B_R_anim.setDuration(duration)
+        self._bg_color_anim.setDuration(duration)
+        self._border_anim.setDuration(duration)
+
 
 
     def updateStyle(self, playAnim = False):
+        """更新样式"""
+        self.withBorder = self._map[Var.theme][Border.ishad]
+        self.isRoundedRect = self._map[Var.theme][Radius.ishad]
+        self._border_radius = self._map[Var.theme][Radius.size]
         if playAnim:
-            self.__playBGColorAnim(self.__map[Globals.theme][self.Props.bg])
-            self.__playBorderLAnim(self.map[Globals.theme][self.Props.border_L])
-            self.__playBorderRAnim(self.map[Globals.theme][self.Props.border_R])
-            self.__playBorderTAnim(self.map[Globals.theme][self.Props.border_T])
-            self.__playBorderBAnim(self.map[Globals.theme][self.Props.border_B])
-            self.__playRadiusTLAnim(self.map[Globals.theme][self.Props.radius_T_L])
-            self.__playRadiusTRAnim(self.map[Globals.theme][self.Props.radius_T_R])
-            self.__playRadiusBLAnim(self.map[Globals.theme][self.Props.radius_B_L])
-            self.__playRadiusBRAnim(self.map[Globals.theme][self.Props.radius_B_R])
+            self._playBGColorAnim(self._map[Var.theme][Background.bg_color])
+            self._playBorderAnim(self._map[Var.theme][Border.color])
         else:
-            self.backgroundColor = self.__map[Globals.theme][self.Props.bg]
-            self.borderColorL = self.map[Globals.theme][self.Props.border_L]
-            self.borderColorR = self.map[Globals.theme][self.Props.border_R]
-            self.borderColorT = self.map[Globals.theme][self.Props.border_T]
-            self.borderColorB = self.map[Globals.theme][self.Props.border_B]
-            self.borderRadiusTL = self.map[Globals.theme][self.Props.radius_T_L]
-            self.borderRadiusTR = self.map[Globals.theme][self.Props.radius_T_R]
-            self.borderRadiusBL = self.map[Globals.theme][self.Props.radius_B_L]
-            self.borderRadiusBR = self.map[Globals.theme][self.Props.radius_B_R]
+            self.backgroundColor = self._map[Var.theme][Background.bg_color]
+            self.borderColor = self._map[Var.theme][Border.color]
 
 
-    def setBgColor(self, theme: Theme, color: QColor, playAnim = False):
-        self.__map[theme][self.Props.bg] = color
+
+    def setBorderWidth(self, width: int = 1, theme = Theme.Light):
+        """设置边框宽度"""
+        self._map[theme][Border.width] = width
+        if theme != Var.theme: return
+        self._border_weight = width
+        self._updateStyleSheet()
+
+
+
+    def setBorderWidthes(self, widthes: dict):
+        """设置边框宽度
+        Args:
+            sizes ({Theme: int, ...}): 主题对应的边框宽度
+        """
+        for theme, width in widthes.items():
+            # 设置每个主题的背景颜色
+            self.setRadiusSize(width, theme)
+
+
+
+    def setBorder(self, edges: tuple = (0, 0, 0, 0), width: int = 1, theme = Theme.Light):
+        """设置边框显示的位置
+        Args:
+            edges (top, bottom, right, left): 0 -> false; >=1 -> true.
+        """
+        border_positions = (Border.top.value, Border.bottom.value, Border.left.value, Border.right.value)
+        self._map[theme][Border.width] = width
+        self._border_pos.clear()
+        self.withBorder = any(edges)
+        self._map[theme][Border.ishad] = self.withBorder
+        if all(edges):
+            self._border_pos.append(Border.all.value)
+        else:
+            for i, e in enumerate(edges):
+                if e: self._border_pos.append(border_positions[i])
+        self._map[theme][Border.pos] = self._border_pos
+        self._updateStyleSheet()
+
+
+
+
+    def setRadiusSize(self, radius: int = 5, theme = Theme.Light):
+        """设置圆角大小"""
+        self._map[theme][Radius.size] = radius
+        if theme != Var.theme: return
+        self._border_weight = radius
+        self._updateStyleSheet()
+
+
+
+    def setRadiusSizes(self, sizes: dict):
+        """设置圆角大小
+        Args:
+            sizes ({Theme: int, ...}): 主题对应的圆角大小
+        """
+        for theme, size in sizes.items():
+            # 设置每个主题的背景颜色
+            self.setRadiusSize(size, theme)
+
+
+
+    def setRadius(self, coners: tuple = (0, 0, 0, 0), radius: int = 5, theme = Theme.Light):
+        """设置圆角显示的位置
+        Args:
+            coners(top-left, top-right, bottom-left, bottom-right): 0 -> false; >=1 -> true..
+        """
+        border_positions = (Radius.top_left.value, Radius.top_right.value, Radius.bottom_left.value, Radius.bottom_right.value)
+        self._map[theme][Radius.size] = radius
+        self._radius_pos.clear()
+        self.isRoundedRect = any(coners)
+        self._map[theme][Radius.ishad] = self.isRoundedRect
+        if all(coners):
+            self._radius_pos.append(Radius.all.value)
+        else:
+            for i, c in enumerate(coners):
+                if c: self._radius_pos.append(border_positions[i])
+        self._map[theme][Radius.pos] = self._radius_pos
+        self._updateStyleSheet()
+
+
+
+    def setBGColor(self, color: QColor, theme = Theme.Light, playAnim = False):
+        """设置背景颜色"""
+        self._map[theme][Background.bg_color] = color
+        if theme != Var.theme: return
         if playAnim:
-            self.__playBGColorAnim(color)
-        else:
-            self.backgroundColor = color
+            self._playBGColorAnim(color)
+            return
+        self.backgroundColor = color
 
 
-    def setBorderColor(self, theme: Theme, color: QColor,playAnim = False):
-        self.setBorderColorT(theme, color, playAnim)
-        self.setBorderColorB(theme, color, playAnim)
-        self.setBorderColorL(theme, color, playAnim)
-        self.setBorderColorR(theme, color, playAnim)
+    def setBGColors(self, colors: dict, playAnim=False):
+        """设置背景颜色
+        Args:
+            colors ({Theme: QColor, ...}): 主题对应的颜色
+        """
+        for theme, color in colors.items():
+            # 设置每个主题的背景颜色
+            self.setBGColor(color, theme, playAnim)
 
 
-    def setBorderColorT(self, theme: Theme, color: QColor,playAnim = False):
-        self.__map[theme][self.Props.border_T] = color
+
+    def setBorderColor(self, color: QColor, theme = Theme.Light, playAnim = False):
+        """设置边框颜色"""
+        self._map[theme][Border.color] = color
+        if theme != Var.theme: return
         if playAnim:
-            self.__playBorderTAnim(color)
-        else:
-            self.borderColorT = color
+            self._playBorderAnim(color)
+            return
+        self.borderColor = color
 
 
-    def setBorderColorL(self, theme: Theme, color: QColor, playAnim = False):
-        self.__map[theme][self.Props.border_L] = color
-        if playAnim:
-            self.__playBorderLAnim(color)
-        else:
-            self.borderColorL = color
-
-
-    def setBorderColorR(self, theme: Theme, color: QColor, playAnim = False):
-        self.__map[theme][self.Props.border_R] = color
-        if playAnim:
-            self.__playBorderRAnim(color)
-        else:
-            self.borderColorR = color
-
-
-    def setBorderColorB(self, theme: Theme, color: QColor, playAnim = False):
-        self.__map[theme][self.Props.border_B] = color
-        if playAnim:
-            self.__playBorderBAnim(color)
-        else:
-            self.borderColorB = color
-
-
-
-    def setBorderRadius(self, theme: Theme, radius: int, playAnim = False):
-        self.setBorderRadiusTL(theme, radius, playAnim)
-        self.setBorderRadiusTR(theme, radius, playAnim)
-        self.setBorderRadiusBL(theme, radius, playAnim)
-        self.setBorderRadiusBR(theme, radius, playAnim)
-
-
-    def setBorderRadiusTL(self, theme: Theme, radius: int, playAnim = False):
-        self.__map[theme][self.Props.radius_T_L] = radius
-        if playAnim:
-            self.__playRadiusTLAnim(radius)
-        else:
-            self.borderRadiusTL = radius
-
-
-    def setBorderRadiusTR(self, theme: Theme, radius: int, playAnim = False):
-        self.__map[theme][self.Props.radius_T_R] = radius
-        if playAnim:
-            self.__playRadiusTRAnim(radius)
-        else:
-            self.borderRadiusTR = radius
-
-
-    def setBorderRadiusBL(self, theme: Theme, radius: int, playAnim = False):
-        self.__map[theme][self.Props.radius_B_L] = radius
-        if playAnim:
-            self.__playRadiusBLAnim(radius)
-        else:
-            self.borderRadiusBL = radius
-
-
-    def setBorderRadiusBR(self, theme: Theme, radius: int, playAnim = False):
-        self.__map[theme][self.Props.radius_B_R] = radius
-        if playAnim:
-            self.__playRadiusBRAnim(radius)
-        else:
-            self.borderRadiusBR = radius
+    def setBorderColors(self, colors: dict, playAnim=False):
+        """设置边框颜色
+        Args:
+            colors ({Theme: QColor, ...}): 主题对应的颜色
+        """
+        for theme, color in colors.items():
+            # 设置每个主题的背景颜色
+            self.setBorderColor(color, theme, playAnim)
 
     # endregion
 
@@ -410,17 +317,27 @@ class CContainer(QWidget):
     def mouseReleaseEvent(self, event):
         return super().mouseReleaseEvent(event)
 
-    def dragEnterEvent(self, event):
-        return super().dragEnterEvent(event)
-
-    def dragLeaveEvent(self, event):
-        return super().dragLeaveEvent(event)
-
-    def dragMoveEvent(self, event):
-        return super().dragMoveEvent(event)
 
     def paintEvent(self, event):
         super().paintEvent(event)
+        option = QStyleOption()
+        option.initFrom(self)
+        painter = QPainter(self)
+        painter.setRenderHints(QPainter.Antialiasing)
+        # painter.setCompositionMode(QPainter.CompositionMode_Clear)  # 设置为完全透明
+        # # 使用当前控件样式绘制控件的基础元素
+        # self.style().drawPrimitive(self.style().PrimitiveElement.PE_Widget, option, painter, self)
+        # 绘制背景，完全透明
+        # painter.setCompositionMode(QPainter.CompositionMode_SourceOver)
+        # painter.fillRect(self.rect(), QColor(0, 0, 0, 0))  # 背景透明
+
+        # # 绘制前景内容（例如，窗口内容）
+        # painter.setCompositionMode(QPainter.CompositionMode_SourceOver)
+        # painter.setPen(Qt.black)  # 设置前景颜色为白色
+        # painter.drawText(50, 50, "This is the foreground content!")
+        # 不设置笔刷颜色，绘制仅有边框的圆角矩形
+        # painter.drawRoundedRect(10, 10, self.width() - 20, self.height() - 20, 15, 15)
+        painter.end()
 
 
 

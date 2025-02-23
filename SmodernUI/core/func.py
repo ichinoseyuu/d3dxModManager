@@ -2,6 +2,18 @@ import math, webbrowser
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
+def debug(*args: str):
+    import inspect
+    import os
+    # 获取调用栈中的上一帧（即调用者的帧）
+    caller_frame = inspect.stack()[1]
+
+    # 获取调用者的文件名和行号
+    file_name = os.path.basename(caller_frame.filename)  # 获取调用者的脚本文件名
+    line_number = caller_frame.lineno  # 获取调用者的行号
+    method_name = caller_frame.function  # 获取调用者的方法名
+    # 打印调试信息
+    print(f"[log] {file_name}:{method_name}():{line_number}: {args}")
 
 class GenericFunc:
     '''通用函数'''

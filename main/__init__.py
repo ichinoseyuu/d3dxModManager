@@ -1,2 +1,2 @@
 from .main import d3dxModManager
-from .Ui_mainWindow import Ui_mainWindow
+from .Ui_mainwindow import Ui_mainwindow

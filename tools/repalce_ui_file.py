@@ -34,13 +34,15 @@ def get_variable_name(line):
     return None
 
 if __name__ == "__main__":
-    target_file = r".\main\Ui_mainWindow.py"
+    target_file = r".\main\Ui_mainwindow.py"
     #target_file = r".\SmodernUI\component\ui\Ui_dialog.py"
     #target_file = r"test.py"
 
-    #old_pattern = "QPushButton"  # 捕获行首的空白字符
-    old_pattern = "QWidget"
-    new_pattern = "CContainer"
+    old_pattern = "QPushButton"  # 捕获行首的空白字符
+    #old_pattern = "QWidget"
+
+    new_pattern = "CButton"
+    #new_pattern = "CContainer"
 
     func_text = ".setTipText(\"\")"  # 你想插入的字符
 

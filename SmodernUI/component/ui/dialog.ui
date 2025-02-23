@@ -1,42 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>dialog</class>
- <widget class="QDialog" name="dialog">
+ <widget class="QWidget" name="dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>318</width>
-    <height>228</height>
+    <width>300</width>
+    <height>240</height>
    </rect>
   </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>318</width>
-    <height>0</height>
-   </size>
+  <property name="windowTitle">
+   <string/>
   </property>
   <property name="styleSheet">
-   <string notr="true">#titleWidget {
-    border-bottom: 1px solid rgb(235, 235, 235);
-    background-color: rgb(250, 245, 245);
-}
-
-#title {
-	font-family: &quot;微软雅黑&quot;;
-    font: 11pt;
-    border: none;
-    background-color: transparent;
-    color: rgb(60, 60, 60);
-}
-
-#messageWidget {
+   <string notr="true">#messageWidget {
     background-color: rgb(240, 240, 240);
 }
 
@@ -63,77 +41,28 @@ QPushButton::icon {
     padding-right: 10px;
 }</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
     <number>0</number>
    </property>
-   <item>
-    <widget class="QWidget" name="titleWidget" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>300</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>40</height>
-      </size>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="title">
-        <property name="text">
-         <string>标题</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnExit">
-        <property name="minimumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>24</width>
-          <height>24</height>
-         </size>
-        </property>
-        <property name="icon">
-         <iconset resource="../../../resource/resources.qrc">
-          <normaloff>:/iamge_pack/title_bar/shutdown.png</normaloff>:/iamge_pack/title_bar/shutdown.png</iconset>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>32</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QWidget" name="messageWidget" native="true">
      <property name="minimumSize">
       <size>
        <width>300</width>
-       <height>120</height>
+       <height>140</height>
       </size>
      </property>
      <property name="layoutDirection">
@@ -239,8 +168,6 @@ QPushButton::icon {
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../../../resource/resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

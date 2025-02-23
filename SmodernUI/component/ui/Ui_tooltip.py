@@ -11,6 +11,7 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
+from ..widgets.container import CContainer
 
 class Ui_tooltip(object):
     def setupUi(self, tooltip):
@@ -40,7 +41,7 @@ class Ui_tooltip(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.tipBoard = QWidget(tooltip)
+        self.tipBoard = CContainer(tooltip)
         self.tipBoard.setObjectName(u"tipBoard")
         self.verticalLayout_2 = QVBoxLayout(self.tipBoard)
         self.verticalLayout_2.setSpacing(0)

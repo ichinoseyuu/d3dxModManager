@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QWidget, QApplication
 import collections
 
 class CAnimPool(QObject):
-    def __init__(self, pool_size=10):
+    def __init__(self, pool_size=4):
         self.__anim_pool = collections.deque()
         self.__pool_size = pool_size
         # 预生成指定数量的QPropertyAnimation对象并加入池中

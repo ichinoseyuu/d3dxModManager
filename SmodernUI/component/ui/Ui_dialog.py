@@ -11,34 +11,15 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-from resource.resources_rc import *
+from ...rc.resources_rc import *
 from ..widgets.button import CButton
 
 class Ui_dialog(object):
     def setupUi(self, dialog):
         if not dialog.objectName():
             dialog.setObjectName(u"dialog")
-        dialog.resize(318, 228)
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(dialog.sizePolicy().hasHeightForWidth())
-        dialog.setSizePolicy(sizePolicy)
-        dialog.setMinimumSize(QSize(318, 0))
-        dialog.setStyleSheet(u"#titleWidget {\n"
-"    border-bottom: 1px solid rgb(235, 235, 235);\n"
-"    background-color: rgb(250, 245, 245);\n"
-"}\n"
-"\n"
-"#title {\n"
-"	font-family: \"\u5fae\u8f6f\u96c5\u9ed1\";\n"
-"    font: 11pt;\n"
-"    border: none;\n"
-"    background-color: transparent;\n"
-"    color: rgb(60, 60, 60);\n"
-"}\n"
-"\n"
-"#messageWidget {\n"
+        dialog.resize(370, 274)
+        dialog.setStyleSheet(u"#messageWidget {\n"
 "    background-color: rgb(240, 240, 240);\n"
 "}\n"
 "\n"
@@ -64,42 +45,13 @@ class Ui_dialog(object):
 "CButton::icon {\n"
 "    padding-right: 10px;\n"
 "}")
-        self.verticalLayout_3 = QVBoxLayout(dialog)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.titleWidget = QWidget(dialog)
-        self.titleWidget.setObjectName(u"titleWidget")
-        self.titleWidget.setMinimumSize(QSize(300, 40))
-        self.titleWidget.setMaximumSize(QSize(16777215, 40))
-        self.horizontalLayout = QHBoxLayout(self.titleWidget)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.title = QLabel(self.titleWidget)
-        self.title.setObjectName(u"title")
-        self.title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.horizontalLayout.addWidget(self.title)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.btnExit = CButton(self.titleWidget)
-        self.btnExit.setTipText("")
-        self.btnExit.setObjectName(u"btnExit")
-        self.btnExit.setMinimumSize(QSize(24, 24))
-        self.btnExit.setMaximumSize(QSize(24, 24))
-        icon = QIcon()
-        icon.addFile(u":/iamge_pack/title_bar/shutdown.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnExit.setIcon(icon)
-
-        self.horizontalLayout.addWidget(self.btnExit)
-
-
-        self.verticalLayout_3.addWidget(self.titleWidget)
-
+        self.verticalLayout = QVBoxLayout(dialog)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 32, 0, 0)
         self.messageWidget = QWidget(dialog)
         self.messageWidget.setObjectName(u"messageWidget")
-        self.messageWidget.setMinimumSize(QSize(300, 120))
+        self.messageWidget.setMinimumSize(QSize(300, 140))
         self.messageWidget.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
         self.verticalLayout_2 = QVBoxLayout(self.messageWidget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -110,7 +62,7 @@ class Ui_dialog(object):
         self.verticalLayout_2.addWidget(self.messageLabel)
 
 
-        self.verticalLayout_3.addWidget(self.messageWidget)
+        self.verticalLayout.addWidget(self.messageWidget)
 
         self.bottomWidget = QWidget(dialog)
         self.bottomWidget.setObjectName(u"bottomWidget")
@@ -125,7 +77,6 @@ class Ui_dialog(object):
         self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
 
         self.btnOk = CButton(self.bottomWidget)
-        self.btnOk.setTipText("")
         self.btnOk.setObjectName(u"btnOk")
         self.btnOk.setMinimumSize(QSize(60, 32))
         self.btnOk.setMaximumSize(QSize(60, 32))
@@ -133,7 +84,6 @@ class Ui_dialog(object):
         self.horizontalLayout_2.addWidget(self.btnOk)
 
         self.btnCancel = CButton(self.bottomWidget)
-        self.btnCancel.setTipText("")
         self.btnCancel.setObjectName(u"btnCancel")
         self.btnCancel.setMinimumSize(QSize(60, 32))
         self.btnCancel.setMaximumSize(QSize(60, 32))
@@ -141,7 +91,7 @@ class Ui_dialog(object):
         self.horizontalLayout_2.addWidget(self.btnCancel)
 
 
-        self.verticalLayout_3.addWidget(self.bottomWidget)
+        self.verticalLayout.addWidget(self.bottomWidget)
 
 
         self.retranslateUi(dialog)
@@ -150,10 +100,9 @@ class Ui_dialog(object):
     # setupUi
 
     def retranslateUi(self, dialog):
-        self.title.setText(QCoreApplication.translate("dialog", u"\u6807\u9898", None))
+        dialog.setWindowTitle("")
         self.messageLabel.setText(QCoreApplication.translate("dialog", u"\u6d88\u606f", None))
         self.btnOk.setText(QCoreApplication.translate("dialog", u"\u786e\u5b9a", None))
         self.btnCancel.setText(QCoreApplication.translate("dialog", u"\u53d6\u6d88", None))
-        pass
     # retranslateUi
 
